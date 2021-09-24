@@ -10,6 +10,8 @@ import { LoginComponent } from './common/components/login/login.component';
 import { RegisterComponent } from './common/components/register/register.component';
 import { HeaderComponent } from './common/components/header/header.component';
 import { MenuComponent } from './common/components/menu/menu.component';
+import { AuthPagesModule } from './pages/auth-pages/auth-pages.module';
+import { DashboardPagesModule } from './pages/dashboard-pages/dashboard-pages.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MenuComponent } from './common/components/menu/menu.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AuthPagesModule,
+    DashboardPagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
