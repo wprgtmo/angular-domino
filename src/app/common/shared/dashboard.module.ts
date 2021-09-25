@@ -1,3 +1,5 @@
+import { MaterialModule } from './../../material.module';
+import { NavComponent } from './../components/nav/nav.component';
 import { JugadorComponent } from './../components/jugador/jugador.component';
 import { EventoComponent } from './../components/evento/evento.component';
 import { MenuComponent } from './../components/menu/menu.component';
@@ -8,10 +10,11 @@ import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent],
+  declarations: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
-  exports: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent]
+  exports: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent]
 })
 export class DashboardModule { }
