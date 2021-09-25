@@ -1,12 +1,12 @@
 import { NavComponent } from '../../common/components/nav/nav.component';
-import { DashComponent } from './dash/dash.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashComponent
+    redirectTo: '/dashboard/nav',
+    pathMatch: 'full'
   },
   {
     path: 'nav',

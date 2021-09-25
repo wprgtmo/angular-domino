@@ -5,7 +5,6 @@ import { DashboardPagesRoutingModule } from './dashboard-pages-routing.module';
 import { DashboardModule } from 'src/app/common/shared/dashboard.module';
 import { EventoPageComponent } from './evento-page/evento-page.component';
 import { JugadorPageComponent } from './jugador-page/jugador-page.component';
-import { DashComponent } from './dash/dash.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -26,7 +25,6 @@ import { MatTreeModule } from '@angular/material/tree';
   declarations: [
     EventoPageComponent,
     JugadorPageComponent,
-    DashComponent,
   ],
   imports: [
     CommonModule,
