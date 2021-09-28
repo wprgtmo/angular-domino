@@ -1,16 +1,23 @@
-import { NavComponent } from '../../common/components/nav/nav.component';
+import { NavComponent } from './../../common/components/nav/nav.component';
+import { JugadorPageComponent } from './jugador-page/jugador-page.component';
+import { EventoPageComponent } from './evento-page/evento-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard/nav',
-    pathMatch: 'full'
-  },
-  {
-    path: 'nav',
-    component: NavComponent
+    component: NavComponent,
+    children:[
+        {
+          path: 'eventos',
+          component: EventoPageComponent
+        },
+        {
+          path: 'jugadores',
+          component: JugadorPageComponent
+        }
+    ]
   }
 ];
 

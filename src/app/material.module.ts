@@ -9,6 +9,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   imports: [
@@ -21,7 +25,11 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    LayoutModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatTreeModule
   ],
   exports: [
     MatCardModule,
@@ -33,7 +41,11 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    LayoutModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatTreeModule
   ],
 })
 export class MaterialModule {}
