@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IEvento } from '../../models/evento.interface';
 
 @Component({
   selector: 'app-evento',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./evento.component.css']
 })
 export class EventoComponent implements OnInit {
+  @Input() evento: IEvento | undefined ;
+  onClick(): void {
+    alert('Okkkkk');
+  }
 
-  constructor() { }
+  ngOnInit(){
+    console.log(this.evento?.nombre);
 
-  ngOnInit(): void {
   }
 
 }

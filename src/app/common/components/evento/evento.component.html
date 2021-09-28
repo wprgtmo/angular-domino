@@ -1,1 +1,17 @@
-<p>evento works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{evento?.nombre}}</mat-card-title>
+        <mat-card-subtitle>{{evento?.comentario}}</mat-card-subtitle>
+    </mat-card-header>
+    <img matCardImage src="assets/ggdd.jpg">
+    <mat-card-content>
+        Text content
+    </mat-card-content>
+    <mat-card-actions align="start">
+        <button mat-button (click)="onClick()">Mostrar</button>
+
+    </mat-card-actions>
+    <mat-card-footer>
+        Footer
+    </mat-card-footer>
+</mat-card>

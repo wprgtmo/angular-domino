@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "http://localhost/domino_api",
+    "secure": false,
+    "level": "debug"
+  }
+}

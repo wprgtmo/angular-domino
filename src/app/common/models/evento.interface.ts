@@ -9,3 +9,4 @@ export interface IEvento{
   creado        : Date;
   actualizado   : Date;
 }
+
