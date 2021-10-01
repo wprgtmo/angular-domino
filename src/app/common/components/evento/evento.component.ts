@@ -6,15 +6,12 @@ import { IEvento } from '../../models/evento.interface';
   templateUrl: './evento.component.html',
   styleUrls: ['./evento.component.css']
 })
-export class EventoComponent implements OnInit {
+export class EventoComponent {
+
   @Input() evento: IEvento | undefined ;
+
   onClick(): void {
     alert('Okkkkk');
-  }
-
-  ngOnInit(){
-    console.log(this.evento?.nombre);
-
   }
 
 }

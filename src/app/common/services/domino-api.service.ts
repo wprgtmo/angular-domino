@@ -1,3 +1,4 @@
+import { IJugadorRespuesta } from './../models/jugador-respuesta.interface';
 import { PathRest } from './../static/path-rest';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -13,5 +14,9 @@ export class DominoApiService {
 
   getEventos():Observable<IEventoRespuesta>{
     return this.http_API.get<IEventoRespuesta>(PathRest.GET_EVENTOS);
+  }
+
+  getJugadores():Observable<IJugadorRespuesta>{
+    return this.http_API.get<IJugadorRespuesta>(PathRest.GET_JUGADORES);
   }
 }

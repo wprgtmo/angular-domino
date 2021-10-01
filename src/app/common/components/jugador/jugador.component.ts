@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IJugador } from '../../models/jugador.interface';
 
 @Component({
   selector: 'app-jugador',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JugadorComponent implements OnInit {
 
+  @Input() jugador: IJugador | undefined ;
+
+  fotoJugador: string | undefined;
+
   constructor() { }
 
-  ngOnInit(): void {
+  onClick(): void {
+    alert('Okkkkk Jugador');
+  }
+
+  ngOnInit(){
+    console.log(this.jugador);
+    this.fotoJugador= 'http://localhost/domino_api/' + this.jugador?.foto;
+
+
   }
 
 }

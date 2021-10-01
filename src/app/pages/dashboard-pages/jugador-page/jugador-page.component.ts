@@ -1,4 +1,7 @@
+import { DominoApiService } from 'src/app/common/services/domino-api.service';
+import { IJugador } from './../../../common/models/jugador.interface';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   templateUrl: './jugador-page.component.html',
@@ -6,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JugadorPageComponent implements OnInit {
 
-  constructor() { }
+  private subscribeDominoApiService: Subscription | undefined;
+  public listaJugadores: IJugador[] | undefined;
+
+  constructor(private dominoApiService:DominoApiService) { }
+
 
   ngOnInit(): void {
-  }
+    this.subscribeDominoApiService= this.dominoApiService.getJugadores().subscribe((jugadores)=>{
+     console.log(jugadores);
+     this.listaJugadores= jugadores.jugadores;
+   })
+ }
+
+ ngOnDestroy(): void{
+   this.subscribeDominoApiService?.unsubscribe();
+ }
 
 }
