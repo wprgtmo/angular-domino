@@ -1,7 +1,19 @@
-<p>evento-page works!</p>
+<div class="grid">
 
+  <mat-toolbar>
+    <span>Eventos</span>
+    <span class="spacer"></span>
+    <button mat-icon-button class="mat-icons-outlined" aria-label="Adicionar evento" (click)="addEvento()">
+      <!-- <mat-icon>note_add_white</mat-icon> -->
+      <mat-icon>add_to_photos</mat-icon>
+    </button>
+    <button mat-icon-button  class="mat-icons-outlined" aria-label="Adicionar ronda" (click)="addRonda()">
+      <mat-icon>alarm_add_white</mat-icon>
+    </button>
+    <button mat-icon-button  class="mat-icons-outlined" aria-label="Adicionar ronda" (click)="addRonda()">
+      <mat-icon>alarm_on_white</mat-icon>
+    </button>
+  </mat-toolbar>
 
-
-<app-evento [evento]="evento"  *ngFor="let evento of listaEventos" >
-</app-evento>
-
+  <app-evento [evento]="evento" *ngFor="let evento of listaEventos"></app-evento>
+</div>

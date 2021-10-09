@@ -3,6 +3,7 @@ import { JugadorPageComponent } from './jugador-page/jugador-page.component';
 import { EventoPageComponent } from './evento-page/evento-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EventoAddPageComponent } from './evento-add-page/evento-add-page.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
         {
           path: 'eventos',
           component: EventoPageComponent
+        },
+        {
+          path: 'evento_nuevo',
+          component: EventoAddPageComponent
         },
         {
           path: 'jugadores',

@@ -1,15 +1,19 @@
 mat-card{
-    width: 30%;
-    margin: auto;
-    border: 1px blue solid ;
+    width: 250px;
+    height: 400px;
+    margin: 10px;
+    border: 3px darkgrey  solid ;
     text-align: center;
     border-radius: 5%;
+    margin-top: 1em;
+    min-height: 25rem;
   }
 
-img {
+mat-card img {
     width: 50%;
     margin: auto;
     border: 1px ;
+    border-radius: 50%;
   }
 
   mat-form-field{

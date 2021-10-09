@@ -5,20 +5,20 @@
       <mat-form-field appearance="outline">
         <mat-label>Usuario</mat-label>
         <input matInput placeholder="Usuario" />
-        <!-- <mat-icon class="mat-icons-outlined" matSuffix>account_circle_outlined</mat-icon> -->
+        <mat-icon class="mat-icons-outlined" matSuffix>account_circle_outlined</mat-icon>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Clave</mat-label>
         <input matInput placeholder="Clave" />
-        <!-- <mat-icon class="mat-icons-outlined" matSuffix>password</mat-icon> -->
+        <mat-icon class="mat-icons-outlined" matSuffix>password</mat-icon>
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions align="start">
-      <button mat-raised-button color="primary" (click)="onClick()" >
-        Iniciar sessión
+      <button (click)="onClick()" >
+        Iniciar sesión
       </button>
       <button mat-raised-button color="primary" (click)="onClick">
-        Registrate
+        Registrarse
       </button>
     </mat-card-actions>
   </form>

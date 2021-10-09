@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IEvento } from '../../models/evento.interface';
 
 @Component({
@@ -12,6 +12,19 @@ export class EventoComponent {
 
   onClick(): void {
     alert('Okkkkk');
+  }
+  onAction(): void {
+    alert('Okkkkk');
+  }
+
+  estado(){
+    if (this.evento?.estado=="C")
+      return "Creado";
+    else
+      if  (this.evento?.estado=="I")
+        return "Iniciado";
+      else
+        return "Cerrado";
   }
 
 }

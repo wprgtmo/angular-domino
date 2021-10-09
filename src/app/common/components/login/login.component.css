@@ -1,13 +1,15 @@
 mat-card{
-  width: 100%;
+  width: 300px;
+  height: 400px;
   margin: auto;
-  border: 1px blue solid ;
+  border: 2px darkgrey solid ;
   text-align: center;
   border-radius: 5%;
 }
 
 mat-card img {
-  width: 50%;
+  width: 150px;
+  height: 150px;
   margin: auto;
   border: 1px ;
 }
@@ -16,12 +18,11 @@ mat-form-field{
   display: block;
 }
 
+
 mat-card button {
-  width: 50%;
-  margin: auto;
-  margin-top: 1em;
+  width: 100px;
+  margin: .5em;
   border: 1px ;
-  height: 50px;
-  display: block;
+  height: 50px;  
 }
 

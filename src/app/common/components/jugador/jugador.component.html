@@ -1,21 +1,17 @@
 <mat-card>
-  <img matCardImage src= {{fotoJugador}}>
   <mat-card-header>
       <mat-card-title>{{jugador?.nombre}}</mat-card-title>
       <mat-card-subtitle>{{jugador?.comentario}}</mat-card-subtitle>
   </mat-card-header>
+  <img matCardImage src={{fotoJugador}}>
   <mat-card-content>
-    <mat-grid-list cols="2" rowHeight="fit" [style.height]="'100px'" [gutterSize]="'1px'">
-        <mat-grid-tile [colspan]="1" [rowspan]="1">Tile 1</mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="1">Tile 2</mat-grid-tile>
-    </mat-grid-list>
+      Text content
   </mat-card-content>
   <mat-card-actions align="start">
-      <button mat-button (click)="onClick()">Mostrar</button>
+      <button mat-button (click)="onClick">Mostrar</button>
 
   </mat-card-actions>
   <mat-card-footer>
-      Footer
   </mat-card-footer>
 </mat-card>
 
