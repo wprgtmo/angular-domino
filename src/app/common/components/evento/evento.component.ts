@@ -17,14 +17,26 @@ export class EventoComponent {
     alert('Okkkkk');
   }
 
+  mostrarEstadoCreado(){
+    return !(this.estado()=='Creado');
+  }
+
+  mostrarEstadoIniciado(){
+    return !(this.estado()=='Iniciado');
+  }
+
+  mostrarEstadoFinalizado(){
+    return !(this.estado()=='Finalizado');
+  }
+
   estado(){
     if (this.evento?.estado=="C")
       return "Creado";
-    else
-      if  (this.evento?.estado=="I")
-        return "Iniciado";
-      else
-        return "Cerrado";
+    if  (this.evento?.estado=="I")
+      return "Iniciado";
+    if  (this.evento?.estado=="F")
+      return "Finalizado";
+    return "Sin estado";
   }
 
 }

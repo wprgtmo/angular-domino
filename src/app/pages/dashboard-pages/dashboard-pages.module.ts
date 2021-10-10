@@ -7,6 +7,7 @@ import { DashboardModule } from 'src/app/common/shared/dashboard.module';
 import { EventoPageComponent } from './evento-page/evento-page.component';
 import { JugadorPageComponent } from './jugador-page/jugador-page.component';
 import { EventoAddPageComponent } from './evento-add-page/evento-add-page.component';
+import { EventoListPageComponent } from './evento-list-page/evento-list-page.component';
 
 
 
@@ -15,6 +16,7 @@ import { EventoAddPageComponent } from './evento-add-page/evento-add-page.compon
     EventoPageComponent,
     JugadorPageComponent,
     EventoAddPageComponent,
+    EventoListPageComponent,
   ],
   imports: [
     CommonModule,

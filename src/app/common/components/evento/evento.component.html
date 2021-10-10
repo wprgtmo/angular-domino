@@ -8,11 +8,51 @@
        Estado: {{estado()}}
     </mat-card-content>
     <mat-card-actions align="start">
-        <button mat-button color="primary" (click)="onClick">Mostrar</button>
 
+      <!-- Botones que se muestran en el estado Creado -->
+      <div [hidden]="mostrarEstadoCreado()">
+        <button mat-icon-button  class="mat-icons-outlined" aria-label="Definir parejas" >
+          <mat-icon>people_outline_white</mat-icon>
+          <!--group_white group_white group_add_white  supervisor_account_white-->
+        </button>
+        <button mat-icon-button  class="mat-icons-outlined" aria-label="Iniciar evento" >
+          <mat-icon>update_white</mat-icon>
+        </button>
+        <button mat-icon-button  class="mat-icons-outlined" aria-label="Iniciar evento" >
+          <mat-icon>highlight_off_white</mat-icon>
+        </button>
+      </div>
+
+      <!-- Botones que se muestran en el estado Iniciado -->
+      <div [hidden]="mostrarEstadoIniciado()">
+        <button mat-icon-button  class="mat-icons-outlined" aria-label="Adicionar ronda">
+          <mat-icon>alarm_add_white</mat-icon>
+        </button>
+        <button mat-icon-button  class="mat-icons-outlined" aria-label="Cerrar ronda">
+          <mat-icon>alarm_on_white</mat-icon>
+        </button>
+        <button mat-icon-button  class="mat-icons-outlined" aria-label="Finalizar evento">
+          <mat-icon>schedule_white</mat-icon>
+        </button>
+      </div>
+
+      <!-- Botones que se muestran en el estado Finalizado -->
+      <div [hidden]="mostrarEstadoFinalizado()">
+        <button mat-icon-button  class="mat-icons-outlined" aria-label="Mostrar estadística"  >
+          <mat-icon>equalizer_white</mat-icon>
+        </button>
+        <button mat-icon-button  class="mat-icons-outlined" aria-label="Ver premiados">
+          <mat-icon>assignment_ind_white</mat-icon>
+          <!-- perm_contact_calendar_white -->
+        </button>
+        <button mat-icon-button  class="mat-icons-outlined" aria-label="Iniciar evento" >
+          <mat-icon>highlight_off_white</mat-icon>
+        </button>
+    </div>
     </mat-card-actions>
     <mat-card-footer>
       Desde: {{evento?.fecha_inicio | date}} hasta {{evento?.fecha_cierre| date}}
+      Ciudad: {{evento?.ciudad_id}}
     </mat-card-footer>
 </mat-card>
 
