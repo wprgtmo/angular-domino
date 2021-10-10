@@ -8,16 +8,17 @@ import { HeaderComponent } from './../components/header/header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { JugadorToolbarComponent } from '../components/jugador/jugador-toolbar/jugador-toolbar.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent, EventoToolbarComponent],
+  declarations: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent, EventoToolbarComponent, JugadorToolbarComponent],
   imports: [
     CommonModule,
     RouterModule,
     MaterialModule
   ],
-  exports: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent, EventoToolbarComponent]
+  exports: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent, EventoToolbarComponent, JugadorToolbarComponent]
 })
 export class DashboardModule { }

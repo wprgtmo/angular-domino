@@ -8,6 +8,8 @@ import { EventoPageComponent } from './evento-page/evento-page.component';
 import { JugadorPageComponent } from './jugador-page/jugador-page.component';
 import { EventoAddPageComponent } from './evento-add-page/evento-add-page.component';
 import { EventoListPageComponent } from './evento-list-page/evento-list-page.component';
+import { JugadorAddPageComponent } from './jugador-add-page/jugador-add-page.component';
+import { JugadorListPageComponent } from './jugador-list-page/jugador-list-page.component';
 
 
 
@@ -17,6 +19,8 @@ import { EventoListPageComponent } from './evento-list-page/evento-list-page.com
     JugadorPageComponent,
     EventoAddPageComponent,
     EventoListPageComponent,
+    JugadorAddPageComponent,
+    JugadorListPageComponent,
   ],
   imports: [
     CommonModule,

@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EventoAddPageComponent } from './evento-add-page/evento-add-page.component';
 import { EventoListPageComponent } from './evento-list-page/evento-list-page.component';
+import { JugadorAddPageComponent } from './jugador-add-page/jugador-add-page.component';
+import { JugadorListPageComponent } from './jugador-list-page/jugador-list-page.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
         {
           path: 'jugadores',
           component: JugadorPageComponent
+        },
+        {
+          path: 'jugador_nuevo',
+          component: JugadorAddPageComponent
+        },
+        {
+          path: 'jugador_lista',
+          component: JugadorListPageComponent
         }
     ]
   }
