@@ -1,3 +1,4 @@
+import { EventoToolbarComponent } from './../components/evento/evento-toolbar/evento-toolbar.component';
 import { MaterialModule } from './../../material.module';
 import { NavComponent } from './../components/nav/nav.component';
 import { JugadorComponent } from './../components/jugador/jugador.component';
@@ -11,12 +12,12 @@ import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent],
+  declarations: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent, EventoToolbarComponent],
   imports: [
     CommonModule,
     RouterModule,
     MaterialModule
   ],
-  exports: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent]
+  exports: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent, EventoToolbarComponent]
 })
 export class DashboardModule { }
