@@ -1,14 +1,14 @@
 <mat-toolbar>
   <span>Eventos</span>
   <span class="spacer"></span>
-  <button mat-icon-button class="mat-icons-outlined" aria-label="Adicionar evento" (click)="addEvento()">
+  <button mat-icon-button class="mat-icons-outlined" matTooltip="Nuevo evento" aria-label="Adicionar evento" (click)="addEvento()">
     <!-- <mat-icon>note_add_white</mat-icon> -->
     <mat-icon>add_to_photos</mat-icon>
   </button>
-  <button mat-icon-button  class="mat-icons-outlined" aria-label="Adicionar ronda" (click)="viewList()">
+  <button mat-icon-button  class="mat-icons-outlined" matTooltip="Ver como tabla" aria-label="Ver como tabla" (click)="viewList()">
     <mat-icon>view_list_white</mat-icon>
   </button>
-  <button mat-icon-button  class="mat-icons-outlined" aria-label="Adicionar ronda" (click)="viewCard()">
+  <button mat-icon-button  class="mat-icons-outlined" matTooltip="Ver como tarjetas" aria-label="Ver como tarjetas" (click)="viewCard()">
     <mat-icon>view_module_white</mat-icon>
   </button>
 </mat-toolbar>
