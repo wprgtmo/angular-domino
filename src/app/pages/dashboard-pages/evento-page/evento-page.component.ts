@@ -18,7 +18,6 @@ export class EventoPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
      this.subscribeDominoApiService= this.dominoApiService.getEventos().subscribe((eventos)=>{
-      console.log(eventos);
       this.listaEventos= eventos.eventos;
     })
   }

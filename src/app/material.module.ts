@@ -13,6 +13,11 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   imports: [
@@ -29,7 +34,12 @@ import { MatTreeModule } from '@angular/material/tree';
     LayoutModule,
     MatSelectModule,
     MatRadioModule,
-    MatTreeModule
+    MatTreeModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule
   ],
   exports: [
     MatCardModule,
@@ -45,7 +55,12 @@ import { MatTreeModule } from '@angular/material/tree';
     LayoutModule,
     MatSelectModule,
     MatRadioModule,
-    MatTreeModule
+    MatTreeModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule
   ],
 })
 export class MaterialModule {}

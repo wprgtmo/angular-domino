@@ -1,3 +1,4 @@
+import { SdkModule } from './sdk.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    SdkModule,
     MaterialModule,
     AuthPagesModule,
     DashboardPagesModule,
