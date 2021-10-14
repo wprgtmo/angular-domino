@@ -11,4 +11,11 @@ export class EventoAddPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAction1(): void{
+
+  }
+  onActio2(): void{
+
+  }
+
 }
