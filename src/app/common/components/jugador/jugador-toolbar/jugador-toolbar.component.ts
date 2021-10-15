@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./jugador-toolbar.component.css']
 })
 export class JugadorToolbarComponent {
-
+  isLista = true;
+  isCard = ! this.isLista;
   constructor(private ruta: Router) { }
 
 
@@ -15,11 +16,15 @@ export class JugadorToolbarComponent {
     this.ruta.navigateByUrl('/jugador_nuevo');
   }
 
-  viewList(): void {
+  viewJugadorList(): void {
+    this.isLista=true;
+    this.isCard = ! this.isLista;
     this.ruta.navigateByUrl('/jugador_lista');
   }
 
-  viewCard(): void {
+  viewJugadorCard(): void {
+    this.isLista=false;
+    this.isCard = ! this.isLista;
     this.ruta.navigateByUrl('/jugadores');
   }
 }

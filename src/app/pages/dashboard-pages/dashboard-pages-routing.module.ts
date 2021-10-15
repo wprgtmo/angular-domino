@@ -14,15 +14,15 @@ const routes: Routes = [
     component: NavComponent,
     children:[
         {
-          path: 'eventos',
+          path: 'eventsCard',
           component: EventoPageComponent
         },
         {
-          path: 'evento_nuevo',
+          path: 'eventNew',
           component: EventoAddPageComponent
         },
         {
-          path: 'evento_lista',
+          path: 'eventsList',
           component: EventoListPageComponent
         },
         {

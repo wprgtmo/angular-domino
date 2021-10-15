@@ -10,10 +10,12 @@ mat-card{
   }
 
 mat-card img {
-    width: 50%;
+    width: 200px;
+    height: 200px;
     margin: auto;
-    border: 1px ;
+    border: 1px darkgrey  solid ;
     border-radius: 50%;
+    object-fit: fill;
   }
 
   mat-form-field{

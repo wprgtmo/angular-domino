@@ -8,19 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventoToolbarComponent  {
 
+  isLista = true;
+
   constructor(private ruta: Router) { }
 
 
   addEvento(): void {
-    this.ruta.navigateByUrl('/evento_nuevo');
+    this.ruta.navigateByUrl('eventNew');
   }
 
-  viewList(): void {
-    this.ruta.navigateByUrl('/evento_lista');
+  viewEventList(): void {
+    this.ruta.navigateByUrl('eventsList');
   }
 
-  viewCard(): void {
-    this.ruta.navigateByUrl('/eventos');
+  viewEventCard(): void {
+    this.ruta.navigateByUrl('eventsCard');
   }
+  
 
 }
