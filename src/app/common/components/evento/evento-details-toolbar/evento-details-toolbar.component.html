@@ -1,0 +1,53 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span class="toolbarText">Seleccionado: {{eventoSeleccionado?.nombre}} ({{eventoSeleccionado?.comentario}})</span>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <span class="toolbarText">Estado: {{estado()}}</span>
+    <span class="spacer"></span>
+    <!-- Botones que se muestran en el estado Creado -->
+    <div [hidden]="mostrarEstadoCreado()">
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Definir parejas" aria-label="Definir parejas">
+        <mat-icon>people_outline_white</mat-icon>
+
+        <!--group_white group_white group_add_white  supervisor_account_white-->
+      </button>
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Iniciar evento" aria-label="Iniciar evento">
+        <mat-icon>update_white</mat-icon>
+      </button>
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Eliminar evento" aria-label="Eliminar evento">
+        <mat-icon>highlight_off_white</mat-icon>
+      </button>
+    </div>
+
+    <!-- Botones que se muestran en el estado Iniciado  -->
+    <div [hidden]="mostrarEstadoIniciado()">
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Adicionar ronda" aria-label="Adicionar ronda" (click)="addRonda()">
+        <mat-icon>alarm_add_white</mat-icon>
+      </button>
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Cerrar ronda" aria-label="Cerrar ronda">
+        <mat-icon>alarm_on_white</mat-icon>
+      </button>
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Finalizar evento" aria-label="Finalizar evento">
+        <mat-icon>schedule_white</mat-icon>
+      </button>
+    </div>
+
+    <!-- Botones que se muestran en el estado Finalizado  [hidden]="mostrarEstadoFinalizado()"-->
+    <div [hidden]="mostrarEstadoFinalizado()">
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Mostrar estadísticas"
+        aria-label="Mostrar estadísticas">
+        <mat-icon>equalizer_white</mat-icon>
+      </button>
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Ver premiados" aria-label="Ver premiados">
+        <mat-icon>assignment_ind_white</mat-icon>
+        <!-- perm_contact_calendar_white -->
+      </button>
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Eliminar evento" aria-label="Iniciar evento">
+        <mat-icon>highlight_off_white</mat-icon>
+      </button>
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>

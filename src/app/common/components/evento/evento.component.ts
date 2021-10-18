@@ -1,5 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { SeleccionService } from './../../services/seleccion.service';
+import { IRondaNuevaRespuesta } from './../../models/ronda-nueva-respuesta.interface';
+import { Component, Input, OnInit } from '@angular/core';
 import { IEvento } from '../../models/evento.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-evento',
@@ -8,35 +11,24 @@ import { IEvento } from '../../models/evento.interface';
 })
 export class EventoComponent {
 
-  @Input() evento: IEvento | undefined ;
+  @Input() evento?: IEvento;
 
-  onClick(): void {
-    alert('Okkkkk');
-  }
-  onAction(): void {
-    alert('Okkkkk');
-  }
+  constructor(private ruta: Router, private seleccionService: SeleccionService) { }
 
-  mostrarEstadoCreado(){
-    return !(this.estado()=='Creado');
-  }
-
-  mostrarEstadoIniciado(){
-    return !(this.estado()=='Iniciado');
+  estado() {
+    switch (this.evento?.estado) {
+      case "C": return "Creado"; break;
+      case "I": return "Iniciado"; break;
+      case "F": return "Finalizado"; break;
+      default: return "Sin estado"; break;
+    }
   }
 
-  mostrarEstadoFinalizado(){
-    return !(this.estado()=='Finalizado');
-  }
+  seleccionarEvento(){
+    if (this.evento!==undefined)
+      this.seleccionService.setEventoSeleccionado(this.evento);
+    this.ruta.navigateByUrl('eventDetails');
 
-  estado(){
-    if (this.evento?.estado=="C")
-      return "Creado";
-    if  (this.evento?.estado=="I")
-      return "Iniciado";
-    if  (this.evento?.estado=="F")
-      return "Finalizado";
-    return "Sin estado";
   }
 
 }

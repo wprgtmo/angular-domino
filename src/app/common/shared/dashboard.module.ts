@@ -1,4 +1,6 @@
+import { EventoDetailsPageComponent } from './../../pages/dashboard-pages/evento-details-page/evento-details-page.component';
 import { EventoToolbarComponent } from './../components/evento/evento-toolbar/evento-toolbar.component';
+import { EventoDetailsToolbarComponent } from './../components/evento/evento-details-toolbar/evento-details-toolbar.component';
 import { MaterialModule } from './../../material.module';
 import { NavComponent } from './../components/nav/nav.component';
 import { JugadorComponent } from './../components/jugador/jugador.component';
@@ -9,16 +11,32 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { JugadorToolbarComponent } from '../components/jugador/jugador-toolbar/jugador-toolbar.component';
-
-
+import { RondaComponent } from '../components/ronda/ronda.component';
 
 @NgModule({
-  declarations: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent, EventoToolbarComponent, JugadorToolbarComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    MaterialModule
+  declarations: [
+    HeaderComponent,
+    MenuComponent,
+    EventoComponent,
+    JugadorComponent,
+    NavComponent,
+    EventoToolbarComponent,
+    EventoDetailsToolbarComponent,
+    JugadorToolbarComponent,
+    RondaComponent
   ],
-  exports: [HeaderComponent, MenuComponent, EventoComponent, JugadorComponent, NavComponent, EventoToolbarComponent, JugadorToolbarComponent]
+
+  imports: [CommonModule, RouterModule, MaterialModule],
+  exports: [
+    HeaderComponent,
+    MenuComponent,
+    EventoComponent,
+    JugadorComponent,
+    NavComponent,
+    EventoToolbarComponent,
+    EventoDetailsToolbarComponent,
+    JugadorToolbarComponent,
+    RondaComponent
+  ],
 })
-export class DashboardModule { }
+export class DashboardModule {}

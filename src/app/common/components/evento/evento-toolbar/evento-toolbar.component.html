@@ -1,19 +1,20 @@
 <mat-toolbar>
-  <span>Eventos</span>
-  <span class="spacer"></span>
-  <button mat-icon-button class="mat-icons-outlined" matTooltip="Nuevo evento" aria-label="Adicionar evento"
-    (click)="addEvento()">
-    <!-- <mat-icon>note_add_white</mat-icon> -->
-    <mat-icon>add_to_photos</mat-icon>
-  </button>
-  <mat-button-toggle-group [multiple]=false >
-    <mat-button-toggle mat-icon-button class="mat-icons-outlined" matTooltip="Ver como tabla" value="tabla"
-      aria-label="Ver como tabla" (click)="viewEventList()">
-      <mat-icon>view_list_white</mat-icon>
-    </mat-button-toggle>
-    <mat-button-toggle  mat-icon-button class="mat-icons-outlined" matTooltip="Ver como tarjetas" value="card"
-      aria-label="Ver como tarjetas" (click)="viewEventCard()">
-      <mat-icon>view_module_white</mat-icon>
-    </mat-button-toggle>
-  </mat-button-toggle-group>
+
+    <span>Eventos</span>
+    <span class="spacer"></span>
+    <button mat-icon-button class="mat-icons-outlined" matTooltip="Nuevo evento" aria-label="Adicionar evento"
+      (click)="addEvento()">
+      <!-- <mat-icon>note_add_white</mat-icon> -->
+      <mat-icon>add_to_photos</mat-icon>
+    </button>
+    <mat-button-toggle-group [multiple]=false>
+      <mat-button-toggle mat-icon-button class="mat-icons-outlined" matTooltip="Ver como tabla" value="tabla"
+        aria-label="Ver como tabla" (click)="viewEventList()">
+        <mat-icon>view_list_white</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle mat-icon-button class="mat-icons-outlined" matTooltip="Ver como tarjetas" value="card"
+        aria-label="Ver como tarjetas" (click)="viewEventCard()">
+        <mat-icon>view_module_white</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
 </mat-toolbar>

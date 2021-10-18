@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card (click)="seleccionarEvento()" >
     <mat-card-header>
         <mat-card-title>{{evento?.nombre}}</mat-card-title>
         <mat-card-subtitle>{{evento?.comentario}}</mat-card-subtitle>
@@ -7,50 +7,7 @@
     <mat-card-content>
        Estado: {{estado()}}
     </mat-card-content>
-    <mat-card-actions align="start">
 
-      <!-- Botones que se muestran en el estado Creado -->
-      <div [hidden]="mostrarEstadoCreado()">
-        <button mat-icon-button  class="mat-icons-outlined" matTooltip="Definir parejas"  aria-label="Definir parejas" >
-          <mat-icon>people_outline_white</mat-icon>
-
-          <!--group_white group_white group_add_white  supervisor_account_white-->
-        </button>
-        <button mat-icon-button  class="mat-icons-outlined" matTooltip="Iniciar evento" aria-label="Iniciar evento" >
-          <mat-icon>update_white</mat-icon>
-        </button>
-        <button mat-icon-button  class="mat-icons-outlined" matTooltip="Eliminar evento" aria-label="Eliminar evento" >
-          <mat-icon>highlight_off_white</mat-icon>
-        </button>
-      </div>
-
-      <!-- Botones que se muestran en el estado Iniciado -->
-      <div [hidden]="mostrarEstadoIniciado()">
-        <button mat-icon-button  class="mat-icons-outlined" matTooltip="Adicionar ronda" aria-label="Adicionar ronda">
-          <mat-icon>alarm_add_white</mat-icon>
-        </button>
-        <button mat-icon-button  class="mat-icons-outlined" matTooltip="Cerrar ronda" aria-label="Cerrar ronda">
-          <mat-icon>alarm_on_white</mat-icon>
-        </button>
-        <button mat-icon-button  class="mat-icons-outlined" matTooltip="Finalizar evento" aria-label="Finalizar evento">
-          <mat-icon>schedule_white</mat-icon>
-        </button>
-      </div>
-
-      <!-- Botones que se muestran en el estado Finalizado -->
-      <div [hidden]="mostrarEstadoFinalizado()">
-        <button mat-icon-button  class="mat-icons-outlined" matTooltip="Mostrar estadísticas" aria-label="Mostrar estadísticas"  >
-          <mat-icon>equalizer_white</mat-icon>
-        </button>
-        <button mat-icon-button  class="mat-icons-outlined" matTooltip="Ver premiados" aria-label="Ver premiados">
-          <mat-icon>assignment_ind_white</mat-icon>
-          <!-- perm_contact_calendar_white -->
-        </button>
-        <button mat-icon-button  class="mat-icons-outlined" matTooltip="Eliminar evento" aria-label="Iniciar evento" >
-          <mat-icon>highlight_off_white</mat-icon>
-        </button>
-    </div>
-    </mat-card-actions>
     <mat-card-footer>
       Desde: {{evento?.fecha_inicio | date}} hasta {{evento?.fecha_cierre| date}}
       Ciudad: {{evento?.ciudad_id}}
