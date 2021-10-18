@@ -1,3 +1,5 @@
+import { RondaPageComponent } from './ronda-page/ronda-page.component';
+import { EventoDetailsPageComponent } from './evento-details-page/evento-details-page.component';
 import { NavComponent } from './../../common/components/nav/nav.component';
 import { JugadorPageComponent } from './jugador-page/jugador-page.component';
 import { EventoPageComponent } from './evento-page/evento-page.component';
@@ -24,6 +26,14 @@ const routes: Routes = [
         {
           path: 'eventsList',
           component: EventoListPageComponent
+        },
+        {
+          path: 'eventDetails',
+          component: EventoDetailsPageComponent
+        },
+        {
+          path: 'ronda',
+          component: RondaPageComponent
         },
         {
           path: 'jugadores',
