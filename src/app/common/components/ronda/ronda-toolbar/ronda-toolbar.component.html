@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <mat-select placeholder="" >
+      <mat-option *ngFor="let ronda of rondas" [value]="">{{ronda.numero}}</mat-option>
+  </mat-select>
+  <span class="spacer"></span>
+  <!-- Botones que se muestran en el estado Iniciado  [hidden]="mostrarEstadoIniciado()"-->
+    <button mat-icon-button class="mat-icons-outlined" matTooltip="Parejas" aria-label="Parejas">
+      <mat-icon>people_outline_white</mat-icon>
+    </button>
+    <button mat-icon-button class="mat-icons-outlined" matTooltip="Mesas" aria-label="Mesas">
+      <mat-icon>people_outline_white</mat-icon>
+    </button>
+    <button mat-icon-button class="mat-icons-outlined" matTooltip="Rondas" aria-label="Rondas" >
+      <mat-icon>alarm_add_white</mat-icon>
+    </button>
+    <!-- <button mat-icon-button class="mat-icons-outlined" matTooltip="Cerrar ronda" aria-label="Cerrar ronda">
+      <mat-icon>alarm_on_white</mat-icon>
+    </button> -->
+
+    <span>|</span>
+
+
+  <!-- Botones que se muestran en el estado Finalizado  [hidden]="mostrarEstadoFinalizado()"-->
+    <button mat-icon-button class="mat-icons-outlined" matTooltip="Estadísticas"
+      aria-label="Estadísticas">
+      <mat-icon>equalizer_white</mat-icon>
+    </button>
+    <button mat-icon-button class="mat-icons-outlined" matTooltip="Premiados" aria-label="Premiados">
+      <mat-icon>assignment_ind_white</mat-icon>
+    </button>
+
+</mat-toolbar>

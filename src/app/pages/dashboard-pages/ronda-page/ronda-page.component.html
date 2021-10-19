@@ -1,3 +1,5 @@
 <app-evento-details-toolbar></app-evento-details-toolbar>
-<app-ronda></app-ronda>
-
+<app-ronda-toolbar [rondas]="listaRondas"></app-ronda-toolbar>
+<div class="grid">
+  <app-ronda [ronda]="ronda" *ngFor="let ronda of listaRondas"></app-ronda>
+</div>

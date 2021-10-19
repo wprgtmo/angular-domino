@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { JugadorToolbarComponent } from '../components/jugador/jugador-toolbar/jugador-toolbar.component';
 import { RondaComponent } from '../components/ronda/ronda.component';
+import { RondaToolbarComponent } from '../components/ronda/ronda-toolbar/ronda-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RondaComponent } from '../components/ronda/ronda.component';
     EventoToolbarComponent,
     EventoDetailsToolbarComponent,
     JugadorToolbarComponent,
-    RondaComponent
+    RondaComponent,
+    RondaToolbarComponent
   ],
 
   imports: [CommonModule, RouterModule, MaterialModule],
@@ -36,7 +38,8 @@ import { RondaComponent } from '../components/ronda/ronda.component';
     EventoToolbarComponent,
     EventoDetailsToolbarComponent,
     JugadorToolbarComponent,
-    RondaComponent
+    RondaComponent,
+    RondaToolbarComponent
   ],
 })
 export class DashboardModule {}

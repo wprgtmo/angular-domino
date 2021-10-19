@@ -60,9 +60,7 @@ export class EventoDetailsToolbarComponent implements OnInit {
     }
   }
 
-  addRonda() {
-
-
-    this.ruta.navigateByUrl('ronda');
+  rondas() {
+    this.ruta.navigateByUrl('rondas');
   }
 }

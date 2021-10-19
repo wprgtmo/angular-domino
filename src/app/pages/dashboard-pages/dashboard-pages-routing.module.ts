@@ -32,7 +32,7 @@ const routes: Routes = [
           component: EventoDetailsPageComponent
         },
         {
-          path: 'ronda',
+          path: 'rondas',
           component: RondaPageComponent
         },
         {
