@@ -1,4 +1,6 @@
-import { EventoDetailsPageComponent } from './../../pages/dashboard-pages/evento-details-page/evento-details-page.component';
+import { MesaToolbarComponent } from './../components/mesa/mesa-toolbar/mesa-toolbar.component';
+import { BoletaComponent } from './../components/ronda/boleta/boleta.component';
+import { MesaComponent } from './../components/mesa/mesa.component';
 import { EventoToolbarComponent } from './../components/evento/evento-toolbar/evento-toolbar.component';
 import { EventoDetailsToolbarComponent } from './../components/evento/evento-details-toolbar/evento-details-toolbar.component';
 import { MaterialModule } from './../../material.module';
@@ -25,7 +27,10 @@ import { RondaToolbarComponent } from '../components/ronda/ronda-toolbar/ronda-t
     EventoDetailsToolbarComponent,
     JugadorToolbarComponent,
     RondaComponent,
-    RondaToolbarComponent
+    RondaToolbarComponent,
+    MesaComponent,
+    BoletaComponent,
+    MesaToolbarComponent
   ],
 
   imports: [CommonModule, RouterModule, MaterialModule],
@@ -39,7 +44,10 @@ import { RondaToolbarComponent } from '../components/ronda/ronda-toolbar/ronda-t
     EventoDetailsToolbarComponent,
     JugadorToolbarComponent,
     RondaComponent,
-    RondaToolbarComponent
+    RondaToolbarComponent,
+    MesaComponent,
+    BoletaComponent,
+    MesaToolbarComponent
   ],
 })
 export class DashboardModule {}

@@ -2,7 +2,7 @@ import { IRonda } from './../../models/ronda.interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IEvento } from '../../models/evento.interface';
-import { IRondaNuevaRespuesta } from '../../models/ronda-nueva-respuesta.interface';
+import { IRondaNuevaRespuesta } from '../../models/respuestas/ronda-nueva-respuesta.interface';
 import { DominoApiService } from '../../services/domino-api.service';
 import { SeleccionService } from '../../services/seleccion.service';
 

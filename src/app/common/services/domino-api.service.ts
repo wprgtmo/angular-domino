@@ -1,11 +1,13 @@
-import { IJugadorRespuesta } from './../models/jugador-respuesta.interface';
+import { IJugadorRespuesta } from '../models/respuestas/jugador-respuesta.interface';
 import { PathRest } from './../static/path-rest';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IEventoRespuesta } from '../models/evento-respuesta.interface';
-import { IRondaNuevaRespuesta } from '../models/ronda-nueva-respuesta.interface';
-import { IRondasRespuesta } from '../models/rondas-respuesta.interface';
+import { IEventoRespuesta } from '../models/respuestas/evento-respuesta.interface';
+import { IRondaNuevaRespuesta } from '../models/respuestas/ronda-nueva-respuesta.interface';
+import { IRondasRespuesta } from '../models/respuestas/rondas-respuesta.interface';
+import { IBoletasRespuesta } from '../models/respuestas/boletas-respuesta.interface';
+import { IMesasRespuesta } from '../models/respuestas/mesas-respuesta.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +30,14 @@ export class DominoApiService {
 
   getRondaNueva(evento_id: string): Observable<IRondaNuevaRespuesta>{
     return this.http_API.post<IRondaNuevaRespuesta>(PathRest.GET_NUEVA_RONDA, {"evento_id": evento_id});
+  }
+
+  getBoletas(evento_id: string, ronda_id: string): Observable<IBoletasRespuesta>{
+    return this.http_API.post<IBoletasRespuesta>(PathRest.GET_BOLETAS, {"evento_id": evento_id, "ronda_id": ronda_id});
+  }
+
+  getMesas(evento_id: string): Observable<IMesasRespuesta>{
+    return this.http_API.post<IMesasRespuesta>(PathRest.GET_MESAS, {"evento_id": evento_id});
   }
 
 

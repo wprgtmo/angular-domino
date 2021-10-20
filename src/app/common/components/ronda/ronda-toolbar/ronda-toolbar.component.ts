@@ -9,9 +9,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RondaToolbarComponent implements OnInit {
   @Input() rondas?: IRonda[] ;
 
+  ronda_activa= 50;
+  // (this.rondas==undefined)? 0 : this.rondas[0]?.id
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

@@ -1,16 +1,16 @@
 <mat-toolbar>
     <span class="toolbarText">Evento: {{eventoSeleccionado?.nombre}} ({{estado()}})</span>
     <span class="spacer"></span>
-    <!-- Botones que se muestran en el estado Creado [hidden]="mostrarEstadoCreado()"-->
+    <!-- Botones que se muestran en el estado Creado [hidden]="mostrarEstadoCreado()" update_white, schedule_white, highlight_off_white-->
 
       <button mat-icon-button class="mat-icons-outlined" matTooltip="Iniciar evento" aria-label="Iniciar evento">
-        <mat-icon>update_white</mat-icon>
+        <mat-icon>event</mat-icon>
       </button>
       <button mat-icon-button class="mat-icons-outlined" matTooltip="Finalizar evento" aria-label="Finalizar evento">
-        <mat-icon>schedule_white</mat-icon>
+        <mat-icon>event_available</mat-icon>
       </button>
       <button mat-icon-button class="mat-icons-outlined" matTooltip="Eliminar evento" aria-label="Eliminar evento">
-        <mat-icon>highlight_off_white</mat-icon>
+        <mat-icon>event_busy</mat-icon>
       </button>
     <span>|</span>
 
@@ -18,11 +18,11 @@
       <button mat-icon-button class="mat-icons-outlined" matTooltip="Parejas" aria-label="Parejas">
         <mat-icon>people_outline_white</mat-icon>
       </button>
-      <button mat-icon-button class="mat-icons-outlined" matTooltip="Mesas" aria-label="Mesas">
-        <mat-icon>people_outline_white</mat-icon>
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Mesas" aria-label="Mesas" (click)="mesas()">
+        <mat-icon>table_restaurant</mat-icon>
       </button>
       <button mat-icon-button class="mat-icons-outlined" matTooltip="Rondas" aria-label="Rondas" (click)="rondas()">
-        <mat-icon>alarm_add_white</mat-icon>
+        <mat-icon>timer</mat-icon>
       </button>
       <!-- <button mat-icon-button class="mat-icons-outlined" matTooltip="Cerrar ronda" aria-label="Cerrar ronda">
         <mat-icon>alarm_on_white</mat-icon>
@@ -37,7 +37,8 @@
         <mat-icon>equalizer_white</mat-icon>
       </button>
       <button mat-icon-button class="mat-icons-outlined" matTooltip="Premiados" aria-label="Premiados">
-        <mat-icon>assignment_ind_white</mat-icon>
+        <mat-icon>emoji_events</mat-icon>  <!-- assignment_ind_white -->
+
       </button>
 
 </mat-toolbar>

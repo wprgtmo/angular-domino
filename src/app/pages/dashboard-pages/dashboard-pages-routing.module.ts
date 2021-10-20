@@ -1,3 +1,4 @@
+import { MesaPageComponent } from './mesa-page/mesa-page.component';
 import { RondaPageComponent } from './ronda-page/ronda-page.component';
 import { EventoDetailsPageComponent } from './evento-details-page/evento-details-page.component';
 import { NavComponent } from './../../common/components/nav/nav.component';
@@ -34,6 +35,10 @@ const routes: Routes = [
         {
           path: 'rondas',
           component: RondaPageComponent
+        },
+        {
+          path: 'mesas',
+          component: MesaPageComponent
         },
         {
           path: 'jugadores',

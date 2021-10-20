@@ -1,4 +1,3 @@
-import { SdkModule } from './../../sdk.module';
 import { MaterialModule } from './../../material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,6 +12,7 @@ import { JugadorAddPageComponent } from './jugador-add-page/jugador-add-page.com
 import { JugadorListPageComponent } from './jugador-list-page/jugador-list-page.component';
 import { EventoDetailsPageComponent } from './evento-details-page/evento-details-page.component';
 import { RondaPageComponent } from './ronda-page/ronda-page.component';
+import { MesaPageComponent } from './mesa-page/mesa-page.component';
 
 
 
@@ -26,6 +26,7 @@ import { RondaPageComponent } from './ronda-page/ronda-page.component';
     JugadorListPageComponent,
     EventoDetailsPageComponent,
     RondaPageComponent,
+    MesaPageComponent,
   ],
   imports: [
     CommonModule,

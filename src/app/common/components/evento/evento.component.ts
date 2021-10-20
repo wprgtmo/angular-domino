@@ -1,6 +1,5 @@
 import { SeleccionService } from './../../services/seleccion.service';
-import { IRondaNuevaRespuesta } from './../../models/ronda-nueva-respuesta.interface';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IEvento } from '../../models/evento.interface';
 import { Router } from '@angular/router';
 
