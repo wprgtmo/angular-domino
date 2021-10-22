@@ -13,6 +13,7 @@ import { JugadorListPageComponent } from './jugador-list-page/jugador-list-page.
 import { EventoDetailsPageComponent } from './evento-details-page/evento-details-page.component';
 import { RondaPageComponent } from './ronda-page/ronda-page.component';
 import { MesaPageComponent } from './mesa-page/mesa-page.component';
+import { ParejaPageComponent } from './pareja-page/pareja-page.component';
 
 
 
@@ -27,6 +28,7 @@ import { MesaPageComponent } from './mesa-page/mesa-page.component';
     EventoDetailsPageComponent,
     RondaPageComponent,
     MesaPageComponent,
+    ParejaPageComponent,
   ],
   imports: [
     CommonModule,

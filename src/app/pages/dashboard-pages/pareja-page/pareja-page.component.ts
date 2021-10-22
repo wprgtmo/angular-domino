@@ -1,19 +1,19 @@
-import { IMesa } from './../../../common/models/mesa.interface';
+import { IPareja } from './../../../common/models/pareja.interface';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IEvento } from 'src/app/common/models/evento.interface';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
+import { IEvento } from 'src/app/common/models/evento.interface';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 
 @Component({
-  templateUrl: './mesa-page.component.html',
-  styleUrls: ['./mesa-page.component.css']
+  templateUrl: './pareja-page.component.html',
+  styleUrls: ['./pareja-page.component.css']
 })
-export class MesaPageComponent implements OnInit {
+export class ParejaPageComponent implements OnInit {
 
-  private subscribeMesasDominoApiService: Subscription | undefined;
+  private subscribeDominoApiService: Subscription | undefined;
   private subscribeSelectionService: Subscription | undefined;
-  public listaMesas?: IMesa[];
+  public listaParejas?: IPareja[];
   private eventoSeleccionado?: IEvento;
 
   constructor(private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
@@ -23,14 +23,14 @@ export class MesaPageComponent implements OnInit {
 
     let evento_seleccionado= (this.eventoSeleccionado === undefined) ? 0 : this.eventoSeleccionado?.id;
 
-    this.subscribeMesasDominoApiService= this.dominoApiService.getMesas(evento_seleccionado.toString() ).subscribe((mesaRespuesta) => {
-      this.listaMesas = mesaRespuesta.mesas.sort((m1, m2)=> m1.numero-m2.numero);
+    this.subscribeDominoApiService= this.dominoApiService.getParejas(evento_seleccionado.toString()).subscribe((parejasRespuesta) => {
+      this.listaParejas = parejasRespuesta.parejas; //.sort((p1, p2)=> p1.id-p2.id)
     })
 
   }
 
  ngOnDestroy(): void{
-   this.subscribeMesasDominoApiService?.unsubscribe();
+   this.subscribeDominoApiService?.unsubscribe();
    this.subscribeSelectionService?.unsubscribe();
  }
 }

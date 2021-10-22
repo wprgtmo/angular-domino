@@ -67,4 +67,8 @@ export class EventoDetailsToolbarComponent implements OnInit {
   mesas() {
     this.ruta.navigateByUrl('mesas');
   }
+
+  parejas() {
+    this.ruta.navigateByUrl('parejas');
+  }
 }

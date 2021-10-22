@@ -9,6 +9,7 @@ mat-card{
   margin-top: 1em;
   padding: 1rem;
 }
+
 mat-card-header{
   margin: auto;
   display: inline;

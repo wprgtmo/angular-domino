@@ -8,6 +8,7 @@ import { IRondaNuevaRespuesta } from '../models/respuestas/ronda-nueva-respuesta
 import { IRondasRespuesta } from '../models/respuestas/rondas-respuesta.interface';
 import { IBoletasRespuesta } from '../models/respuestas/boletas-respuesta.interface';
 import { IMesasRespuesta } from '../models/respuestas/mesas-respuesta.interface';
+import { IParejasRespuesta } from '../models/respuestas/parejas-respuesta.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,10 @@ export class DominoApiService {
 
   getMesas(evento_id: string): Observable<IMesasRespuesta>{
     return this.http_API.post<IMesasRespuesta>(PathRest.GET_MESAS, {"evento_id": evento_id});
+  }
+
+  getParejas(evento_id: string): Observable<IParejasRespuesta>{
+    return this.http_API.post<IParejasRespuesta>(PathRest.GET_PAREJAS, {"evento_id": evento_id});
   }
 
 

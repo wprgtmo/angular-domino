@@ -1,0 +1,37 @@
+mat-card{
+  width: 150px;
+  height: 120px;
+  min-height: 5rem;
+  margin: 10px;
+  border: 3px darkgrey  solid ;
+  text-align: center;
+  border-radius: 5%;
+  margin-top: 1em;
+  padding: 1rem;
+}
+mat-card-header{
+  margin: auto;
+  display: inline;
+}
+
+img {
+  width: 50%;
+  margin: auto;
+  border-radius: 50%;
+}
+
+mat-form-field{
+  display: block;
+}
+
+mat-card button {
+  margin: 10px;
+  width: 50px;
+  margin-top: 1em;
+  height: 50px;
+}
+
+.fecha{
+  text-transform: capitalize;
+}
+

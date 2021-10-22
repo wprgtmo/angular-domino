@@ -35,11 +35,11 @@ export class RondaPageComponent implements OnInit {
     })
     let ronda_id= (this.rondaSeleccionada!==undefined)? this.rondaSeleccionada?.id.toString(): "";
     this.subscribeBoletasDominoApiService= this.dominoApiService.getBoletas(evento_seleccionado.toString(), ronda_id ).subscribe((boletaRespuesta) => {
-      console.log(boletaRespuesta);
-      this.listaBoletas = boletaRespuesta.boletas;
+      this.listaBoletas = boletaRespuesta.boletas.sort((b1, b2)=> b1.mesa_id - b2.mesa_id);
     })
 
   }
+
 
  ngOnDestroy(): void{
    this.subscribeRondasDominoApiService?.unsubscribe();

@@ -1,3 +1,4 @@
+import { ParejaPageComponent } from './pareja-page/pareja-page.component';
 import { MesaPageComponent } from './mesa-page/mesa-page.component';
 import { RondaPageComponent } from './ronda-page/ronda-page.component';
 import { EventoDetailsPageComponent } from './evento-details-page/evento-details-page.component';
@@ -35,6 +36,10 @@ const routes: Routes = [
         {
           path: 'rondas',
           component: RondaPageComponent
+        },
+        {
+          path: 'parejas',
+          component: ParejaPageComponent
         },
         {
           path: 'mesas',

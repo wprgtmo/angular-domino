@@ -1,8 +1,8 @@
 export interface IBoleta {
-  id: string;
-  evento_id: string;
-  ronda_id: string;
-  mesa_id: string;
-  es_valida: string;
-  fecha_registro: string;
+  id: number;
+  evento_id: number;
+  ronda_id: number;
+  mesa_id: number;
+  es_valida: boolean;
+  fecha_registro: Date;
 }

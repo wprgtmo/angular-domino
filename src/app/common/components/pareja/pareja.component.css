@@ -1,6 +1,6 @@
 mat-card{
   width: 250px;
-  height: 120px;
+  height: 260px;
   min-height: 5rem;
   margin: 10px;
   border: 3px darkgrey  solid ;
@@ -9,18 +9,19 @@ mat-card{
   margin-top: 1em;
   padding: 1rem;
 }
-
 mat-card-header{
   margin: auto;
   display: inline;
 }
 
 img {
-  width: 50%;
+  width: 100px;
+  height: 100px;
   margin: auto;
-  border-radius: 50%;
+  border: 1px darkgrey  solid ;
+  border-radius: 10%;
+  object-fit: fill;
 }
-
 mat-form-field{
   display: block;
 }
@@ -35,3 +36,12 @@ mat-card button {
 .fecha{
   text-transform: capitalize;
 }
+
+/*
+mat-card-content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-items: center;
+} */

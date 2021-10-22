@@ -1,3 +1,5 @@
+import { ParejaToolbarComponent } from './../components/pareja/pareja-toolbar/pareja-toolbar.component';
+import { ParejaComponent } from './../components/pareja/pareja.component';
 import { MesaToolbarComponent } from './../components/mesa/mesa-toolbar/mesa-toolbar.component';
 import { BoletaComponent } from './../components/ronda/boleta/boleta.component';
 import { MesaComponent } from './../components/mesa/mesa.component';
@@ -30,7 +32,9 @@ import { RondaToolbarComponent } from '../components/ronda/ronda-toolbar/ronda-t
     RondaToolbarComponent,
     MesaComponent,
     BoletaComponent,
-    MesaToolbarComponent
+    MesaToolbarComponent,
+    ParejaComponent,
+    ParejaToolbarComponent
   ],
 
   imports: [CommonModule, RouterModule, MaterialModule],
@@ -47,7 +51,9 @@ import { RondaToolbarComponent } from '../components/ronda/ronda-toolbar/ronda-t
     RondaToolbarComponent,
     MesaComponent,
     BoletaComponent,
-    MesaToolbarComponent
+    MesaToolbarComponent,
+    ParejaComponent,
+    ParejaToolbarComponent
   ],
 })
 export class DashboardModule {}

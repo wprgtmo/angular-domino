@@ -1,7 +1,4 @@
 <mat-toolbar>
-  <mat-select placeholder="Ronda"  [(value)]="ronda_activa" (selectionChange)="changeRonda()">
-      <mat-option *ngFor="let ronda of rondas" [value]="ronda.id" >{{ronda.comentario}} </mat-option>
-  </mat-select>
   <span class="spacer"></span>
   <!-- Botones que se muestran en el estado Iniciado  [hidden]="mostrarEstadoIniciado()"-->
     <button mat-icon-button class="mat-icons-outlined" matTooltip="Nueva ronda" aria-label="Nueva ronda" >
@@ -20,3 +17,4 @@
       <mat-icon>table_restaurant</mat-icon>
     </button>
 </mat-toolbar>
+

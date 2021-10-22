@@ -15,7 +15,7 @@
     <span>|</span>
 
     <!-- Botones que se muestran en el estado Iniciado  [hidden]="mostrarEstadoIniciado()"-->
-      <button mat-icon-button class="mat-icons-outlined" matTooltip="Parejas" aria-label="Parejas">
+      <button mat-icon-button class="mat-icons-outlined" matTooltip="Parejas" aria-label="Parejas" (click)="parejas()">
         <mat-icon>people_outline_white</mat-icon>
       </button>
       <button mat-icon-button class="mat-icons-outlined" matTooltip="Mesas" aria-label="Mesas" (click)="mesas()">

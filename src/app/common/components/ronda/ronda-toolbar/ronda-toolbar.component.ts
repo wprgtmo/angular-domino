@@ -18,4 +18,9 @@ export class RondaToolbarComponent implements OnInit {
   }
 
 
+  changeRonda(){
+    console.log("Change Rondas...");
+
+  }
+
 }
