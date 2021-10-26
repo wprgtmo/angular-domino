@@ -9,6 +9,7 @@ import { AuthPagesModule } from './pages/auth-pages/auth-pages.module';
 import { DashboardPagesModule } from './pages/dashboard-pages/dashboard-pages.module';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],

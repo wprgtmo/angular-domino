@@ -14,6 +14,7 @@ import { EventoDetailsPageComponent } from './evento-details-page/evento-details
 import { RondaPageComponent } from './ronda-page/ronda-page.component';
 import { MesaPageComponent } from './mesa-page/mesa-page.component';
 import { ParejaPageComponent } from './pareja-page/pareja-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -34,7 +35,8 @@ import { ParejaPageComponent } from './pareja-page/pareja-page.component';
     CommonModule,
     MaterialModule,
     DashboardPagesRoutingModule,
-    DashboardModule
+    DashboardModule,
+    ReactiveFormsModule,
   ]
 })
 export class DashboardPagesModule { }

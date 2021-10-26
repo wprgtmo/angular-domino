@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CdkTableModule } from '@angular/cdk/table';
+import { MatNativeDateModule } from '@angular/material/core'
 
 
 
 @NgModule({
   imports: [
-    CdkTableModule
+    CdkTableModule,
+    MatNativeDateModule
   ],
   exports: [
-    CdkTableModule
+    CdkTableModule,
+    MatNativeDateModule
   ],
 })
 export class SdkModule {}
