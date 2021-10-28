@@ -1,26 +1,2 @@
 <app-evento-toolbar></app-evento-toolbar>
-<form class="frm" [formGroup]="eventoAddFrm!" (ngSubmit)="onClick()" >
-  <mat-form-field appearance="outline" class="datos">
-    <mat-label>Nombre</mat-label>
-    <input matInput required placeholder="Nombre del evento" formControlName="nombre" />
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="datos">
-    <mat-label>Comentario</mat-label>
-    <textarea matInput placeholder="Escriba una breve descripción del evento" formControlName="comentario"></textarea>
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="datos">
-    <mat-label>Fecha inicio: </mat-label>
-    <input  matInput [matDatepicker]="picker" formControlName="fecha_inicio" [disabled]=true >
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker disabled="false"></mat-datepicker>
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="datos">
-    <mat-label>Fecha fin: </mat-label>
-    <input matInput [matDatepicker]="picker1" formControlName="fecha_cierre" [disabled]=true>
-    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-    <mat-datepicker #picker1 disabled="false"></mat-datepicker>
-  </mat-form-field>
-  <button mat-raised-button color="primary"  >
-    Crear evento
-  </button>
-</form>
+<app-evento-add></app-evento-add>

@@ -1,3 +1,5 @@
+import { EventoAddComponent } from './../components/evento/operaciones/evento-add/evento-add.component';
+import { EventoDetailsComponent } from './../components/evento/operaciones/evento-details/evento-details.component';
 import { ParejaToolbarComponent } from './../components/pareja/pareja-toolbar/pareja-toolbar.component';
 import { ParejaComponent } from './../components/pareja/pareja.component';
 import { MesaToolbarComponent } from './../components/mesa/mesa-toolbar/mesa-toolbar.component';
@@ -17,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { JugadorToolbarComponent } from '../components/jugador/jugador-toolbar/jugador-toolbar.component';
 import { RondaComponent } from '../components/ronda/ronda.component';
 import { RondaToolbarComponent } from '../components/ronda/ronda-toolbar/ronda-toolbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,10 +37,12 @@ import { RondaToolbarComponent } from '../components/ronda/ronda-toolbar/ronda-t
     BoletaComponent,
     MesaToolbarComponent,
     ParejaComponent,
-    ParejaToolbarComponent
+    ParejaToolbarComponent,
+    EventoDetailsComponent,
+    EventoAddComponent
   ],
 
-  imports: [CommonModule, RouterModule, MaterialModule],
+  imports: [CommonModule, RouterModule, MaterialModule, ReactiveFormsModule],
   exports: [
     HeaderComponent,
     MenuComponent,
@@ -53,7 +58,9 @@ import { RondaToolbarComponent } from '../components/ronda/ronda-toolbar/ronda-t
     BoletaComponent,
     MesaToolbarComponent,
     ParejaComponent,
-    ParejaToolbarComponent
+    ParejaToolbarComponent,
+    EventoDetailsComponent,
+    EventoAddComponent
   ],
 })
 export class DashboardModule {}

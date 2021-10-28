@@ -1,0 +1,16 @@
+ <mat-card  > <!-- (click)="seleccionarEvento()" -->
+  <img matCardImage src="assets/ggdd.jpg">
+  <mat-card-header>
+      <mat-card-title>{{evento?.nombre}}</mat-card-title>
+      <mat-card-subtitle>{{evento?.comentario}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+     Estado: {{estado()}}
+  </mat-card-content>
+  <mat-card-footer>
+    Desde: {{evento?.fecha_inicio | date}} hasta {{evento?.fecha_cierre| date}}
+    Ciudad: {{evento?.ciudad_id}}
+  </mat-card-footer>
+</mat-card>
+
+

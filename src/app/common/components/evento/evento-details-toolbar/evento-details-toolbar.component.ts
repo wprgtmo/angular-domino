@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
 import { IEvento } from 'src/app/common/models/evento.interface';
+import { DominoApiService } from 'src/app/common/services/domino-api.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class EventoDetailsToolbarComponent implements OnInit {
   private subscribeSelectionService: Subscription | undefined;
   eventoSeleccionado: IEvento | undefined;
 
-  constructor(private ruta: Router, private seleccionService: SeleccionService) { }
+  constructor(private ruta: Router, private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
 
   ngOnInit(): void {
     this.subscribeSelectionService= this.seleccionService.channel.subscribe((evento)=>{
@@ -70,5 +71,12 @@ export class EventoDetailsToolbarComponent implements OnInit {
 
   parejas() {
     this.ruta.navigateByUrl('parejas');
+  }
+
+  eliminarEvento(){
+    this.dominoApiService.delEvento(this.eventoSeleccionado!.id.toString()).subscribe((datos)=>{
+      console.log(datos);
+      this.ruta.navigateByUrl('eventsCard');
+    })
   }
 }
