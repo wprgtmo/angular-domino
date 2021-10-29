@@ -1,4 +1,4 @@
-<form class="frm" [formGroup]="eventoAddFrm!" (ngSubmit)="onClick()" >
+<form class="frm" [formGroup]="eventoAddFrm!" (ngSubmit)="onClick()">
   <mat-form-field appearance="outline" class="datos">
     <mat-label>Nombre</mat-label>
     <input matInput required placeholder="Nombre del evento" formControlName="nombre" />
@@ -7,23 +7,26 @@
     <mat-label>Comentario</mat-label>
     <textarea matInput placeholder="Escriba una breve descripción del evento" formControlName="comentario"></textarea>
   </mat-form-field>
-  <input type="file" (change)="capturarFile($event)" name="" id="">
-  <div *ngIf="preview" >
-    <img class="preview" [src]="preview" alt="">
-  </div>
+  <div class="uploadFile">
+  <label class="inputFile">Foto del evento
+    <input type="file" (change)="capturarFile($event)" class="ocultar" name="imagen" />
+  </label>
+  <div *ngIf="preview">
+    <img class="preview" [src]="preview" alt="" />
+  </div></div>
   <mat-form-field appearance="outline" class="datos">
     <mat-label>Fecha inicio: </mat-label>
-    <input  matInput [matDatepicker]="picker" formControlName="fecha_inicio" [disabled]=true >
+    <input matInput [matDatepicker]="picker" formControlName="fecha_inicio" [disabled]="true" />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker disabled="false"></mat-datepicker>
   </mat-form-field>
   <mat-form-field appearance="outline" class="datos">
     <mat-label>Fecha fin: </mat-label>
-    <input matInput [matDatepicker]="picker1" formControlName="fecha_cierre" [disabled]=true>
+    <input matInput [matDatepicker]="picker1" formControlName="fecha_cierre" [disabled]="true" />
     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
     <mat-datepicker #picker1 disabled="false"></mat-datepicker>
   </mat-form-field>
-  <button mat-raised-button color="primary" [disabled]="loading" >
-    {{(loading)? "Creando evento... ":"Crear evento"}}
+  <button mat-raised-button color="primary" [disabled]="loading">
+    {{ loading ? "Creando evento... " : "Crear evento" }}
   </button>
 </form>

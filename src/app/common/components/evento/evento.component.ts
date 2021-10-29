@@ -1,5 +1,5 @@
 import { SeleccionService } from './../../services/seleccion.service';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IEvento } from '../../models/evento.interface';
 import { Router } from '@angular/router';
 
@@ -8,11 +8,16 @@ import { Router } from '@angular/router';
   templateUrl: './evento.component.html',
   styleUrls: ['./evento.component.css']
 })
-export class EventoComponent {
+export class EventoComponent implements OnInit{
 
   @Input() evento?: IEvento;
+  public fotoEvento = "";
 
   constructor(private ruta: Router, private seleccionService: SeleccionService) { }
+
+  ngOnInit(){
+    this.fotoEvento= 'http://localhost/domino_api/public/assets/img/eventos/' + this.evento?.imagen;
+  }
 
   estado() {
     switch (this.evento?.estado) {
@@ -29,5 +34,7 @@ export class EventoComponent {
     this.ruta.navigateByUrl('eventDetails');
 
   }
+
+
 
 }

@@ -22,7 +22,7 @@ export class DominoApiService {
     return this.http_API.get<IEventoRespuesta>(PathRest.GET_EVENTOS);
   }
 
-  newEvento(datosEvento: IEvento):Observable<IEventoRespuesta>{
+  newEvento(datosEvento: FormData):Observable<IEventoRespuesta>{
     return this.http_API.post<IEventoRespuesta>(PathRest.NEW_EVENTO, datosEvento);
   }
 

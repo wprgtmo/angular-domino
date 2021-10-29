@@ -19,7 +19,6 @@ export class JugadorComponent implements OnInit {
   }
 
   ngOnInit(){
-    console.log(this.jugador);
     this.fotoJugador= 'http://localhost/domino_api/' + this.jugador?.foto;
 
 
