@@ -1,3 +1,4 @@
+import { ParejaAddPageComponent } from './pareja-add-page/pareja-add-page.component';
 import { ParejaPageComponent } from './pareja-page/pareja-page.component';
 import { MesaPageComponent } from './mesa-page/mesa-page.component';
 import { RondaPageComponent } from './ronda-page/ronda-page.component';
@@ -40,6 +41,10 @@ const routes: Routes = [
         {
           path: 'parejas',
           component: ParejaPageComponent
+        },
+        {
+          path: 'parejaAdd',
+          component: ParejaAddPageComponent
         },
         {
           path: 'mesas',

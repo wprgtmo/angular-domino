@@ -11,28 +11,23 @@ import { IEvento } from 'src/app/common/models/evento.interface';
 })
 export class EventoToolbarComponent implements OnInit, OnDestroy {
 
-  isLista = true;
+  isLista = false;
   subscribeSelectionService: Subscription | undefined;
   eventoSeleccionado: IEvento | undefined;
 
   constructor(private ruta: Router, private seleccionService: SeleccionService) { }
 
-
   addEvento(): void {
     this.ruta.navigateByUrl('eventNew');
   }
 
-  viewEventList(): void {
-    this.ruta.navigateByUrl('eventsList');
+  viewEvent(): void {
+    this.ruta.navigateByUrl((this.isLista)?"eventsCard":"eventsList");
+    this.isLista=!this.isLista;
   }
-
-  viewEventCard(): void {
-    this.ruta.navigateByUrl('eventsCard');
-  }
-
 
   ngOnInit(): void {
-    this.subscribeSelectionService= this.seleccionService.channel.subscribe((evento)=>{
+    this.subscribeSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{
       this.eventoSeleccionado = evento;
     });
  }

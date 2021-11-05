@@ -18,7 +18,7 @@ export class EventoDetailsToolbarComponent implements OnInit {
   constructor(private ruta: Router, private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
 
   ngOnInit(): void {
-    this.subscribeSelectionService= this.seleccionService.channel.subscribe((evento)=>{
+    this.subscribeSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{
       this.eventoSeleccionado = evento;
       this.mostrarEvento();
     });

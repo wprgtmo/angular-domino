@@ -14,36 +14,51 @@ export class RondaPageComponent implements OnInit {
 
   private subscribeRondasDominoApiService: Subscription | undefined;
   private subscribeBoletasDominoApiService: Subscription | undefined;
-  private subscribeSelectionService: Subscription | undefined;
+  private subscribeEventoSelectionService: Subscription | undefined;
+  private subscribeRondaSelectionService: Subscription | undefined;
   public listaRondas?: IRonda[];
   public listaBoletas?: IBoleta[];
   private eventoSeleccionado?: IEvento;
-  public rondaSeleccionada?: IRonda;
+  public rondaActiva?: IRonda;
+  public rondaSeleccionadaId?: String;
 
   constructor(private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
 
   ngOnInit(): void {
-    this.subscribeSelectionService= this.seleccionService.channel.subscribe((evento)=>{this.eventoSeleccionado = evento;});
+    this.subscribeEventoSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{this.eventoSeleccionado = evento;});
 
     let evento_seleccionado= (this.eventoSeleccionado === undefined) ? 0 : this.eventoSeleccionado?.id;
 
     this.subscribeRondasDominoApiService= this.dominoApiService.getRondas(evento_seleccionado.toString()).subscribe((rondasRespuesta) => {
-      console.log(rondasRespuesta);
       this.listaRondas = rondasRespuesta.rondas;
-      this.rondaSeleccionada = this.listaRondas.find(ronda=>ronda.cerrada==false);
-      console.log(this.rondaSeleccionada);
-    })
-    let ronda_id= (this.rondaSeleccionada!==undefined)? this.rondaSeleccionada?.id.toString(): "";
-    this.subscribeBoletasDominoApiService= this.dominoApiService.getBoletas(evento_seleccionado.toString(), ronda_id ).subscribe((boletaRespuesta) => {
-      this.listaBoletas = boletaRespuesta.boletas.sort((b1, b2)=> b1.mesa_id - b2.mesa_id);
+      this.rondaActiva = this.listaRondas.find(ronda=>ronda.cerrada==false);
+
+      let ronda_id= (this.rondaActiva!==undefined)? this.rondaActiva?.id.toString(): "";
+      this.rondaSeleccionadaId = ronda_id;
+      this.seleccionService.setRondaIdSeleccionada(ronda_id);
     })
 
+    this.subscribeRondaSelectionService= this.seleccionService.channelRonda.subscribe((ronda_id)=>{
+      if(ronda_id.toString()!='[object Object]'){
+        console.log("Ronda seleccionada en el toolbar ", ronda_id);
+        this.rondaSeleccionadaId = ronda_id;
+        this.actualizarBoletas(ronda_id);
+      }
+    });
+  }
+
+  actualizarBoletas(ronda_id: String){
+    let evento_seleccionado= (this.eventoSeleccionado === undefined) ? 0 : this.eventoSeleccionado?.id;
+    this.subscribeBoletasDominoApiService= this.dominoApiService.getBoletas(evento_seleccionado.toString(), ronda_id.toString()).subscribe((boletaRespuesta) => {
+      this.listaBoletas = boletaRespuesta.boletas.sort((b1, b2)=> b1.mesa_id - b2.mesa_id);
+    })
   }
 
 
  ngOnDestroy(): void{
    this.subscribeRondasDominoApiService?.unsubscribe();
    this.subscribeBoletasDominoApiService?.unsubscribe();
-   this.subscribeSelectionService?.unsubscribe();
+   this.subscribeEventoSelectionService?.unsubscribe();
+   this.subscribeRondaSelectionService?.unsubscribe();
  }
 }

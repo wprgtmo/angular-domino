@@ -1,0 +1,14 @@
+<!-- [formGroup]="parejaAddFrm" -->
+
+<form class="frm"  (ngSubmit)="onClick()">
+  <div class="titulo">Nueva pareja</div>
+<mat-form-field appearance="outline" class="datos">
+  <mat-label>Nombre</mat-label>
+  <input matInput required placeholder="Nombre de la pareja" formControlName="nombre" />
+</mat-form-field>
+
+<button mat-raised-button color="primary" [disabled]="loading">
+  {{ loading ? "Creando pareja... " : "Crear pareja" }}
+</button>
+
+</form>

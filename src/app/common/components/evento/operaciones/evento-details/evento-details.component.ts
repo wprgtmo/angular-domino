@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IEvento } from 'src/app/common/models/evento.interface';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
@@ -8,10 +8,15 @@ import { SeleccionService } from 'src/app/common/services/seleccion.service';
   templateUrl: './evento-details.component.html',
   styleUrls: ['./evento-details.component.css']
 })
-export class EventoDetailsComponent  {
+export class EventoDetailsComponent implements OnInit {
   @Input() evento?: IEvento;
+  public fotoEvento = "";
 
   constructor(private ruta: Router, private seleccionService: SeleccionService) { }
+
+  ngOnInit(){
+    this.fotoEvento= 'http://localhost/domino_api/public/assets/img/eventos/' + this.evento?.imagen;
+  }
 
   estado() {
     switch (this.evento?.estado) {
@@ -21,11 +26,5 @@ export class EventoDetailsComponent  {
       default: return "Sin estado"; break;
     }
   }
-
-  // seleccionarEvento(){
-  //   if (this.evento!==undefined)
-  //     this.seleccionService.setEventoSeleccionado(this.evento);
-  //   this.ruta.navigateByUrl('eventDetails');
-  // }
 
 }

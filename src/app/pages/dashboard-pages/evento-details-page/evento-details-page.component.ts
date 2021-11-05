@@ -14,7 +14,7 @@ export class EventoDetailsPageComponent implements OnInit {
   constructor(private seleccionService: SeleccionService) {}
 
   ngOnInit(): void {
-    this.subscribeSelectionService = this.seleccionService.channel.subscribe(
+    this.subscribeSelectionService = this.seleccionService.channelEvent.subscribe(
       (evento) => {
         this.eventoSeleccionado = evento;
       }

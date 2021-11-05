@@ -46,7 +46,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatSortModule,
     MatButtonModule,
     MatButtonToggleModule,
-    MatDatepickerModule
+    MatDatepickerModule,
   ],
   exports: [
     MatCardModule,
@@ -70,7 +70,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatSortModule,
     MatButtonModule,
     MatButtonToggleModule,
-    MatDatepickerModule
+    MatDatepickerModule,
   ],
 })
 export class MaterialModule {}

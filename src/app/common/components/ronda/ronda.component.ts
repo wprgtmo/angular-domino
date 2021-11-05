@@ -22,7 +22,7 @@ export class RondaComponent implements OnInit {
   constructor(private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
 
   ngOnInit(): void {
-    this.subscribeSelectionService= this.seleccionService.channel.subscribe((evento)=>{this.eventoSeleccionado = evento;});
+    this.subscribeSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{this.eventoSeleccionado = evento;});
     // this.subscribeDominoApiService= this.dominoApiService.getRondaNueva(((this.eventoSeleccionado === undefined) ? "0" : this.eventoSeleccionado?.id).toString()).subscribe((ronda) => {
     //   console.log(ronda);
     //   this.ronda = ronda;

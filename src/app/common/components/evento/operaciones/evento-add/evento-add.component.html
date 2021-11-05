@@ -1,4 +1,5 @@
 <form class="frm" [formGroup]="eventoAddFrm!" (ngSubmit)="onClick()">
+    <div class="titulo">Nuevo evento</div>
   <mat-form-field appearance="outline" class="datos">
     <mat-label>Nombre</mat-label>
     <input matInput required placeholder="Nombre del evento" formControlName="nombre" />
@@ -29,4 +30,5 @@
   <button mat-raised-button color="primary" [disabled]="loading">
     {{ loading ? "Creando evento... " : "Crear evento" }}
   </button>
+
 </form>

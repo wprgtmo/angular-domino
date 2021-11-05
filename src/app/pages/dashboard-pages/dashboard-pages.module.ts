@@ -15,6 +15,7 @@ import { RondaPageComponent } from './ronda-page/ronda-page.component';
 import { MesaPageComponent } from './mesa-page/mesa-page.component';
 import { ParejaPageComponent } from './pareja-page/pareja-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ParejaAddPageComponent } from './pareja-add-page/pareja-add-page.component';
 
 
 
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RondaPageComponent,
     MesaPageComponent,
     ParejaPageComponent,
+    ParejaAddPageComponent,
   ],
   imports: [
     CommonModule,

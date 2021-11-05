@@ -1,5 +1,6 @@
 import { IRonda } from './../../../models/ronda.interface';
 import { Component, Input, OnInit } from '@angular/core';
+import { SeleccionService } from 'src/app/common/services/seleccion.service';
 
 @Component({
   selector: 'app-ronda-toolbar',
@@ -12,15 +13,14 @@ export class RondaToolbarComponent implements OnInit {
   ronda_activa= 50;
   // (this.rondas==undefined)? 0 : this.rondas[0]?.id
 
-  constructor() { }
+  constructor(private seleccionService: SeleccionService) { }
 
   ngOnInit(): void {
   }
 
 
-  changeRonda(){
-    console.log("Change Rondas...");
-
+  changeRonda(evento:any){
+    this.seleccionService.setRondaIdSeleccionada(evento.value);
   }
 
 }

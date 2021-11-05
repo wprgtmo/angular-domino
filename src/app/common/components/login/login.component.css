@@ -25,6 +25,9 @@ mat-card button {
   margin: .5em;
   border: 1px ;
   height: 50px;
-  
+}
+
+mat-card-actions{
+  text-align: center;
 }
 

@@ -10,6 +10,10 @@ mat-card{
   padding: 1rem;
 }
 
+.rondaActiva{
+  border: 3px darkgreen  solid ;
+}
+
 mat-card-header{
   margin: auto;
   display: inline;

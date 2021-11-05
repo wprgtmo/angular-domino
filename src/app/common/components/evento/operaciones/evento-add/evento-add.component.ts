@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { IEvento } from 'src/app/common/models/evento.interface';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-evento-add',
@@ -42,10 +43,10 @@ export class EventoAddComponent {
       this.loading= true;
       const frmData= new FormData();
       frmData.append('imagen', this.archivo);
-      frmData.append('nombre', this.eventoAddFrm?.get('nombre')?.value); //this.eventoAddFrm?.value
-      frmData.append('comentario', this.eventoAddFrm?.get('comentario')?.value); //this.eventoAddFrm?.value
-      frmData.append('fecha_inicio', this.eventoAddFrm?.get('fecha_inicio')?.value); //this.eventoAddFrm?.value
-      frmData.append('fecha_cierre', this.eventoAddFrm?.get('fecha_cierre')?.value); //this.eventoAddFrm?.value
+      frmData.append('nombre', this.eventoAddFrm?.get('nombre')?.value);
+      frmData.append('comentario', this.eventoAddFrm?.get('comentario')?.value);
+      frmData.append('fecha_inicio', this.eventoAddFrm?.get('fecha_inicio')?.value);
+      frmData.append('fecha_cierre', this.eventoAddFrm?.get('fecha_cierre')?.value);
       console.log(frmData);
 
       this.dominoApiService

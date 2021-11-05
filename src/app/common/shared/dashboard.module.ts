@@ -1,3 +1,4 @@
+import { ParejaAddComponent } from './../components/pareja/pareja-add/pareja-add.component';
 import { EventoAddComponent } from './../components/evento/operaciones/evento-add/evento-add.component';
 import { EventoDetailsComponent } from './../components/evento/operaciones/evento-details/evento-details.component';
 import { ParejaToolbarComponent } from './../components/pareja/pareja-toolbar/pareja-toolbar.component';
@@ -39,7 +40,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ParejaComponent,
     ParejaToolbarComponent,
     EventoDetailsComponent,
-    EventoAddComponent
+    EventoAddComponent,
+    ParejaAddComponent
   ],
 
   imports: [CommonModule, RouterModule, MaterialModule, ReactiveFormsModule],
@@ -60,7 +62,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ParejaComponent,
     ParejaToolbarComponent,
     EventoDetailsComponent,
-    EventoAddComponent
+    EventoAddComponent,
+    ParejaAddComponent
   ],
 })
 export class DashboardModule {}

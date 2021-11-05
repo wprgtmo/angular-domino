@@ -6,17 +6,29 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SeleccionService {
-  private subject = new BehaviorSubject(<IEvento>{});
-  channel = this.subject.asObservable();
+  private subjectEvent = new BehaviorSubject(<IEvento>{});
+  channelEvent = this.subjectEvent.asObservable();
+
+  private subjectRonda = new BehaviorSubject(<String>{});
+  channelRonda = this.subjectRonda.asObservable();
 
   constructor() { }
 
   public setEventoSeleccionado(evento: IEvento): void {
-      this.subject.next(evento);
+      this.subjectEvent.next(evento);
   }
 
   public getEventoSeleccionado(): IEvento{
-    return this.subject.getValue();
+    return this.subjectEvent.getValue();
+  }
+
+
+  public setRondaIdSeleccionada(ronda_id: string): void {
+      this.subjectRonda.next(ronda_id);
+  }
+
+  public getRondaIdSeleccionada(): String{
+    return this.subjectRonda.getValue();
   }
 
 

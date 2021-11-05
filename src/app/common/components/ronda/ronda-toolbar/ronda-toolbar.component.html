@@ -1,6 +1,6 @@
 <mat-toolbar>
-  <mat-select placeholder="Ronda"  [(value)]="ronda_activa" (selectionChange)="changeRonda()">
-      <mat-option *ngFor="let ronda of rondas" [value]="ronda.id" >{{ronda.comentario}} </mat-option>
+  <mat-select placeholder="Ronda"  [(value)]="ronda_activa" (selectionChange)="changeRonda($event)">
+      <mat-option *ngFor="let ronda of rondas" [value]="ronda.id" >{{ronda.comentario}}</mat-option>
   </mat-select>
   <span class="spacer"></span>
   <!-- Botones que se muestran en el estado Iniciado  [hidden]="mostrarEstadoIniciado()"-->
