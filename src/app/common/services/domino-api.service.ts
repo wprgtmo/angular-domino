@@ -7,9 +7,9 @@ import { IEventoRespuesta } from '../models/respuestas/evento-respuesta.interfac
 import { IRondaNuevaRespuesta } from '../models/respuestas/ronda-nueva-respuesta.interface';
 import { IRondasRespuesta } from '../models/respuestas/rondas-respuesta.interface';
 import { IBoletasRespuesta } from '../models/respuestas/boletas-respuesta.interface';
+import { IBoletasCompletaRespuesta } from '../models/respuestas/boletas-completa-respuesta.interface';
 import { IMesasRespuesta } from '../models/respuestas/mesas-respuesta.interface';
 import { IParejasRespuesta } from '../models/respuestas/parejas-respuesta.interface';
-import { IEvento } from '../models/evento.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,11 @@ export class DominoApiService {
 
   getBoletas(evento_id: string, ronda_id: string): Observable<IBoletasRespuesta>{
     return this.http_API.post<IBoletasRespuesta>(PathRest.GET_BOLETAS, {"evento_id": evento_id, "ronda_id": ronda_id});
+  }
+
+
+  getBoletasCompleta(evento_id: string, ronda_id: string): Observable<IBoletasCompletaRespuesta>{
+    return this.http_API.post<IBoletasCompletaRespuesta>(PathRest.GET_BOLETAS, {"evento_id": evento_id, "ronda_id": ronda_id});
   }
 
   getMesas(evento_id: string): Observable<IMesasRespuesta>{

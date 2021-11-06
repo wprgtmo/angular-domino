@@ -29,7 +29,7 @@
 
 .celda-mesa{
   background-color: brown;
-  border: dimgray 3px solid;
+  border: dimgray 1px solid;
   border-radius: 10%;
   display: flex;
   align-items: center;
