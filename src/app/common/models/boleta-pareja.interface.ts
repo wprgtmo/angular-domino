@@ -9,7 +9,7 @@ export interface IBoletaPareja {
   ganador   : number,
   inicio    : Date,
   duracion  : Date,
-  pareja?   : IPareja[];
+  pareja?   : IPareja;
 }
 
 

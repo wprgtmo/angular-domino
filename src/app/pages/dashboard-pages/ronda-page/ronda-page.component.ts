@@ -1,3 +1,4 @@
+import { IBoletaCompleta } from './../../../common/models/boleta-completa.interface';
 import { IRonda } from './../../../common/models/ronda.interface';
 import { IBoleta } from './../../../common/models/boleta.interface';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,7 @@ export class RondaPageComponent implements OnInit {
   private subscribeEventoSelectionService: Subscription | undefined;
   private subscribeRondaSelectionService: Subscription | undefined;
   public listaRondas?: IRonda[];
-  public listaBoletas?: IBoleta[];
+  public listaBoletas?: IBoletaCompleta[];
   private eventoSeleccionado?: IEvento;
   public rondaActiva?: IRonda;
   public rondaSeleccionadaId?: String;
@@ -49,8 +50,8 @@ export class RondaPageComponent implements OnInit {
 
   actualizarBoletas(ronda_id: String){
     let evento_seleccionado= (this.eventoSeleccionado === undefined) ? 0 : this.eventoSeleccionado?.id;
-    this.subscribeBoletasDominoApiService= this.dominoApiService.getBoletas(evento_seleccionado.toString(), ronda_id.toString()).subscribe((boletaRespuesta) => {
-      this.listaBoletas = boletaRespuesta.boletas.sort((b1, b2)=> b1.mesa_id - b2.mesa_id);
+    this.subscribeBoletasDominoApiService= this.dominoApiService.getBoletasCompleta(evento_seleccionado.toString(), ronda_id.toString()).subscribe((boletaRespuesta) => {
+       this.listaBoletas = boletaRespuesta.boletas.sort((b1, b2)=> b1.mesa_id - b2.mesa_id);
     })
   }
 

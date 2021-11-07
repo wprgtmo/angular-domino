@@ -1,3 +1,5 @@
+import { IRonda } from './ronda.interface';
+import { IMesa } from './mesa.interface';
 import { IBoletaPareja } from "./boleta-pareja.interface";
 
 export interface IBoletaCompleta {
@@ -7,6 +9,8 @@ export interface IBoletaCompleta {
   mesa_id         : number;
   es_valida       : boolean;
   fecha_registro  : Date;
+  ronda           : IRonda;
+  mesa            : IMesa;
   boleta_parejas  : IBoletaPareja[];
 }
 

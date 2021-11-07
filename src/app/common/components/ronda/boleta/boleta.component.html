@@ -1,19 +1,24 @@
 <div class="mesa">
   <div class="celda-vacia"></div>
   <div class="celda-jugador">
-      <img src="./assets/ggdd.jpg" alt="" class="jugador">
+      <img src={{foto(0)}} alt="" class="foto-jugador">
+      <div class="datos-jugador">{{jugador![0].alias}}</div>
   </div>
   <div class="celda-vacia"></div>
   <div class="celda-jugador">
-      <img src="./assets/ggdd.jpg" alt="" class="jugador">
+      <img src={{foto(2)}} alt="" class="foto-jugador">
+      <div class="datos-jugador">{{jugador![2].alias}}</div>
   </div>
-  <div class="celda-mesa">mesa {{boleta?.mesa_id}}</div>
+  <div class="celda-mesa">mesa: {{boleta?.mesa?.numero}}</div>
+
   <div class="celda-jugador">
-      <img src="./assets/ggdd.jpg" alt="" class="jugador">
+      <img src={{foto(1)}} alt="" class="foto-jugador">
+      <div class="datos-jugador">{{jugador![1].alias}}</div>
   </div>
   <div class="celda-vacia"></div>
   <div class="celda-jugador">
-      <img src="./assets/ggdd.jpg" alt="" class="jugador">
+      <img src={{foto(3)}} alt="" class="foto-jugador">
+      <div class="datos-jugador">{{jugador![3].alias}}</div>
   </div>
   <div class="celda-vacia"></div>
 </div>
