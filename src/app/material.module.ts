@@ -1,3 +1,4 @@
+import { Moment } from 'moment/moment';
 import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,6 +22,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatSortModule,
     MatButtonModule,
     MatButtonToggleModule,
+    MatMomentDateModule,
     MatDatepickerModule,
   ],
   exports: [
@@ -70,6 +73,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatSortModule,
     MatButtonModule,
     MatButtonToggleModule,
+    MatMomentDateModule,
     MatDatepickerModule,
   ],
 })

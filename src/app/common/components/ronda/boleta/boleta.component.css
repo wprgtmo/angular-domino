@@ -1,3 +1,16 @@
+.boleta{
+  width: 370px;
+  height: 550px;
+  border: 1px solid darkcyan;
+  box-shadow: 3px 3px 3px darkgray;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3px;
+  margin: 10px;
+
+}
+
 .mesa{
   width: 350px;
   height: 350px;
@@ -9,6 +22,16 @@
   grid-template-rows: repeat(3, 1fr);
   gap: 3px;
   margin: 10px;
+}
+
+.datos_boleta{
+  width: 350px;
+  height: 150px;
+  border: 1px solid darkblue;
+  box-shadow: 3px 3px 3px darkgray;
+  border-radius: 10px;
+  margin: auto;
+  text-align: center;
 }
 
 
@@ -34,12 +57,18 @@
 .datos-jugador{
   text-align: center;
   font-size: xx-small;
+  font-weight: bold;
   position: absolute;
   top: 5px;
 }
 
-
-
+.datos-pareja{
+  text-align: center;
+  font-size: xx-small;
+  font-weight: bold;
+  position: absolute;
+  bottom: 5px;
+}
 
 .celda-mesa{
   background-color: darkgray;

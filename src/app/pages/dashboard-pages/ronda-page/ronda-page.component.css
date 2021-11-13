@@ -1,17 +1,25 @@
 .grid{
-  /* display: grid;
-  grid-template-columns: repeat(5, 3fr);
-  gap: 3rem;
-  padding: .5rem; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-items: center;
+}
 
-
-  /* display: flex; */
+.titulo{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-items: center;
   align-items: center;
 
+  margin-left: 1em;
+  font-size: x-large;
+}
+
+.spacer {
+  flex: 1 1 auto;
+  padding-right: 2em;
 }
 
 

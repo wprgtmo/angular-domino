@@ -9,7 +9,7 @@ export class SeleccionService {
   private subjectEvent = new BehaviorSubject(<IEvento>{});
   channelEvent = this.subjectEvent.asObservable();
 
-  private subjectRonda = new BehaviorSubject(<String>{});
+  private subjectRonda = new BehaviorSubject(<number>{});
   channelRonda = this.subjectRonda.asObservable();
 
   constructor() { }
@@ -23,11 +23,11 @@ export class SeleccionService {
   }
 
 
-  public setRondaIdSeleccionada(ronda_id: string): void {
+  public setRondaIdSeleccionada(ronda_id: number): void {
       this.subjectRonda.next(ronda_id);
   }
 
-  public getRondaIdSeleccionada(): String{
+  public getRondaIdSeleccionada(): number{
     return this.subjectRonda.getValue();
   }
 
