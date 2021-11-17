@@ -4,14 +4,10 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="eventsCard">Eventos</a>
-      <a mat-list-item href="jugadores">Jugadores</a>
-      <a mat-list-item href="estadisticas">Estadisticas</a>
-    </mat-nav-list>
+    <app-menu></app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="sombra">
       <button
         type="button"
         aria-label="Toggle sidenav"

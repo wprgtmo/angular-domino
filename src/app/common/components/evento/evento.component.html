@@ -9,8 +9,8 @@
     </mat-card-content>
 
     <mat-card-footer>
-      Desde: {{evento?.fecha_inicio }} hasta {{evento?.fecha_cierre}}
-      Ciudad: {{evento?.ciudad_id}}
+      Desde: {{evento?.fecha_inicio | date }} <br/> Hasta: {{evento?.fecha_cierre | date}}
+      <!-- Ciudad: {{evento?.ciudad_id}} -->
     </mat-card-footer>
 </mat-card>
 

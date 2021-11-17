@@ -1,10 +1,31 @@
 <mat-toolbar>
-    <span>Eventos</span>
-    <span class="spacer"></span>
-    <button mat-icon-button class="mat-icons-outlined" matTooltip="Nuevo evento" aria-label="Adicionar evento" (click)="addEvento()">
-      <mat-icon>add_to_photos</mat-icon>
-    </button>
-    <button mat-icon-button class="mat-icons-outlined" (click)="viewEvent()">
-      <mat-icon>{{ isLista ? "view_module_white" : "view_list_white" }}</mat-icon>
-    </button>
+  <span>Eventos</span>
+  <span class="spacer"></span>
+  <button
+    mat-icon-button
+    class="mat-icons-outlined mat-raised-button"
+    matTooltip="Nuevo evento"
+    aria-label="Adicionar evento"
+    (click)="addEvento()"
+  >
+    <mat-icon class="mat-icon">add_to_photos</mat-icon>
+  </button>
+  <button mat-icon-button class="mat-icons-outlined mat-raised-button"
+  (click)="viewEvent()">
+    <mat-icon>{{ isLista ? "view_module_white" : "view_list_white" }}</mat-icon>
+  </button>
+  <!-- <mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle value="matCardImage" aria-label="Creados">
+      <mat-icon>format_align_left</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="I" aria-label="Iniciados">
+      <mat-icon>format_align_center</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="F" aria-label="Finalizados">
+      <mat-icon>format_align_right</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="T" aria-label="Todos">
+      <mat-icon>format_align_justify</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group> -->
 </mat-toolbar>
