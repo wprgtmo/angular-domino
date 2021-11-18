@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pareja-toolbar.component.css']
 })
 export class ParejaToolbarComponent implements OnInit {
-
+  isLista = false;
   constructor(private ruta: Router) { }
 
   ngOnInit(): void {
@@ -15,6 +15,11 @@ export class ParejaToolbarComponent implements OnInit {
 
   parejaAdd(){
     this.ruta.navigateByUrl("parejaAdd");
+  }
+
+  viewPareja(): void {
+    this.ruta.navigateByUrl((this.isLista)?"eventsCard":"eventsList");
+    this.isLista=!this.isLista;
   }
 
 }

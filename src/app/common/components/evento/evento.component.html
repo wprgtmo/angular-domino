@@ -1,4 +1,4 @@
-<mat-card (click)="seleccionarEvento()" >
+<mat-card (click)="seleccionarEvento()" [class]="evento?.estado" >
     <mat-card-header>
         <mat-card-title>{{evento?.nombre}}</mat-card-title>
         <mat-card-subtitle>{{evento?.comentario}}</mat-card-subtitle>

@@ -1,5 +1,5 @@
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
-import { IJugador } from './../../../common/models/jugador.interface';
+import { IJugador } from '../../../../common/models/jugador.interface';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 

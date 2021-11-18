@@ -1,0 +1,28 @@
+<!-- [formGroup]="parejaAddFrm" -->
+
+<form class="frm" [formGroup]="parejaAddFrm!" (ngSubmit)="onClick()">
+  <div class="titulo">Nueva pareja</div>
+  <mat-form-field appearance="outline" class="datos">
+    <mat-label>Jugador1</mat-label>
+    <mat-select name="jugador1" formControlName="jugador1" (selectionChange)="jugador1Change($event)">
+      <mat-option *ngFor="let jugador of jugadores" [value]="jugador">
+        {{ jugador.nombre }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="datos">
+    <mat-label>Jugador2</mat-label>
+    <mat-select name="jugador2" formControlName="jugador2" (selectionChange)="jugador2Change($event)">
+      <mat-option *ngFor="let jugador of jugadores" [value]="jugador">
+        {{ jugador.nombre }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="datos">
+    <mat-label>Nombre</mat-label>
+    <input matInput required placeholder="Nombre de la pareja" formControlName="nombre" #nombrePareja />
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="loading">
+    {{ loading ? "Creando pareja... " : "Crear pareja" }}
+  </button>
+</form>

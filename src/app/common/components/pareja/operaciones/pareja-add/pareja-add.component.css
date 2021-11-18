@@ -1,7 +1,7 @@
 .frm{
   min-width: 300px;
-  min-height: 550px;
-  max-width: 400px;
+  min-height: 350px;
+  max-width: 300px;
   margin: auto;
   border: 2px darkgrey solid ;
   text-align: center;
@@ -12,7 +12,7 @@
   font-size: x-large;
   font-weight: 200;
   color: #3f51b5;
-  margin: 10px auto;
+  margin: 30px auto;
 
 }
 
@@ -21,7 +21,6 @@
   display: block;
   width: 80%;
   margin: auto;
-  /* margin-top: 2em; */
 }
 
 .preview{

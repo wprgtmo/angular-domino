@@ -1,9 +1,13 @@
-<mat-toolbar>
+<mat-toolbar class="sombra">
     Parejas
   <span class="spacer"></span>
   <!-- Botones que se muestran en el estado Iniciado  [hidden]="mostrarEstadoIniciado()"-->
     <button mat-icon-button class="mat-icons-outlined" matTooltip="Nueva pareja" aria-label="Nueva pareja" (click)="parejaAdd()">
       <mat-icon>group_add</mat-icon>
+    </button>
+    <button mat-icon-button class="mat-icons-outlined"
+    (click)="viewPareja()">
+      <mat-icon>{{ isLista ? "view_module_white" : "view_list_white" }}</mat-icon>
     </button>
 </mat-toolbar>
 

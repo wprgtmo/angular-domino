@@ -1,4 +1,4 @@
-import { IPareja } from './../../../common/models/pareja.interface';
+import { IPareja } from '../../../../common/models/pareja.interface';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';

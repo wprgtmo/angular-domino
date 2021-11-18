@@ -35,3 +35,15 @@ img {
     text-transform: capitalize;
   }
 
+  .C{
+    border: 3px darkblue  solid ;
+  }
+
+  .I{
+    border: 3px darkgreen  solid ;
+  }
+
+  .F{
+    border: 3px darkred  solid ;
+  }
+

@@ -5,11 +5,12 @@
       <mat-card-subtitle>{{evento?.comentario}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-     Estado: {{estado()}}
+    <p>Estado: {{estado()}}</p>
+    <p>{{detalleEstado()}} </p>
   </mat-card-content>
   <mat-card-footer>
-    Desde: {{evento?.fecha_inicio }} hasta {{evento?.fecha_cierre}}
-    Ciudad: {{evento?.ciudad_id}}
+    <p>Desde: {{evento?.fecha_inicio | date}}</p>
+    <p>Hasta: {{evento?.fecha_cierre | date}}</p>
   </mat-card-footer>
 </mat-card>
 

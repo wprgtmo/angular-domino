@@ -20,9 +20,18 @@ export class EventoDetailsComponent implements OnInit {
 
   estado() {
     switch (this.evento?.estado) {
-      case "C": return "Creado (Puede crear las parejas y asociar los jugadores) "; break;
-      case "I": return "Iniciado (Puede asignar las mesas y jugar las rondas)"; break;
-      case "F": return "Finalizado (Cerrado el evento, puede ver los resultados)"; break;
+      case "C": return "Creado"; break;
+      case "I": return "Iniciado"; break;
+      case "F": return "Finalizado"; break;
+      default: return "Sin estado"; break;
+    }
+  }
+
+  detalleEstado() {
+    switch (this.evento?.estado) {
+      case "C": return "Puede crear las parejas y asociar los jugadores"; break;
+      case "I": return "Puede asignar las mesas y jugar las rondas"; break;
+      case "F": return "Cerrado el evento, puede ver los resultados"; break;
       default: return "Sin estado"; break;
     }
   }

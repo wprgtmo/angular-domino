@@ -1,6 +1,5 @@
-import { IJugador } from './../../../common/models/jugador.interface';
+import { IJugador } from '../../../../common/models/jugador.interface';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 import { MatTableDataSource } from "@angular/material/table";

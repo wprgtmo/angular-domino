@@ -1,5 +1,5 @@
-import { IBoletaCompleta } from './../../../common/models/boleta-completa.interface';
-import { IRonda } from './../../../common/models/ronda.interface';
+import { IBoletaCompleta } from '../../../../common/models/boleta-completa.interface';
+import { IRonda } from '../../../../common/models/ronda.interface';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IEvento } from 'src/app/common/models/evento.interface';

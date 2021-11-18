@@ -10,6 +10,7 @@ import { IBoletasRespuesta } from '../models/respuestas/boletas-respuesta.interf
 import { IBoletasCompletaRespuesta } from '../models/respuestas/boletas-completa-respuesta.interface';
 import { IMesasRespuesta } from '../models/respuestas/mesas-respuesta.interface';
 import { IParejasRespuesta } from '../models/respuestas/parejas-respuesta.interface';
+import { IPareja } from '../models/pareja.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -59,5 +60,8 @@ export class DominoApiService {
     return this.http_API.post<IParejasRespuesta>(PathRest.GET_PAREJAS, {"evento_id": evento_id});
   }
 
+  newPareja(datosPareja: FormData):Observable<IPareja>{
+    return this.http_API.post<IPareja>(PathRest.NEW_PAREJA, datosPareja);
+  }
 
 }
