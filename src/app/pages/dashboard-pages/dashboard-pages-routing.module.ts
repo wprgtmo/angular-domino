@@ -1,3 +1,4 @@
+import { ParejaListPageComponent } from './pareja/pareja-list-page/pareja-list-page.component';
 import { ParejaAddPageComponent } from './pareja/pareja-add-page/pareja-add-page.component';
 import { ParejaPageComponent } from './pareja/pareja-page/pareja-page.component';
 import { MesaPageComponent } from './mesa-page/mesa-page.component';
@@ -12,6 +13,7 @@ import { EventoAddPageComponent } from './evento/evento-add-page/evento-add-page
 import { EventoListPageComponent } from './evento/evento-list-page/evento-list-page.component';
 import { JugadorAddPageComponent } from './jugador/jugador-add-page/jugador-add-page.component';
 import { JugadorListPageComponent } from './jugador/jugador-list-page/jugador-list-page.component';
+import { ParejaEditPageComponent } from './pareja/pareja-edit-page/pareja-edit-page.component';
 
 const routes: Routes = [
   {
@@ -45,6 +47,14 @@ const routes: Routes = [
         {
           path: 'parejaAdd',
           component: ParejaAddPageComponent
+        },
+        {
+          path: 'parejaList',
+          component: ParejaListPageComponent
+        },
+        {
+          path: 'parejaEdit',
+          component: ParejaEditPageComponent
         },
         {
           path: 'mesas',

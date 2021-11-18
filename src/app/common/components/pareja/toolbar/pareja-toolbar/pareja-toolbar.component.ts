@@ -18,7 +18,7 @@ export class ParejaToolbarComponent implements OnInit {
   }
 
   viewPareja(): void {
-    this.ruta.navigateByUrl((this.isLista)?"eventsCard":"eventsList");
+    this.ruta.navigateByUrl((this.isLista)?"parejas":"parejaList");
     this.isLista=!this.isLista;
   }
 

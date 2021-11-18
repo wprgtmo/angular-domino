@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { IEvento } from 'src/app/common/models/evento.interface';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 
-import {MatTableDataSource} from "@angular/material/table";
+import { MatTableDataSource } from "@angular/material/table";
 
 
 @Component({
