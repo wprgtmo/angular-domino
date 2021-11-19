@@ -17,10 +17,11 @@ mat-card-header{
 }
 
 img {
-  width: 50%;
+  width: 150px;
+  height: 150px;
   margin: auto;
   padding-top: 20px;
-  border-radius: 10%;
+  border-radius: 50%;
 }
 
 mat-form-field{
@@ -36,5 +37,18 @@ mat-card button {
 
 .fecha{
   text-transform: capitalize;
+}
+
+
+.C{
+  border: 3px darkblue  solid ;
+}
+
+.I{
+  border: 3px darkgreen  solid ;
+}
+
+.F{
+  border: 3px darkred  solid ;
 }
 

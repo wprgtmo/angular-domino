@@ -72,11 +72,18 @@ export class EventoDetailsToolbarComponent implements OnInit {
   parejas() {
     this.ruta.navigateByUrl('parejas');
   }
+  
+  iniciarEvento(){
+    this.dominoApiService.iniciarEvento(this.eventoSeleccionado!.id.toString()).subscribe((datos)=>{
+      console.log(datos);
+      this.ruta.navigateByUrl('eventsCard');
+    })
+  }
 
   eliminarEvento(){
     this.dominoApiService.delEvento(this.eventoSeleccionado!.id.toString()).subscribe((datos)=>{
       console.log(datos);
       this.ruta.navigateByUrl('eventsCard');
     })
-  }
+  }  
 }

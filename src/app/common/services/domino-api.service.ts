@@ -27,6 +27,10 @@ export class DominoApiService {
     return this.http_API.post<IEventoRespuesta>(PathRest.NEW_EVENTO, datosEvento);
   }
 
+  iniciarEvento(evento_id: string):Observable<IEventoRespuesta>{
+    return this.http_API.post<IEventoRespuesta>(PathRest.INIT_EVENTO, {"evento_id": evento_id});
+  }
+
   delEvento(evento_id: string):Observable<IEventoRespuesta>{
     return this.http_API.delete<IEventoRespuesta>(PathRest.DEL_EVENTO+'/'+evento_id);
   }

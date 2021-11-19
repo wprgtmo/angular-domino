@@ -1,9 +1,9 @@
- <mat-card  > <!-- (click)="seleccionarEvento()" -->
-  <img matCardImage src={{fotoEvento}}>
+ <mat-card  [class]="evento?.estado"> <!-- (click)="seleccionarEvento()" -->
   <mat-card-header>
       <mat-card-title>{{evento?.nombre}}</mat-card-title>
       <mat-card-subtitle>{{evento?.comentario}}</mat-card-subtitle>
   </mat-card-header>
+  <img matCardImage src={{fotoEvento}}>
   <mat-card-content>
     <p>Estado: {{estado()}}</p>
     <p>{{detalleEstado()}} </p>
