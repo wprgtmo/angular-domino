@@ -2,7 +2,7 @@
     Parejas
   <span class="spacer"></span>
   <!-- Botones que se muestran en el estado Iniciado  [hidden]="mostrarEstadoIniciado()"-->
-    <button mat-icon-button class="mat-icons-outlined" matTooltip="Nueva pareja" aria-label="Nueva pareja" (click)="parejaAdd()">
+    <button *ngIf="mostrarAdd()" mat-icon-button class="mat-icons-outlined" matTooltip="Nueva pareja" aria-label="Nueva pareja" (click)="parejaAdd()">
       <mat-icon>group_add</mat-icon>
     </button>
     <button mat-icon-button class="mat-icons-outlined" (click)="viewPareja()" matTooltip={{view[mostrandoLista()].tooltip}} >

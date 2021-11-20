@@ -23,33 +23,27 @@ export class RondaPageComponent implements OnInit {
   public rondaActiva?: IRonda;
   public rondaSeleccionadaId?: number;
 
-  constructor(
-    private seleccionService: SeleccionService,
-    private dominoApiService: DominoApiService
-  ) {}
+  constructor(private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
 
   ngOnInit(): void {
     moment.locale('es-ES');
-    this.subscribeEventoSelectionService =
-      this.seleccionService.channelEvent.subscribe((evento) => {
+    this.subscribeEventoSelectionService = this.seleccionService.channelEvent.subscribe((evento) => {
         this.eventoSeleccionado = evento;
       });
 
-    let evento_seleccionado =
-      this.eventoSeleccionado === undefined ? 0 : this.eventoSeleccionado?.id;
+    let evento_seleccionado = this.eventoSeleccionado === undefined ? 0 : this.eventoSeleccionado?.id;
 
-    this.subscribeRondasDominoApiService = this.dominoApiService
-      .getRondas(evento_seleccionado.toString())
-      .subscribe((rondasRespuesta) => {
+    this.subscribeRondasDominoApiService = this.dominoApiService.getRondas(evento_seleccionado.toString()).subscribe((rondasRespuesta) => {
         this.listaRondas = rondasRespuesta.rondas;
-        this.rondaActiva = this.listaRondas.find(
-          (ronda) => ronda.cerrada == false
-        );
-
-        let ronda_id =
-          this.rondaActiva !== undefined ? this.rondaActiva?.id : -1;
-        this.rondaSeleccionadaId = ronda_id;
-        this.seleccionService.setRondaIdSeleccionada(ronda_id);
+        if (this.listaRondas.length > 0) {
+          this.rondaActiva = this.listaRondas.find((ronda) => ronda.cerrada == false);
+          let ronda_id = this.rondaActiva !== undefined ? this.rondaActiva?.id : -1;
+          this.rondaSeleccionadaId = ronda_id;
+          this.seleccionService.setRondaIdSeleccionada(ronda_id);
+        } else {
+          this.rondaActiva = undefined;
+        }
+        
       });
 
     this.subscribeRondaSelectionService =
@@ -86,7 +80,7 @@ export class RondaPageComponent implements OnInit {
   }
 
   duracionRonda(): string {
-    let tiempo= moment.duration(this.rondaActiva!.duracion, 'seconds');
+    let tiempo = moment.duration(this.rondaActiva?.duracion, 'seconds');
 
     return tiempo.humanize().toString()
   }

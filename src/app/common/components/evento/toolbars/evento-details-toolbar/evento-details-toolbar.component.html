@@ -3,13 +3,13 @@
     <span class="spacer"></span>
     <!-- Botones que se muestran en el estado Creado [hidden]="mostrarEstadoCreado()" update_white, schedule_white, highlight_off_white-->
 
-      <button mat-icon-button class="mat-icons-outlined" matTooltip="Iniciar evento" aria-label="Iniciar evento" (click)="iniciarEvento()">
+      <button *ngIf="mostrarIniciar()" mat-icon-button class="mat-icons-outlined" matTooltip="Iniciar evento" aria-label="Iniciar evento" (click)="iniciarEvento()">
         <mat-icon>event</mat-icon>
       </button>
-      <button mat-icon-button class="mat-icons-outlined" matTooltip="Finalizar evento" aria-label="Finalizar evento">
+      <button *ngIf="mostrarFinalizar()" mat-icon-button class="mat-icons-outlined" matTooltip="Finalizar evento" aria-label="Finalizar evento" (click)="finalizarEvento()">
         <mat-icon>event_available</mat-icon>
       </button>
-      <button mat-icon-button class="mat-icons-outlined" matTooltip="Eliminar evento" aria-label="Eliminar evento" (click)="eliminarEvento()">
+      <button *ngIf="mostrarEliminar()" mat-icon-button class="mat-icons-outlined" matTooltip="Eliminar evento" aria-label="Eliminar evento" (click)="eliminarEvento()">
         <mat-icon>event_busy</mat-icon>
       </button>
     <span>|</span>

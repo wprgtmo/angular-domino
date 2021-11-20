@@ -4,7 +4,7 @@
   </mat-select>
   <span class="spacer"></span>
   <!-- Botones que se muestran en el estado Iniciado  [hidden]="mostrarEstadoIniciado()"-->
-    <button mat-icon-button class="mat-icons-outlined" matTooltip="Nueva ronda" aria-label="Nueva ronda" >
+    <button mat-icon-button class="mat-icons-outlined" matTooltip="Nueva ronda" aria-label="Nueva ronda" (click)="nuevaRonda()" >
       <mat-icon>alarm_add_white</mat-icon>
     </button>
     <button mat-icon-button class="mat-icons-outlined" matTooltip="Cerrar ronda" aria-label="Cerrar ronda">

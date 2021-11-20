@@ -20,7 +20,6 @@ export class EventoDetailsToolbarComponent implements OnInit {
   ngOnInit(): void {
     this.subscribeSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{
       this.eventoSeleccionado = evento;
-      this.mostrarEvento();
     });
  }
 
@@ -29,28 +28,19 @@ export class EventoDetailsToolbarComponent implements OnInit {
  }
 
 
-  mostrarEvento() {
-    if (this.eventoSeleccionado!==undefined){
-      this.mostrarEstadoCreado();
-      this.mostrarEstadoIniciado()
-      this.mostrarEstadoFinalizado();
-    }
 
 
+  mostrarIniciar() {
+    return (this.eventoSeleccionado?.estado == 'C');
   }
 
-  mostrarEstadoCreado() {
-    return !(this.eventoSeleccionado?.estado == 'C');
+  mostrarFinalizar() {
+    return (this.eventoSeleccionado?.estado == 'I');
   }
 
-  mostrarEstadoIniciado() {
-    return !(this.eventoSeleccionado?.estado == 'I');
+  mostrarEliminar() {
+    return (this.eventoSeleccionado?.estado == 'F');
   }
-
-  mostrarEstadoFinalizado() {
-    return !(this.eventoSeleccionado?.estado == 'F');
-  }
-
 
   estado() {
     switch (this.eventoSeleccionado?.estado) {
@@ -79,6 +69,13 @@ export class EventoDetailsToolbarComponent implements OnInit {
       this.ruta.navigateByUrl('eventsCard');
     })
   }
+
+  finalizarEvento(){
+    this.dominoApiService.finalizarEvento(this.eventoSeleccionado!.id.toString()).subscribe((datos)=>{
+      console.log(datos);
+      this.ruta.navigateByUrl('eventsCard');
+    })
+  }  
 
   eliminarEvento(){
     this.dominoApiService.delEvento(this.eventoSeleccionado!.id.toString()).subscribe((datos)=>{
