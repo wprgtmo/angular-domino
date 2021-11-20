@@ -1,14 +1,12 @@
 <mat-toolbar>
   <span>Jugadores</span>
   <span class="spacer"></span>
-  <button mat-icon-button class="mat-icons-outlined" matTooltip="Nuevo jugador" aria-label="Adicionar jugador" (click)="addJugador()">
+  <button mat-icon-button class="mat-icons-outlined" matTooltip="Nuevo jugador" aria-label="Adicionar jugador"
+    (click)="addJugador()">
     <!-- <mat-icon>note_add_white</mat-icon> -->
     <mat-icon>add_to_photos</mat-icon>
   </button>
-  <button *ngIf="isLista" mat-icon-button  class="mat-icons-outlined" matTooltip="Ver como tabla" aria-label="Ver como tabla" (click)="viewJugadorList()">
-    <mat-icon>view_list_white</mat-icon>
-  </button>
-  <button *ngIf="isCard" mat-icon-button  class="mat-icons-outlined" matTooltip="Ver como tarjetas" aria-label="Ver como tarjetas" (click)="viewJugadorCard()">
-    <mat-icon>view_module_white</mat-icon>
-  </button>
+  <button mat-icon-button class="mat-icons-outlined" (click)="viewJugador()" matTooltip={{view[mostrandoLista()].tooltip}} >
+    <mat-icon>{{view[mostrandoLista()].icono}}</mat-icon>
+</button>
 </mat-toolbar>

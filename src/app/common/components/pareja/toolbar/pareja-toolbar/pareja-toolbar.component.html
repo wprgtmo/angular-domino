@@ -5,9 +5,8 @@
     <button mat-icon-button class="mat-icons-outlined" matTooltip="Nueva pareja" aria-label="Nueva pareja" (click)="parejaAdd()">
       <mat-icon>group_add</mat-icon>
     </button>
-    <button mat-icon-button class="mat-icons-outlined"
-    (click)="viewPareja()">
-      <mat-icon>{{ isLista ? "view_module_white" : "view_list_white" }}</mat-icon>
-    </button>
+    <button mat-icon-button class="mat-icons-outlined" (click)="viewPareja()" matTooltip={{view[mostrandoLista()].tooltip}} >
+      <mat-icon>{{view[mostrandoLista()].icono}}</mat-icon>
+  </button>
 </mat-toolbar>
 

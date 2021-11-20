@@ -1,19 +1,12 @@
 <mat-toolbar>
   <span>Eventos</span>
   <span class="spacer"></span>
-  <button
-    mat-icon-button
-    class="mat-icons-outlined"
-    matTooltip="Nuevo evento"
-    aria-label="Nuevo"
-    (click)="addEvento()"
-  >
-  <!-- mat-raised-button -->
+  <button mat-icon-button class="mat-icons-outlined" matTooltip="Nuevo evento" aria-label="Nuevo" (click)="addEvento()">
+    <!-- mat-raised-button -->
     <mat-icon class="mat-icon">add_to_photos</mat-icon>
   </button>
-  <button mat-icon-button class="mat-icons-outlined"
-  (click)="viewEvent()">
-    <mat-icon>{{ isLista ? "view_module_white" : "view_list_white" }}</mat-icon>
+  <button mat-icon-button class="mat-icons-outlined" (click)="viewEvent()" matTooltip={{view[mostrandoLista()].tooltip}} >
+        <mat-icon>{{view[mostrandoLista()].icono}}</mat-icon>
   </button>
   <!-- <mat-button-toggle-group #group="matButtonToggleGroup">
     <mat-button-toggle value="matCardImage" aria-label="Creados">

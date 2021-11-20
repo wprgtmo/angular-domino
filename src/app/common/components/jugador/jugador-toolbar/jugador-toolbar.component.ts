@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,24 +7,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./jugador-toolbar.component.css']
 })
 export class JugadorToolbarComponent {
-  isLista = true;
-  isCard = ! this.isLista;
+  @Input() isLista?: number;
+
+  view=[{
+    icono:"view_module_white",
+    tooltip:"Ver tarjetas",
+    url:"jugadores"
+  },{
+    icono:"view_list_white",
+    tooltip:"Ver lista",
+    url:"jugador_lista"
+  }]
   constructor(private ruta: Router) { }
 
-
   addJugador(): void {
-    this.ruta.navigateByUrl('/jugador_nuevo');
+    this.ruta.navigateByUrl('jugador_nuevo');
   }
 
-  viewJugadorList(): void {
-    this.isLista=true;
-    this.isCard = ! this.isLista;
-    this.ruta.navigateByUrl('/jugador_lista');
+  viewJugador(): void {
+    this.ruta.navigateByUrl(this.view[this.mostrandoLista()].url);
   }
 
-  viewJugadorCard(): void {
-    this.isLista=false;
-    this.isCard = ! this.isLista;
-    this.ruta.navigateByUrl('/jugadores');
-  }
+  mostrandoLista(): number{
+    return ((this.isLista==undefined) || (this.isLista==0))?0:1;
+ }
+
+
 }
