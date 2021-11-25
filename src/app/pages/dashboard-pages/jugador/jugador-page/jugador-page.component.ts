@@ -17,7 +17,6 @@ export class JugadorPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscribeDominoApiService= this.dominoApiService.getJugadores().subscribe((jugadores)=>{
-     console.log(jugadores);
      this.listaJugadores= jugadores.jugadores;
    })
  }
