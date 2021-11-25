@@ -12,16 +12,16 @@ export class JugadorToolbarComponent {
   view=[{
     icono:"view_module_white",
     tooltip:"Ver tarjetas",
-    url:"jugadores"
+    url:"playersCard"
   },{
     icono:"view_list_white",
     tooltip:"Ver lista",
-    url:"jugador_lista"
+    url:"playersList"
   }]
   constructor(private ruta: Router) { }
 
   addJugador(): void {
-    this.ruta.navigateByUrl('jugador_nuevo');
+    this.ruta.navigateByUrl('playerAdd');
   }
 
   viewJugador(): void {
