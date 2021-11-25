@@ -23,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatExpansionModule } from '@angular/material/expansion'
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatButtonToggleModule,
     MatMomentDateModule,
     MatDatepickerModule,
+    MatExpansionModule
   ],
   exports: [
     MatCardModule,
@@ -75,6 +77,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatButtonToggleModule,
     MatMomentDateModule,
     MatDatepickerModule,
+    MatExpansionModule
   ],
 })
 export class MaterialModule {}
