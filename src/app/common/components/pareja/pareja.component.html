@@ -2,10 +2,23 @@
   <mat-card-header>
       <mat-card-title>{{pareja?.nombre}}</mat-card-title>
   </mat-card-header>
-    <mat-grid-list cols="2" [rowHeight]="'100px'"  [gutterSize]="'1px'">
-        <mat-grid-tile [colspan]="1" [rowspan]="1">{{jugador1?.nombre}}</mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="1">{{jugador2?.nombre}}</mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="1"><img matCardImage src={{fotoJugador1}}></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="1"><img matCardImage src={{fotoJugador2}}></mat-grid-tile>
-    </mat-grid-list>
+ <table>
+      <!-- <caption>Statement Summary</caption> -->
+      <thead>
+        <tr>
+          <th scope="col">Jugador 1</th>
+          <th scope="col">Jugador 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td >{{jugador1?.nombre}}</td>
+          <td >{{jugador2?.nombre}}</td>
+        </tr>
+        <tr class="filaFoto">
+          <td ><img src={{fotoJugador1}}></td>
+          <td ><img src={{fotoJugador2}}></td>
+        </tr>
+      </tbody>
+    </table>
 </mat-card>

@@ -11,17 +11,20 @@ mat-card{
 }
 mat-card-header{
   margin: auto;
-  display: inline;
+  display: 	inline;
 }
 
 img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   margin: auto;
-  border: 1px darkgrey  solid ;
-  border-radius: 10%;
-  object-fit: fill;
+  border-radius: 50%;
 }
+
+.filaFoto{
+  height: 150px;
+}
+
 mat-form-field{
   display: block;
 }
@@ -36,12 +39,3 @@ mat-card button {
 .fecha{
   text-transform: capitalize;
 }
-
-/*
-mat-card-content{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-items: center;
-  align-items: center;
-} */
