@@ -1,17 +1,33 @@
-<mat-card>
+<mat-card (click)="seleccionarJugador()" class="sombra">
+  <img src={{fotoJugador}}>
   <mat-card-header>
-      <mat-card-title>{{jugador?.nombre}}</mat-card-title>
-      <mat-card-subtitle>{{jugador?.comentario}}</mat-card-subtitle>
+    <mat-card-title>{{jugador?.nombre}}</mat-card-title>
+    <mat-card-subtitle>{{jugador?.comentario}}</mat-card-subtitle>
   </mat-card-header>
-  <img matCardImage src={{fotoJugador}}>
   <mat-card-content>
-      Text content
+    <p class="info">Alias: {{jugador?.alias}}</p>
+    <p class="info">Ocupación: {{jugador?.ocupacion}}</p>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Detalles
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p class="info">Ciudad: {{jugador?.ciudad_id}}</p>
+        <p class="info">F. Nacimiento: {{jugador?.fecha_nacimiento}}</p>
+        <p class="info">C. Identidad: {{jugador?.nro_identidad}}</p>
+        <p class="info">Correo: {{jugador?.correo}}</p>
+        <p class="info">Teléfono: {{jugador?.telefono}}</p>
+        <p class="info">Sexo: {{jugador?.sexo}}</p>
+
+        <p class="info">Nivel: {{jugador?.nivel}}</p>
+        <p class="info">Elo: {{jugador?.elo}}</p>
+        <p class="info">Ranking: {{jugador?.ranking}}</p>
+        <p class="info">Tipo: {{jugador?.tipo}}</p>
+
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-card-content>
-  <mat-card-actions align="start">
-      <button mat-button (click)="onClick">Mostrar</button>
-
-  </mat-card-actions>
-  <mat-card-footer>
-  </mat-card-footer>
 </mat-card>
-

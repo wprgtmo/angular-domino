@@ -12,7 +12,7 @@ export class JugadorComponent implements OnInit {
 
   fotoJugador: string | undefined;
 
-  constructor() { }
+  constructor(private ruta: Router, private seleccionService: SeleccionService) { }
 
   onClick(): void {
     alert('Okkkkk Jugador');
@@ -20,8 +20,10 @@ export class JugadorComponent implements OnInit {
 
   ngOnInit(){
     this.fotoJugador= 'http://localhost/domino_api/' + this.jugador?.foto;
-
-
   }
-
+  seleccionarJugador(){
+    if (this.jugador!==undefined)
+      this.seleccionService.setEventoSeleccionado(this.jugador);
+    this.ruta.navigateByUrl('eventDetails');
+  }
 }
