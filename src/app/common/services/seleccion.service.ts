@@ -28,7 +28,7 @@ export class SeleccionService {
 
 
   public setJugadorSeleccionado(jugador: IJugador): void {
-    this.subjectEvent.next(jugador);
+    this.subjectJugador.next(jugador);
 }
 
 public getJugadorSeleccionado(): IJugador{

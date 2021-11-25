@@ -21,7 +21,7 @@ export class MenuComponent {
     },
     {
       nombre: 'Jugadores',
-      enlace: 'jugadores',
+      enlace: 'playersCard',
       icono: 'people_outline_white',
       isSelected: false,
     },

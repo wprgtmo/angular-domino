@@ -1,3 +1,4 @@
+import { JugadorDetailPageComponent } from './jugador/jugador-detail-page/jugador-detail-page.component';
 import { ParejaListPageComponent } from './pareja/pareja-list-page/pareja-list-page.component';
 import { ParejaAddPageComponent } from './pareja/pareja-add-page/pareja-add-page.component';
 import { ParejaPageComponent } from './pareja/pareja-page/pareja-page.component';
@@ -61,16 +62,20 @@ const routes: Routes = [
           component: MesaPageComponent
         },
         {
-          path: 'jugadores',
+          path: 'playersCard',
           component: JugadorPageComponent
         },
         {
-          path: 'jugador_nuevo',
+          path: 'playerAdd',
           component: JugadorAddPageComponent
         },
         {
-          path: 'jugador_lista',
+          path: 'playersList',
           component: JugadorListPageComponent
+        },
+        {
+          path: 'playerDetails',
+          component: JugadorDetailPageComponent
         }
     ]
   }

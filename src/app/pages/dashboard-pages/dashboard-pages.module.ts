@@ -1,3 +1,4 @@
+import { JugadorDetailPageComponent } from './jugador/jugador-detail-page/jugador-detail-page.component';
 
 import { MaterialModule } from './../../material.module';
 import { NgModule } from '@angular/core';
@@ -36,7 +37,8 @@ import { ParejaListPageComponent } from './pareja/pareja-list-page/pareja-list-p
     JugadorPageComponent,
     JugadorAddPageComponent,
     JugadorListPageComponent,
-    
+    JugadorDetailPageComponent,
+
     RondaPageComponent,
     MesaPageComponent,
 
