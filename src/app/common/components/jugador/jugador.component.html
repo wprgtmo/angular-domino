@@ -1,5 +1,5 @@
 <mat-card class="sombra">
-  <img (click)="seleccionarJugador()"  src={{fotoJugador}}>
+  <img  (click)="seleccionarJugador()" src={{fotoJugador}}>
   <mat-card-header>
     <mat-card-title>{{jugador?.nombre}}</mat-card-title>
     <mat-card-subtitle>{{jugador?.comentario}}</mat-card-subtitle>
@@ -14,7 +14,6 @@
             Detalles
           </mat-panel-title>
         </mat-expansion-panel-header>
-
         <p class="info">Ciudad: {{jugador?.ciudad_id}}</p>
         <p class="info">F. Nacimiento: {{jugador?.fecha_nacimiento}}</p>
         <p class="info">C. Identidad: {{jugador?.nro_identidad}}</p>

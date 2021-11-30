@@ -25,3 +25,4 @@ export class JugadorComponent implements OnInit {
     this.ruta.navigateByUrl('playerDetails');
   }
 }
+ 

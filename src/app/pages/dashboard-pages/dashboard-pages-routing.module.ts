@@ -15,6 +15,7 @@ import { EventoListPageComponent } from './evento/evento-list-page/evento-list-p
 import { JugadorAddPageComponent } from './jugador/jugador-add-page/jugador-add-page.component';
 import { JugadorListPageComponent } from './jugador/jugador-list-page/jugador-list-page.component';
 import { ParejaEditPageComponent } from './pareja/pareja-edit-page/pareja-edit-page.component';
+import { EstadisticaPageComponent } from './estadistica/estadistica-page/estadistica-page.component';
 
 const routes: Routes = [
   {
@@ -76,6 +77,10 @@ const routes: Routes = [
         {
           path: 'playerDetails',
           component: JugadorDetailPageComponent
+        },
+        {
+          path: 'estadistica',
+          component: EstadisticaPageComponent
         }
     ]
   }

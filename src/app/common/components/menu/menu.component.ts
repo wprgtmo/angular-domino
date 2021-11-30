@@ -27,7 +27,7 @@ export class MenuComponent {
     },
     {
       nombre: 'Estadisticas',
-      enlace: 'estadisticas',
+      enlace: 'estadistica',
       icono: 'equalizer_white',
       isSelected: false,
     },

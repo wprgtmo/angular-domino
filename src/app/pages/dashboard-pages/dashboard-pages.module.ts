@@ -1,5 +1,3 @@
-import { JugadorDetailPageComponent } from './jugador/jugador-detail-page/jugador-detail-page.component';
-
 import { MaterialModule } from './../../material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,6 +13,7 @@ import { EventoDetailsPageComponent } from './evento/evento-details-page/evento-
 
 import { JugadorPageComponent } from './jugador/jugador-page/jugador-page.component';
 import { JugadorAddPageComponent } from './jugador/jugador-add-page/jugador-add-page.component';
+import { JugadorDetailPageComponent } from './jugador/jugador-detail-page/jugador-detail-page.component';
 import { JugadorListPageComponent } from './jugador/jugador-list-page/jugador-list-page.component';
 
 import { RondaPageComponent } from './ronda/ronda-page/ronda-page.component';
@@ -24,6 +23,8 @@ import { ParejaPageComponent } from './pareja/pareja-page/pareja-page.component'
 import { ParejaAddPageComponent } from './pareja/pareja-add-page/pareja-add-page.component';
 import { ParejaEditPageComponent } from './pareja/pareja-edit-page/pareja-edit-page.component';
 import { ParejaListPageComponent } from './pareja/pareja-list-page/pareja-list-page.component';
+
+import { EstadisticaPageComponent } from './estadistica/estadistica-page/estadistica-page.component';
 
 
 
@@ -45,7 +46,9 @@ import { ParejaListPageComponent } from './pareja/pareja-list-page/pareja-list-p
     ParejaPageComponent,
     ParejaAddPageComponent,
     ParejaListPageComponent,
-    ParejaEditPageComponent
+    ParejaEditPageComponent,
+
+    EstadisticaPageComponent
   ],
   imports: [
     CommonModule,

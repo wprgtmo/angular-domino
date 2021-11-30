@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IJugador } from 'src/app/common/models/jugador.interface';
+import { SeleccionService } from 'src/app/common/services/seleccion.service';
 
 @Component({
   selector: 'app-jugador-details',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JugadorDetailsComponent implements OnInit {
 
-  constructor() { }
+  @Input() jugador: IJugador | undefined ;
+  fotoJugador: string | undefined;
 
-  ngOnInit(): void {
+  constructor(private ruta: Router, private seleccionService: SeleccionService) { }
+
+  ngOnInit(){
+    this.fotoJugador= 'http://localhost/domino_api/' + this.jugador?.foto;
   }
 
 }
