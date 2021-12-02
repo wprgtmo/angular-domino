@@ -1,1 +1,62 @@
-<p>jugador-add works!</p>
+<form class="frm" [formGroup]="jugadorAddFrm!" (ngSubmit)="onClick()">
+  <div class="titulo">Nuevo jugador</div>
+<mat-form-field appearance="outline" class="datos">
+  <mat-label>Nombre</mat-label>
+  <input matInput required placeholder="Nombre del jugador" formControlName="nombre" />
+</mat-form-field>
+<mat-form-field appearance="outline" class="datos">
+  <mat-label>Alias</mat-label>
+  <input matInput placeholder="Alias" formControlName="alias" />
+</mat-form-field>
+<div class="uploadFile">
+<label class="inputFile">Foto del jugador
+  <input type="file" (change)="capturarFile($event)" class="ocultar" name="foto" />
+</label>
+<div *ngIf="preview">
+  <img class="preview" [src]="preview" alt="" />
+</div></div>
+<mat-form-field appearance="outline" class="datos">
+  <mat-label>Fecha nacimiento: </mat-label>
+  <input matInput [matDatepicker]="picker" formControlName="fecha_nacimiento"  />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker disabled="false"></mat-datepicker>
+</mat-form-field>
+<mat-form-field appearance="outline" class="datos">
+  <mat-label>Teléfono</mat-label>
+  <input matInput placeholder="Teléfono" formControlName="telefono" />
+</mat-form-field>
+<mat-form-field appearance="outline" class="datos">
+  <mat-label>Correo electrónico</mat-label>
+  <input matInput placeholder="Correo electrónico" formControlName="correo" />
+</mat-form-field>
+<mat-form-field appearance="outline" class="datos">
+  <mat-label>Nro. Identidad</mat-label>
+  <input matInput placeholder="Nro. Identidad" formControlName="nro_identidad" />
+</mat-form-field>
+<mat-form-field appearance="outline" class="datos">
+  <mat-label>Comentario</mat-label>
+  <textarea maxlength="70" matInput placeholder="Escriba una breve descripción del jugador" formControlName="comentario"></textarea>
+</mat-form-field>
+<mat-form-field appearance="outline" class="datos">
+  <mat-label>Ocupación</mat-label>
+  <input matInput placeholder="Ocupación" formControlName="ocupacion" />
+</mat-form-field>
+<mat-form-field appearance="outline" class="datos">
+  <mat-label>Elo</mat-label>
+  <input matInput placeholder="Elo" formControlName="elo" />
+</mat-form-field><mat-form-field appearance="outline" class="datos">
+  <mat-label>Nivel</mat-label>
+  <input matInput placeholder="Nivel" formControlName="nivel" />
+</mat-form-field><mat-form-field appearance="outline" class="datos">
+  <mat-label>Ranking</mat-label>
+  <input matInput placeholder="Ranking" formControlName="ranking" />
+</mat-form-field><mat-form-field appearance="outline" class="datos">
+  <mat-label>Tipo</mat-label>
+  <input matInput placeholder="Tipo" formControlName="tipo" />
+</mat-form-field>
+
+<button mat-raised-button color="primary" [disabled]="loading">
+  {{ loading ? "Creando jugador... " : "Crear jugador" }}
+</button>
+
+</form>

@@ -14,9 +14,12 @@ export class PathRest{
 
   static readonly GET_BOLETAS           = '/api/evento/boletas';
   static readonly GET_BOLETAS_COMPLETA  = '/api/evento/boletas/completa';
-  
+
   static readonly GET_MESAS             = '/api/evento/mesas';
   static readonly GET_PAREJAS           = '/api/evento/parejas';
   static readonly GET_JUGADORES         = '/api/jugadores';
   static readonly NEW_PAREJA            = '/api/parejas/create';
+
+
+  static readonly NEW_JUGADOR            = '/api/jugador/create';
 }

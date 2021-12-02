@@ -43,6 +43,10 @@ export class DominoApiService {
     return this.http_API.get<IJugadorRespuesta>(PathRest.GET_JUGADORES);
   }
 
+  newJugador(datosJugador: FormData):Observable<IJugadorRespuesta>{
+    return this.http_API.post<IJugadorRespuesta>(PathRest.NEW_JUGADOR, datosJugador);
+  }
+
   getRondas(evento_id: string): Observable<IRondasRespuesta>{
     return this.http_API.post<IRondasRespuesta>(PathRest.GET_RONDAS, {"evento_id": evento_id});
   }
