@@ -57,10 +57,12 @@ export class JugadorAddComponent {
       this.loading= true;
       const frmData= new FormData();
       frmData.append('nombre', this.jugadorAddFrm?.get('nombre')?.value);
-      frmData.append('alias',  this.jugadorAddFrm?.get('alias')?.value);
       frmData.append('telefono', this.jugadorAddFrm?.get('telefono')?.value);
+      frmData.append('sexo', 'M');
+      frmData.append('foto', this.archivo);
       frmData.append('correo', this.jugadorAddFrm?.get('correo')?.value);
       frmData.append('nro_identidad', this.jugadorAddFrm?.get('nro_identidad')?.value);
+      frmData.append('alias',  this.jugadorAddFrm?.get('alias')?.value);
       frmData.append('comentario', this.jugadorAddFrm?.get('comentario')?.value);
       frmData.append('ocupacion', this.jugadorAddFrm?.get('ocupacion')?.value);
       frmData.append('nivel', this.jugadorAddFrm?.get('nivel')?.value);
@@ -68,7 +70,6 @@ export class JugadorAddComponent {
       frmData.append('ranking', this.jugadorAddFrm?.get('ranking')?.value);
       frmData.append('tipo', this.jugadorAddFrm?.get('tipo')?.value);
       frmData.append('ocupacion', this.jugadorAddFrm?.get('ocupacion')?.value);
-      frmData.append('foto', this.archivo);
       frmData.append('fecha_nacimiento', moment(fecha_nacimiento).format("YYYY-MM-DD HH:mm:ss"));
       console.log(frmData);
 

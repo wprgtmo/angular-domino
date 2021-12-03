@@ -47,6 +47,10 @@ export class DominoApiService {
     return this.http_API.post<IJugadorRespuesta>(PathRest.NEW_JUGADOR, datosJugador);
   }
 
+  delJugador(jugador_id: string):Observable<IJugadorRespuesta>{
+    return this.http_API.delete<IJugadorRespuesta>(PathRest.DEL_JUGADOR+'/'+jugador_id);
+  }
+
   getRondas(evento_id: string): Observable<IRondasRespuesta>{
     return this.http_API.post<IRondasRespuesta>(PathRest.GET_RONDAS, {"evento_id": evento_id});
   }

@@ -21,5 +21,6 @@ export class PathRest{
   static readonly NEW_PAREJA            = '/api/parejas/create';
 
 
-  static readonly NEW_JUGADOR            = '/api/jugador/create';
+  static readonly NEW_JUGADOR            = '/api/jugadores/crear';
+  static readonly DEL_JUGADOR            = '/api/jugadores/eliminar';
 }

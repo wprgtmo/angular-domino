@@ -27,29 +27,6 @@ export class JugadorToolbarDetailsComponent implements OnInit {
  }
 
 
-
-
-  // mostrarIniciar() {
-  //   return (this.jugadorSeleccionado?.estado == 'C');
-  // }
-
-  // mostrarFinalizar() {
-  //   return (this.jugadorSeleccionado?.estado == 'I');
-  // }
-
-  // mostrarEliminar() {
-  //   return (this.jugadorSeleccionado?.estado == 'F');
-  // }
-
-  estado() {
-    switch (this.jugadorSeleccionado?.id) {
-      case "C": return "Creado"; break;
-      case "I": return "Iniciado"; break;
-      case "F": return "Finalizado"; break;
-      default: return "Sin estado"; break;
-    }
-  }
-
   rondas() {
     this.ruta.navigateByUrl('rondas');
   }
@@ -62,24 +39,9 @@ export class JugadorToolbarDetailsComponent implements OnInit {
     this.ruta.navigateByUrl('parejas');
   }
 
-  iniciarEvento(){
-    this.dominoApiService.iniciarEvento(this.jugadorSeleccionado!.id.toString()).subscribe((datos)=>{
-      console.log(datos);
-      this.ruta.navigateByUrl('eventsCard');
-    })
-  }
-
-  finalizarEvento(){
-    this.dominoApiService.finalizarEvento(this.jugadorSeleccionado!.id.toString()).subscribe((datos)=>{
-      console.log(datos);
-      this.ruta.navigateByUrl('eventsCard');
-    })
-  }
-
-  eliminarEvento(){
-    this.dominoApiService.delEvento(this.jugadorSeleccionado!.id.toString()).subscribe((datos)=>{
-      console.log(datos);
-      this.ruta.navigateByUrl('eventsCard');
+  eliminarJugador(){
+    this.dominoApiService.delJugador(this.jugadorSeleccionado!.id.toString()).subscribe((datos)=>{
+      this.ruta.navigateByUrl('playersCard');
     })
   }
 }
