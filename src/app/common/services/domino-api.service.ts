@@ -1,7 +1,7 @@
 import { IJugadorRespuesta } from '../models/respuestas/jugador-respuesta.interface';
 import { PathRest } from './../static/path-rest';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IEventoRespuesta } from '../models/respuestas/evento-respuesta.interface';
 import { IRondaNuevaRespuesta } from '../models/respuestas/ronda-nueva-respuesta.interface';
@@ -11,6 +11,7 @@ import { IBoletasCompletaRespuesta } from '../models/respuestas/boletas-completa
 import { IMesasRespuesta } from '../models/respuestas/mesas-respuesta.interface';
 import { IParejasRespuesta } from '../models/respuestas/parejas-respuesta.interface';
 import { IPareja } from '../models/pareja.interface';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -77,7 +78,27 @@ export class DominoApiService {
   }
 
   newPareja(datosPareja: FormData):Observable<IPareja>{
-    return this.http_API.post<IPareja>(PathRest.NEW_PAREJA, datosPareja);
+    return this.http_API.post<IPareja>(PathRest.NEW_PAREJA, datosPareja).pipe(
+      catchError((error) => {
+        return this.handlerError(error);        
+      })
+    );
+  }
+
+  handlerError(error: HttpErrorResponse){
+    if (error instanceof HttpErrorResponse){
+      if (error instanceof ErrorEvent){
+        console.log('Error de cliente');        
+      }else{
+        console.log('Error de servidor');
+      }
+      console.log(error.status);    
+      console.log(error.message);   
+      console.log(error.error.messages.error);  
+    }else{
+        console.log('Otro tipo de error');
+    }  
+    return throwError(error);
   }
 
 }

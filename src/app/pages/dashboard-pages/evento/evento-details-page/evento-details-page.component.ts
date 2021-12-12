@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
 import { Subscription } from 'rxjs';
 import { IEvento } from 'src/app/common/models/evento.interface';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   templateUrl: './evento-details-page.component.html',
@@ -10,8 +11,19 @@ import { IEvento } from 'src/app/common/models/evento.interface';
 export class EventoDetailsPageComponent implements OnInit {
   private subscribeSelectionService: Subscription | undefined;
   public eventoSeleccionado?: IEvento;
+  @Input() isLista?: number;
 
-  constructor(private seleccionService: SeleccionService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private ruta: Router,
+    private seleccionService: SeleccionService
+  ) {
+    this.route.queryParams.subscribe((params) => {
+      if (this.ruta?.getCurrentNavigation()?.extras) {
+        this.isLista = params.isLista;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.subscribeSelectionService = this.seleccionService.channelEvent.subscribe(

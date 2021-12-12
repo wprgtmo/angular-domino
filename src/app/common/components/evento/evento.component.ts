@@ -31,7 +31,7 @@ export class EventoComponent implements OnInit{
   seleccionarEvento(){
     if (this.evento!==undefined)
       this.seleccionService.setEventoSeleccionado(this.evento);
-    this.ruta.navigateByUrl('eventDetails');
+    this.ruta.navigate(['eventDetails'], { queryParams: {isLista: 1}} );
 
   }
 

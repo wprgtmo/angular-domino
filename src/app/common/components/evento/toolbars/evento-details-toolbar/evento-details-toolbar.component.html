@@ -1,7 +1,13 @@
 <mat-toolbar>
     <span class="toolbarText">Evento: {{eventoSeleccionado?.nombre}} ({{estado()}})</span>
     <span class="spacer"></span>
+
+  <button mat-icon-button class="mat-icons-outlined" (click)="viewEvent()" matTooltip={{view[mostrandoLista()].tooltip}} >
+      <mat-icon>{{view[mostrandoLista()].icono}}</mat-icon>
+</button>
+    <span>|</span>
     <!-- Botones que se muestran en el estado Creado [hidden]="mostrarEstadoCreado()" update_white, schedule_white, highlight_off_white-->
+
 
       <button *ngIf="mostrarIniciar()" mat-icon-button class="mat-icons-outlined" matTooltip="Iniciar evento" aria-label="Iniciar evento" (click)="iniciarEvento()">
         <mat-icon>event</mat-icon>

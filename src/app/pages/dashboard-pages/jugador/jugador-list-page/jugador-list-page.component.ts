@@ -1,9 +1,11 @@
-import { IJugador } from '../../../../common/models/jugador.interface';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 import { MatTableDataSource } from "@angular/material/table";
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { Router } from '@angular/router';
+import { SeleccionService } from 'src/app/common/services/seleccion.service';
+import { IJugador } from 'src/app/common/models/jugador.interface';
 
 @Component({
   templateUrl: './jugador-list-page.component.html',
@@ -17,7 +19,9 @@ export class JugadorListPageComponent implements OnInit, OnDestroy {
 
   public dataSource = new MatTableDataSource<IJugador>();
 
-  constructor(private dominoApiService:DominoApiService) { }
+  clickedRows = new Set<IJugador>();
+
+  constructor(private ruta: Router, private seleccionService: SeleccionService, private dominoApiService:DominoApiService) { }
 
 
   drop(event: CdkDragDrop<string[]>){
@@ -32,6 +36,12 @@ export class JugadorListPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void{
     this.subscribeDominoApiService?.unsubscribe();
+  }
+
+  seleccionarJugador(jugador: IJugador){
+    if (jugador!==undefined)
+    this.seleccionService.setJugadorSeleccionado(jugador);
+  this.ruta.navigateByUrl('playerDetails');
   }
 
 }

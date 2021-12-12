@@ -24,6 +24,8 @@ export class ParejaAddComponent implements OnInit, OnDestroy {
   private nombrePareja1 ="";
   private nombrePareja2 ="";
 
+  jugadoresParejas = new Set<IJugador>();
+
   constructor(private seleccionService: SeleccionService, private dominoApiService: DominoApiService, private ruta: Router) {
     this.loadBuilder();
   }
