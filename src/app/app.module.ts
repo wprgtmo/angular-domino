@@ -8,8 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthPagesModule } from './pages/auth-pages/auth-pages.module';
 import { DashboardPagesModule } from './pages/dashboard-pages/dashboard-pages.module';
 import { MaterialModule } from './material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DominoInterceptor } from './common/interceptors/domino-interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     AuthPagesModule,
     DashboardPagesModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: DominoInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

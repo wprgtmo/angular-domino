@@ -63,14 +63,13 @@ export class EventoAddComponent {
     let cierre=this.eventoAddFrm?.get('fecha_cierre')?.value;
     try {
       this.loading= true;
-      
+
       const frmData= new FormData();
       frmData.append('imagen', this.archivo);
       frmData.append('nombre', this.eventoAddFrm?.get('nombre')?.value);
       frmData.append('comentario', this.eventoAddFrm?.get('comentario')?.value);
       frmData.append('fecha_inicio', moment(inicio).format("YYYY-MM-DD HH:mm:ss"));
       frmData.append('fecha_cierre', moment(cierre).format("YYYY-MM-DD HH:mm:ss"));
-      console.log(frmData);
 
       this.dominoApiService
       .newEvento(frmData)

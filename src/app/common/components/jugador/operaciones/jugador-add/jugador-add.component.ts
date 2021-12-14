@@ -71,12 +71,10 @@ export class JugadorAddComponent {
       frmData.append('tipo', this.jugadorAddFrm?.get('tipo')?.value);
       frmData.append('ocupacion', this.jugadorAddFrm?.get('ocupacion')?.value);
       frmData.append('fecha_nacimiento', moment(fecha_nacimiento).format("YYYY-MM-DD HH:mm:ss"));
-      console.log(frmData);
 
       this.dominoApiService
       .newJugador(frmData)
       .subscribe((datos) => {
-        console.log(datos);
         this.loading= false;
         this.ruta.navigateByUrl('playersCard');
       });
