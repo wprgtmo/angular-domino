@@ -11,6 +11,8 @@ import { MaterialModule } from './material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DominoInterceptor } from './common/interceptors/domino-interceptor';
+import { LoaderInterceptor } from './common/interceptors/loader-interceptor';
+import { LoaderService } from './common/services/loader.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,11 +27,13 @@ import { DominoInterceptor } from './common/interceptors/domino-interceptor';
     DashboardPagesModule,
   ],
   providers: [
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: DominoInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

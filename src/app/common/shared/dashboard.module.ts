@@ -1,3 +1,4 @@
+import { CargandoComponent } from './../components/cargando/cargando.component';
 import { MaterialModule } from './../../material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -71,7 +72,9 @@ import { EstadisticaToolbarComponent } from './../components/estadistica/toolbar
     ParejaAddComponent,
 
     EstadisticaComponent,
-    EstadisticaToolbarComponent
+    EstadisticaToolbarComponent,
+    
+    CargandoComponent
   ],
 
   imports: [CommonModule, RouterModule, MaterialModule, ReactiveFormsModule],
@@ -107,7 +110,9 @@ import { EstadisticaToolbarComponent } from './../components/estadistica/toolbar
     ParejaAddComponent,
 
     EstadisticaComponent,
-    EstadisticaToolbarComponent
+    EstadisticaToolbarComponent,
+
+    CargandoComponent
   ],
 })
 export class DashboardModule {}

@@ -1,5 +1,6 @@
+import { LoaderService } from './../../../../common/services/loader.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 import { IEvento } from 'src/app/common/models/evento.interface';
 import { Router } from '@angular/router';
@@ -14,7 +15,16 @@ export class EventoPageComponent implements OnInit, OnDestroy {
   private subscribeDominoApiService: Subscription | undefined;
   public listaEventos: IEvento[] | undefined;
 
-  constructor(private dominoApiService:DominoApiService, private ruta: Router) { }
+  color = 'primary';
+  mode = 'indeterminate';
+  value = 50;
+  isLoading: Subject<boolean> = this.loaderService.isLoading;
+
+
+
+
+
+  constructor(private dominoApiService:DominoApiService, private ruta: Router, private loaderService: LoaderService) { }
 
   ngOnInit(): void {
      this.subscribeDominoApiService= this.dominoApiService.getEventos().subscribe((eventos)=>{
