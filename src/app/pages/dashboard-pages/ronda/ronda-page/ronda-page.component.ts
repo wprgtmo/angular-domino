@@ -49,7 +49,6 @@ export class RondaPageComponent implements OnInit {
     this.subscribeRondaSelectionService =
       this.seleccionService.channelRonda.subscribe((ronda_id) => {
         if (ronda_id.toString() != '[object Object]') {
-          console.log('Ronda seleccionada en el toolbar ', ronda_id);
           this.rondaSeleccionadaId = ronda_id;
           this.rondaActiva = this.listaRondas?.find(
             (ronda) => ronda.id == this.rondaSeleccionadaId

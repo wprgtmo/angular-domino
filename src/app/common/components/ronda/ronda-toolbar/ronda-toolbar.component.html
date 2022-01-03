@@ -1,4 +1,4 @@
-<mat-toolbar class="sombra">
+ <mat-toolbar class="sombra toolbar">
   <mat-select placeholder="Ronda"  [(value)]="ronda_activa" (selectionChange)="changeRonda($event)">
       <mat-option *ngFor="let ronda of rondas" [value]="ronda.id" >{{ronda.comentario}}</mat-option>
   </mat-select>

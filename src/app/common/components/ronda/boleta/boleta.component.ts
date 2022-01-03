@@ -1,3 +1,4 @@
+import { IJugadorRespuesta } from './../../../models/respuestas/jugador-respuesta.interface';
 import { IPareja } from './../../../models/pareja.interface';
 import { IBoletaPareja } from './../../../models/boleta-pareja.interface';
 import { IJugador } from './../../../models/jugador.interface';
@@ -22,6 +23,7 @@ export class BoletaComponent implements OnInit {
   ngOnInit(): void {
     if (this.boleta != undefined){
       if (this.boleta?.boleta_parejas!= undefined){
+        console.log(this.boleta);
         this.boletaParejas= this.boleta?.boleta_parejas;
         if (this.boletaParejas[0].pareja != undefined){
           this.pareja1=this.boletaParejas[0].pareja;
@@ -38,7 +40,7 @@ export class BoletaComponent implements OnInit {
     }
   }
 
-  foto(indice:  number): string{
-      return this.URLFoto + this.jugador![indice].foto;
+  foto(foto?:  string): string{
+    return (foto)? this.URLFoto + foto : "";
   }
 }

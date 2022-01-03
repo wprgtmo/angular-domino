@@ -1,6 +1,6 @@
 .boleta{
   width: 370px;
-  height: 560px;
+  height: 580px;
   border: 1px solid darkgrey;
   box-shadow: 3px 3px 3px darkgray;
   border-radius: 10px;
@@ -13,10 +13,10 @@
 
 .mesa{
   width: 350px;
-  height: 350px;
-  border: 1px solid darkgray;
-  box-shadow: 3px 3px 3px darkgray;
-  border-radius: 10px;
+  height: 380px;
+  /* border: 1px solid darkgray; */
+  /* box-shadow: 3px 3px 3px darkgray; */
+  /* border-radius: 10px; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -24,14 +24,14 @@
   margin: 10px;
 }
 
-.datos_boleta{
-  width: 350px;
-  height: 160px;
-  border: 1px solid darkblue;
-  box-shadow: 3px 3px 3px darkgray;
-  /* border-radius: 10px; */
-  margin: auto;
-  text-align: center;
+
+.datos_boleta {
+	width: 100%;
+	box-shadow: 3px 3px 3px darkgray;
+	margin: auto;
+	text-align: center;
+	padding: 0;
+	margin: 0;
 }
 
 
@@ -44,7 +44,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid darkgray ;
   border-radius: 50%;
   position: relative;
 }
@@ -56,31 +55,36 @@
 }
 .datos-jugador{
   text-align: center;
-  font-size: xx-small;
+  font-size: x-small;
   font-weight: bold;
   position: absolute;
-  top: 5px;
+  top: 0px;
 }
 
 .datos-pareja{
   text-align: center;
-  font-size: xx-small;
+  font-size: x-small;
   font-weight: bold;
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
 }
 
 .celda-mesa{
-  background-color: darkgray;
-  border: darkgray 1px solid;
-  box-shadow: 3px 3px 3px darkgray;
-  border-radius: 10%;
+  /* background-color: darkgray; */
+  /* background-image: url("/assets/mesa_cuba.jpg"); */
+  /* border: darkgray 1px solid; */
+  /* box-shadow: 3px 3px 3px darkgray; */
+  /* border-radius: 10%; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
+.foto-mesa{
+  width: 160px;
+  /* height: 140px; */
+  /* border-radius: 5%; */
+}
 
 
 table {

@@ -8,6 +8,7 @@ mat-card{
     border-radius: 5%;
     margin-top: 1em;
     padding: 1rem;
+    cursor: pointer;
   }
   mat-card-header{
     margin: auto;

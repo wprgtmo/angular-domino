@@ -1,34 +1,38 @@
 <div class="boleta">
 <div class="mesa">
-  <div class="celda-vacia"></div>
+  <div class="celda-vacia">
+    Mesa: {{boleta?.mesa?.numero}}
+  </div>
   <div class="celda-jugador">
-      <img src={{foto(0)}} alt="" class="foto-jugador">
-      <div class="datos-jugador">{{jugador![0].alias}}</div>
+      <img src={{foto(pareja1?.jugador1?.foto)}} alt="" class="foto-jugador">
+      <div class="datos-jugador">{{pareja1?.jugador1?.alias}}</div>
       <div class="datos-pareja">Pareja 1</div>
   </div>
   <div class="celda-vacia"></div>
   <div class="celda-jugador">
-      <img src={{foto(2)}} alt="" class="foto-jugador">
-      <div class="datos-jugador">{{jugador![2].alias}}</div>
+      <img src={{foto(pareja2?.jugador2?.foto)}} alt="" class="foto-jugador">
+      <div class="datos-jugador">{{pareja2?.jugador2?.alias}}</div>
       <div class="datos-pareja">Pareja 2</div>
   </div>
-  <div class="celda-mesa">mesa: {{boleta?.mesa?.numero}}</div>
+  <div class="celda-mesa">
+    <img src="assets/mesa_cuba.jpg" alt="" class="foto-mesa">
+  </div>
 
   <div class="celda-jugador">
-      <img src={{foto(1)}} alt="" class="foto-jugador">
-      <div class="datos-jugador">{{jugador![1].alias}}</div>
+      <img src={{foto(pareja2?.jugador1?.foto)}} alt="" class="foto-jugador">
+      <div class="datos-jugador">{{pareja2?.jugador1?.alias}}</div>
       <div class="datos-pareja">Pareja 2</div>
   </div>
   <div class="celda-vacia"></div>
   <div class="celda-jugador">
-      <img src={{foto(3)}} alt="" class="foto-jugador">
-      <div class="datos-jugador">{{jugador![3].alias}}</div>
-      <div class="datos-pareja">Pareja 1</div>
-  </div>
+    <img src={{foto(pareja1?.jugador2?.foto)}} alt="" class="foto-jugador">
+    <div class="datos-jugador">{{pareja1?.jugador2?.alias}}</div>
+    <div class="datos-pareja">Pareja 1</div>
+</div>
   <div class="celda-vacia"></div>
 </div>
 <div class="datos_boleta">
-   
+
   <table>
     <!-- <caption>Statement Summary</caption> -->
     <thead>
