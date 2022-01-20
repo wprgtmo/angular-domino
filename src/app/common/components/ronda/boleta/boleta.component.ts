@@ -1,46 +1,27 @@
-import { IJugadorRespuesta } from './../../../models/respuestas/jugador-respuesta.interface';
-import { IPareja } from './../../../models/pareja.interface';
-import { IBoletaPareja } from './../../../models/boleta-pareja.interface';
-import { IJugador } from './../../../models/jugador.interface';
+import { IPareja } from 'src/app/common/models/pareja.interface';
 import { IBoletaCompleta } from './../../../models/boleta-completa.interface';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { PathRest } from 'src/app/common/static/path-rest';
 
 @Component({
   selector: 'app-boleta',
   templateUrl: './boleta.component.html',
   styleUrls: ['./boleta.component.css']
 })
-export class BoletaComponent implements OnInit {
+export class BoletaComponent {
   @Input() boleta?: IBoletaCompleta;
 
-  URLFoto: String="http://localhost/domino_api/";
-  boletaParejas?: IBoletaPareja[];
-  pareja1?: IPareja;
-  pareja2?: IPareja;
-  jugador?: Array<IJugador>=[];
   constructor() { }
 
-  ngOnInit(): void {
+  getPareja(pareja: number): IPareja | undefined{
     if (this.boleta != undefined){
-      if (this.boleta?.boleta_parejas!= undefined){
-        console.log(this.boleta);
-        this.boletaParejas= this.boleta?.boleta_parejas;
-        if (this.boletaParejas[0].pareja != undefined){
-          this.pareja1=this.boletaParejas[0].pareja;
-          this.jugador?.push(this.pareja1.jugador1);
-          this.jugador?.push(this.pareja1.jugador2);
-        }
+      return this.boleta?.boleta_parejas[pareja]?.pareja;
+    } else
+    return this.boleta;
 
-        if (this.boletaParejas[1].pareja != undefined){
-          this.pareja2=this.boletaParejas[1].pareja;
-          this.jugador?.push(this.pareja2.jugador1);
-          this.jugador?.push(this.pareja2.jugador2);
-        }
-      }
-    }
   }
 
-  foto(foto?:  string): string{
-    return (foto)? this.URLFoto + foto : "";
+  foto(fotoJugador?: string): string{
+    return (fotoJugador)? PathRest.URL_BASE + fotoJugador : "";
   }
 }

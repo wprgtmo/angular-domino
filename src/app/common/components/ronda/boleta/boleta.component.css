@@ -27,14 +27,16 @@
 
 .datos_boleta {
 	width: 100%;
-	box-shadow: 3px 3px 3px darkgray;
+	/* box-shadow: 3px 3px 3px darkgray; */
 	margin: auto;
 	text-align: center;
-	padding: 0;
+	padding: 2px;
 	margin: 0;
 }
 
-
+.nro-mesa{
+  font-size: x-large;
+}
 
 .celda-vacia{
   background: none;
@@ -92,7 +94,8 @@ table {
   border-collapse: collapse;
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 98%;
+  padding: 2px;
   table-layout: fixed;
 }
 
@@ -118,3 +121,18 @@ table th {
   letter-spacing: .1em;
   text-transform: uppercase;
 }
+
+
+/* Estados */
+.C{
+  border: 3px darkblue  solid ;
+}
+
+.I{
+  border: 3px darkgreen  solid ;
+}
+
+.F{
+  border: 3px darkred  solid ;
+}
+

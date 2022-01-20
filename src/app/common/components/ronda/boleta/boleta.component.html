@@ -1,17 +1,19 @@
-<div class="boleta">
+<div class="boleta" [class]="boleta?.estado">
 <div class="mesa">
   <div class="celda-vacia">
-    Mesa: {{boleta?.mesa?.numero}}
+    <button mat-icon-button class="mat-icons-outlined" matTooltip="Mesa" aria-label="Mesa" >
+      <mat-icon>table_restaurant</mat-icon> <span class="nro-mesa"> :{{boleta?.mesa?.numero}}</span>
+    </button>
   </div>
   <div class="celda-jugador">
-      <img src={{foto(pareja1?.jugador1?.foto)}} alt="" class="foto-jugador">
-      <div class="datos-jugador">{{pareja1?.jugador1?.alias}}</div>
+      <img src={{foto(getPareja(0)?.jugador1?.foto)}} alt="" class="foto-jugador">
+      <div class="datos-jugador">{{getPareja(0)?.jugador1?.alias}}</div>
       <div class="datos-pareja">Pareja 1</div>
   </div>
   <div class="celda-vacia"></div>
   <div class="celda-jugador">
-      <img src={{foto(pareja2?.jugador2?.foto)}} alt="" class="foto-jugador">
-      <div class="datos-jugador">{{pareja2?.jugador2?.alias}}</div>
+      <img src={{foto(getPareja(1)?.jugador1?.foto)}} alt="" class="foto-jugador">
+      <div class="datos-jugador">{{getPareja(1)?.jugador1?.alias}}</div>
       <div class="datos-pareja">Pareja 2</div>
   </div>
   <div class="celda-mesa">
@@ -19,14 +21,14 @@
   </div>
 
   <div class="celda-jugador">
-      <img src={{foto(pareja2?.jugador1?.foto)}} alt="" class="foto-jugador">
-      <div class="datos-jugador">{{pareja2?.jugador1?.alias}}</div>
+      <img src={{foto(getPareja(1)?.jugador2?.foto)}} alt="" class="foto-jugador">
+      <div class="datos-jugador">{{getPareja(1)?.jugador2?.alias}}</div>
       <div class="datos-pareja">Pareja 2</div>
   </div>
   <div class="celda-vacia"></div>
   <div class="celda-jugador">
-    <img src={{foto(pareja1?.jugador2?.foto)}} alt="" class="foto-jugador">
-    <div class="datos-jugador">{{pareja1?.jugador2?.alias}}</div>
+    <img src={{foto(getPareja(0)?.jugador2?.foto)}} alt="" class="foto-jugador">
+    <div class="datos-jugador">{{getPareja(0)?.jugador2?.alias}}</div>
     <div class="datos-pareja">Pareja 1</div>
 </div>
   <div class="celda-vacia"></div>

@@ -2,6 +2,8 @@ import { environment } from "src/environments/environment";
 
 export class PathRest{
   //static readonly GET_EVENTOS= environment.API_URL + 'eventos';
+  static readonly URL_BASE              ="http://localhost/domino_api/";
+
   static readonly GET_EVENTOS           = '/api/eventos';
   static readonly NEW_EVENTO            = '/api/eventos/crear';
   static readonly INIT_EVENTO           = '/api/eventos/iniciar';
