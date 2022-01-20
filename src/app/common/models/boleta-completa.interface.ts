@@ -7,6 +7,7 @@ export interface IBoletaCompleta {
   evento_id       : number;
   ronda_id        : number;
   mesa_id         : number;
+  estado          : string;
   es_valida       : boolean;
   fecha_registro  : Date;
   ronda           : IRonda;

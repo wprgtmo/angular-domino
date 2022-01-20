@@ -51,11 +51,11 @@ export class DominoApiService {
     return this.http_API.delete<IJugadorRespuesta>(PathRest.DEL_JUGADOR+'/'+jugador_id);
   }
 
-  getRondas(evento_id: string): Observable<IRondasRespuesta>{
+  getRondas(evento_id: number): Observable<IRondasRespuesta>{
     return this.http_API.post<IRondasRespuesta>(PathRest.GET_RONDAS, {"evento_id": evento_id});
   }
 
-  getRondaNueva(evento_id: string): Observable<IRondaNuevaRespuesta>{
+  getRondaNueva(evento_id: number): Observable<IRondaNuevaRespuesta>{
     return this.http_API.post<IRondaNuevaRespuesta>(PathRest.GET_NUEVA_RONDA, {"evento_id": evento_id});
   }
 
@@ -63,8 +63,7 @@ export class DominoApiService {
     return this.http_API.post<IBoletasRespuesta>(PathRest.GET_BOLETAS, {"evento_id": evento_id, "ronda_id": ronda_id});
   }
 
-
-  getBoletasCompleta(evento_id: string, ronda_id: string): Observable<IBoletasCompletaRespuesta>{
+  getBoletasCompleta(evento_id: number, ronda_id: number): Observable<IBoletasCompletaRespuesta>{
     return this.http_API.post<IBoletasCompletaRespuesta>(PathRest.GET_BOLETAS_COMPLETA, {"evento_id": evento_id, "ronda_id": ronda_id});
   }
 

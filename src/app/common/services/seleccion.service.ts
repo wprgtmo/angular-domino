@@ -2,6 +2,7 @@ import { IJugador } from './../models/jugador.interface';
 import { IEvento } from './../models/evento.interface';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { IRonda } from '../models/ronda.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,11 @@ export class SeleccionService {
   private subjectJugador = new BehaviorSubject(<IJugador>{});
   channelJugador = this.subjectJugador.asObservable();
 
-  private subjectRonda = new BehaviorSubject(<number>{});
+  private subjectRonda = new BehaviorSubject(<number>0);
   channelRonda = this.subjectRonda.asObservable();
+
+  private subjectRondas = new BehaviorSubject(<IRonda[]>{});
+  channelRondas = this.subjectRondas.asObservable();
 
   constructor() { }
 
@@ -26,15 +30,6 @@ export class SeleccionService {
     return this.subjectEvent.getValue();
   }
 
-
-  public setJugadorSeleccionado(jugador: IJugador): void {
-    this.subjectJugador.next(jugador);
-}
-
-public getJugadorSeleccionado(): IJugador{
-  return this.subjectJugador.getValue();
-}
-
   public setRondaIdSeleccionada(ronda_id: number): void {
       this.subjectRonda.next(ronda_id);
   }
@@ -43,4 +38,11 @@ public getJugadorSeleccionado(): IJugador{
     return this.subjectRonda.getValue();
   }
 
+  public setJugadorSeleccionado(jugador: IJugador): void {
+    this.subjectJugador.next(jugador);
+  }
+
+  public getJugadorSeleccionado(): IJugador{
+    return this.subjectJugador.getValue();
+  }
 }

@@ -12,14 +12,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./ronda-toolbar.component.css'],
 })
 export class RondaToolbarComponent implements OnInit, OnDestroy {
-  @Input() rondas?: IRonda[];
-  private subscribeDominoApiService?: Subscription;  
-  private subscribeSelectionService?: Subscription;
-  private eventoSeleccionado?: IEvento;
-  public ronda?: IRonda;
+  private subscribeDominoApiService?: Subscription;
+  private subscribeRondasDominoApiService?: Subscription;
 
-  ronda_activa = 50;
-  // (this.rondas==undefined)? 0 : this.rondas[0]?.id
+  public rondas?: IRonda[];
+  public ronda_activa= 0;
 
   constructor(
     private seleccionService: SeleccionService,
@@ -27,25 +24,34 @@ export class RondaToolbarComponent implements OnInit, OnDestroy {
     private ruta: Router
   ) {}
 
-  ngOnInit(): void {    
-    this.subscribeSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{this.eventoSeleccionado = evento;});
+  ngOnInit(): void {
+    this.subscribeRondasDominoApiService = this.dominoApiService
+      .getRondas(this.seleccionService.getEventoSeleccionado().id)
+      .subscribe((rondasRespuesta) => {
+        this.rondas = rondasRespuesta.rondas;
+        if (this.rondas.length > 0) {
+          this.ronda_activa = this.rondas[this.rondas.length-1].id;
+          this.seleccionService.setRondaIdSeleccionada(this.ronda_activa);
+        }
+      });
   }
 
   changeRonda(evento: any) {
     this.seleccionService.setRondaIdSeleccionada(evento.value);
   }
 
-  nuevaRonda() {
-    if (this.eventoSeleccionado){
-      this.subscribeDominoApiService= this.dominoApiService.getRondaNueva((this.eventoSeleccionado?.id).toString()).subscribe((ronda) => {
-        this.ronda = ronda.nuevaRonda;
-        this.ruta.navigateByUrl('rondas');
-      })
-    } 
+  iniciarRonda() {
+    if (this.seleccionService.getEventoSeleccionado().id != 0) {
+      this.subscribeDominoApiService = this.dominoApiService
+        .getRondaNueva(this.seleccionService.getEventoSeleccionado().id)
+        .subscribe(() => {
+          this.ruta.navigateByUrl('rondas');
+        });
+    }
   }
 
-  ngOnDestroy(): void{
+  ngOnDestroy(): void {
     this.subscribeDominoApiService?.unsubscribe();
-    this.subscribeSelectionService?.unsubscribe();
+    this.subscribeRondasDominoApiService?.unsubscribe();
   }
 }
