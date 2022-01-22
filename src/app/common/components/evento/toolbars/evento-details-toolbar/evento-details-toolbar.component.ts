@@ -11,18 +11,19 @@ import { DominoApiService } from 'src/app/common/services/domino-api.service';
   styleUrls: ['./evento-details-toolbar.component.css'],
 })
 export class EventoDetailsToolbarComponent implements OnInit {
-  private subscribeSelectionService: Subscription | undefined;
-  eventoSeleccionado: IEvento | undefined;
-  @Input() isLista?: number;
+  private subscribeSelectionService?: Subscription;
+  private subsSelectionServiceIsCard?: Subscription;
+  eventoSeleccionado?: IEvento;
+  isCard?: boolean;
 
   view=[{
-    icono:"view_list_white",
-    tooltip:"Ver eventos como lista",
-    url:"eventsList"
-  },{
     icono:"view_module_white",
     tooltip:"Ver eventos como tarjetas",
     url:"eventsCard"
+    },{
+    icono:"view_list_white",
+    tooltip:"Ver eventos como lista",
+    url:"eventsList"
   }]
 
   constructor(private ruta: Router, private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
@@ -32,6 +33,9 @@ export class EventoDetailsToolbarComponent implements OnInit {
       this.seleccionService.channelEvent.subscribe((evento) => {
         this.eventoSeleccionado = evento;
       });
+      this.subsSelectionServiceIsCard= this.seleccionService.channelIsCard.subscribe((IsCard) => {
+        this.isCard= IsCard;
+      })
   }
 
   viewEvent(): void {
@@ -40,35 +44,23 @@ export class EventoDetailsToolbarComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.subscribeSelectionService?.unsubscribe();
+    this.subsSelectionServiceIsCard?.unsubscribe();
   }
 
   mostrarIniciar() {
-    return this.eventoSeleccionado?.estado == 'C';
+    return this.estado() == 'Creado';
   }
 
   mostrarFinalizar() {
-    return this.eventoSeleccionado?.estado == 'I';
+    return this.estado() == 'Iniciado';
   }
 
   mostrarEliminar() {
-    return this.eventoSeleccionado?.estado == 'F';
+    return this.estado() == 'Finalizado';
   }
 
   estado() {
-    switch (this.eventoSeleccionado?.estado) {
-      case 'C':
-        return 'Creado';
-        break;
-      case 'I':
-        return 'Iniciado';
-        break;
-      case 'F':
-        return 'Finalizado';
-        break;
-      default:
-        return 'Sin estado';
-        break;
-    }
+   return this.seleccionService.nombreEstado(this.eventoSeleccionado?.estado);
   }
 
   eventos() {
@@ -89,7 +81,7 @@ export class EventoDetailsToolbarComponent implements OnInit {
   }
 
   mostrandoLista(): number {
-    return this.isLista == undefined || this.isLista == 0 ? 0 : 1;
+    return this.isCard? 1 : 0;
   }
 
   iniciarEvento() {

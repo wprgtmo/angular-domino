@@ -10,10 +10,10 @@ import { IEvento } from 'src/app/common/models/evento.interface';
   styleUrls: ['./evento-toolbar.component.css']
 })
 export class EventoToolbarComponent implements OnInit, OnDestroy {
-  @Input() isLista?: number;
-
-  subscribeSelectionService: Subscription | undefined;
-  eventoSeleccionado: IEvento | undefined;
+  subsSelectionService?: Subscription;
+  subsSelectionServiceIsCard?: Subscription;
+  eventoSeleccionado?: IEvento;
+  isCard?: boolean;
 
   view=[{
         icono:"view_module_white",
@@ -27,26 +27,34 @@ export class EventoToolbarComponent implements OnInit, OnDestroy {
 
   constructor(private ruta: Router, private seleccionService: SeleccionService) { }
 
+  ngOnInit(): void {
+    this.subsSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{
+      this.eventoSeleccionado = evento;
+    });
+    this.subsSelectionServiceIsCard= this.seleccionService.channelIsCard.subscribe((IsCard) => {
+      this.isCard= IsCard;
+    })
+ }
+
   addEvento(): void {
     this.ruta.navigateByUrl('eventNew');
   }
 
   viewEvent(): void {
-      this.ruta.navigateByUrl(this.view[this.mostrandoLista()].url);
+      console.log("Es lista en el View: ", this.isCard);
+      const lista= this.mostrandoLista();
+      this.seleccionService.setsetIsCard(!this.isCard);
+      console.log("Es lista despues de cambiar el view: ", this.isCard);
+      this.ruta.navigateByUrl(this.view[lista].url);
   }
 
-  ngOnInit(): void {
-    this.subscribeSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{
-      this.eventoSeleccionado = evento;
-    });
- }
-
  mostrandoLista(): number{
-    return ((this.isLista==undefined) || (this.isLista==0))?0:1;
+    return this.isCard?1:0;
  }
 
  ngOnDestroy(): void{
-   this.subscribeSelectionService?.unsubscribe();
+   this.subsSelectionService?.unsubscribe();
+   this.subsSelectionServiceIsCard?.unsubscribe();
  }
 
 

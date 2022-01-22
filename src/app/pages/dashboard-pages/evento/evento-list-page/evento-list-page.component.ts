@@ -17,7 +17,7 @@ export class EventoListPageComponent implements OnInit, OnDestroy {
 
   public displayedColumns: string[] = ['id', 'nombre', 'comentario', 'estado', 'fecha_inicio', 'fecha_cierre'];
 
-  private subscribeDominoApiService: Subscription | undefined;
+  private subscribeDominoApiService?: Subscription;
 
   clickedRows = new Set<IEvento>();
 
@@ -40,9 +40,10 @@ export class EventoListPageComponent implements OnInit, OnDestroy {
 }
 
   seleccionarEvento(evento: IEvento){
-    if (evento!==undefined)
-    this.seleccionService.setEventoSeleccionado(evento);
-    this.ruta.navigate(['eventDetails'], { queryParams: {isLista: 0}} );
+    if (evento!==undefined){
+      this.seleccionService.setEventoSeleccionado(evento);
+      this.ruta.navigateByUrl('eventDetails');
+    }
   }
 
 }

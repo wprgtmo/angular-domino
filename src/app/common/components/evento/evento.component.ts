@@ -2,6 +2,7 @@ import { SeleccionService } from './../../services/seleccion.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { IEvento } from '../../models/evento.interface';
 import { Router } from '@angular/router';
+import { PathRest } from '../../static/path-rest';
 
 @Component({
   selector: 'app-evento',
@@ -16,23 +17,17 @@ export class EventoComponent implements OnInit{
   constructor(private ruta: Router, private seleccionService: SeleccionService) { }
 
   ngOnInit(){
-    this.fotoEvento= 'http://localhost/domino_api/public/assets/img/eventos/' + this.evento?.imagen;
+    this.fotoEvento= PathRest.URL_BASE +  PathRest.IMG_EVENTOS + this.evento?.imagen;
   }
 
-  estado() {
-    switch (this.evento?.estado) {
-      case "C": return "Creado"; break;
-      case "I": return "Iniciado"; break;
-      case "F": return "Finalizado"; break;
-      default: return "Sin estado"; break;
-    }
+  estado(): string {
+    return this.seleccionService.nombreEstado(this.evento?.estado);
   }
 
-  seleccionarEvento(){
+  seleccionarEvento(): void{
     if (this.evento!==undefined)
       this.seleccionService.setEventoSeleccionado(this.evento);
-    this.ruta.navigate(['eventDetails'], { queryParams: {isLista: 1}} );
-
+    this.ruta.navigateByUrl('eventDetails');
   }
 
 

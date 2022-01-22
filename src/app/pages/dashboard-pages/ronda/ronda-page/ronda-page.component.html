@@ -1,6 +1,10 @@
 <app-evento-details-toolbar></app-evento-details-toolbar>
 <app-ronda-toolbar></app-ronda-toolbar>
-<div class="titulo">Ronda: {{rondaActiva?.numero}} <span class="spacer"></span> Duración: {{duracionRonda()}} <span class="spacer"></span></div>
+<div class="titulo">
+  Ronda: {{ rondaActiva?.numero }} <span class="spacer"></span>
+  Estado: {{ rondaActiva?.estado }} <span class="spacer"></span>
+  Duración: {{ duracionRonda() }}  <span class="spacer"></span>
+</div>
 <div class="grid">
   <app-boleta [boleta]="boleta" *ngFor="let boleta of listaBoletas"></app-boleta>
 </div>

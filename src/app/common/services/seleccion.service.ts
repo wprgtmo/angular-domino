@@ -1,7 +1,7 @@
 import { IJugador } from './../models/jugador.interface';
 import { IEvento } from './../models/evento.interface';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { IRonda } from '../models/ronda.interface';
 
 @Injectable({
@@ -19,6 +19,9 @@ export class SeleccionService {
 
   private subjectRondas = new BehaviorSubject(<IRonda[]>{});
   channelRondas = this.subjectRondas.asObservable();
+
+  private subjectIsCard = new BehaviorSubject(<boolean>true);
+  channelIsCard = this.subjectIsCard.asObservable();
 
   constructor() { }
 
@@ -44,5 +47,22 @@ export class SeleccionService {
 
   public getJugadorSeleccionado(): IJugador{
     return this.subjectJugador.getValue();
+  }
+
+  public setsetIsCard(esTarjeta: boolean): void {
+    this.subjectIsCard.next(esTarjeta);
+  }
+
+  public getIsCard(): boolean{
+    return this.subjectIsCard.getValue();
+  }
+  
+  nombreEstado(estado?: string): string {
+    switch (estado) {
+      case "C": return "Creado"; break;
+      case "I": return "Iniciado"; break;
+      case "F": return "Finalizado"; break;
+      default: return "Sin estado"; break;
+    }
   }
 }

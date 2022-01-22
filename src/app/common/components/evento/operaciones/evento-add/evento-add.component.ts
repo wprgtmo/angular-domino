@@ -37,9 +37,9 @@ export class EventoAddComponent {
   public loading= false;
 
 
-  public eventoAddFrm: FormGroup | undefined;
+  public eventoAddFrm?: FormGroup;
 
-  public evento: IEvento[] | undefined;
+  public evento?: IEvento[];
 
   constructor(
     private dominoApiService: DominoApiService,
@@ -73,8 +73,7 @@ export class EventoAddComponent {
 
       this.dominoApiService
       .newEvento(frmData)
-      .subscribe((datos) => {
-        console.log(datos);
+      .subscribe(() => {
         this.loading= false;
         this.ruta.navigateByUrl('eventsCard');
       });
