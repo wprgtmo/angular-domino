@@ -1,6 +1,7 @@
 import { IRonda } from './ronda.interface';
 import { IMesa } from './mesa.interface';
 import { IBoletaPareja } from "./boleta-pareja.interface";
+import { IEstadisticaBoleta } from './estadistica-boleta.interface';
 
 export interface IBoletaCompleta {
   id              : number;
@@ -13,6 +14,7 @@ export interface IBoletaCompleta {
   ronda           : IRonda;
   mesa            : IMesa;
   boleta_parejas  : IBoletaPareja[];
+  estadistica     : IEstadisticaBoleta[];
 }
 
 
