@@ -17,7 +17,7 @@ export class EventoComponent implements OnInit{
   constructor(private ruta: Router, private seleccionService: SeleccionService) { }
 
   ngOnInit(){
-    this.fotoEvento= PathRest.URL_BASE +  PathRest.IMG_EVENTOS + this.evento?.imagen;
+    this.fotoEvento= PathRest.URL_BASE +  this.evento?.imagen;
   }
 
   estado(): string {

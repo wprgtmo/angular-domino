@@ -1,3 +1,4 @@
+import { PathRest } from './../../static/path-rest';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IJugador } from '../../models/jugador.interface';
@@ -17,7 +18,7 @@ export class JugadorComponent implements OnInit {
   constructor(private ruta: Router, private seleccionService: SeleccionService) { }
 
   ngOnInit(){
-    this.fotoJugador= 'http://localhost/domino_api/' + this.jugador?.foto;
+    this.fotoJugador= PathRest.URL_BASE + this.jugador?.foto;
   }
   seleccionarJugador(){
     if (this.jugador!==undefined)
@@ -25,4 +26,3 @@ export class JugadorComponent implements OnInit {
     this.ruta.navigateByUrl('playerDetails');
   }
 }
- 
