@@ -23,7 +23,7 @@ export class EventoListPageComponent implements OnInit, OnDestroy {
 
   public dataSource = new MatTableDataSource<IEvento>();
 
-  constructor(private dominoApiService:DominoApiService, private ruta: Router, private seleccionService: SeleccionService) { }
+  constructor(private dominoApiService:DominoApiService, private ruta: Router, public seleccionService: SeleccionService) { }
 
   ngOnInit(): void {
      this.subscribeDominoApiService= this.dominoApiService.getEventos().subscribe((eventos)=>{

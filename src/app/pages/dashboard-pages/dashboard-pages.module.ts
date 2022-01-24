@@ -16,6 +16,8 @@ import { JugadorAddPageComponent } from './jugador/jugador-add-page/jugador-add-
 import { JugadorDetailPageComponent } from './jugador/jugador-detail-page/jugador-detail-page.component';
 import { JugadorListPageComponent } from './jugador/jugador-list-page/jugador-list-page.component';
 
+import { ArbitroPageComponent } from './arbitro/arbitro-page/arbitro-page.component';
+
 import { RondaPageComponent } from './ronda/ronda-page/ronda-page.component';
 import { MesaPageComponent } from './mesa-page/mesa-page.component';
 
@@ -25,11 +27,14 @@ import { ParejaEditPageComponent } from './pareja/pareja-edit-page/pareja-edit-p
 import { ParejaListPageComponent } from './pareja/pareja-list-page/pareja-list-page.component';
 
 import { EstadisticaPageComponent } from './estadistica/estadistica-page/estadistica-page.component';
+import { HomePageComponent } from './home/home-page/home-page.component';
 
 
 
 @NgModule({
   declarations: [
+    HomePageComponent,
+
     EventoPageComponent,
     EventoAddPageComponent,
     EventoListPageComponent,
@@ -39,6 +44,8 @@ import { EstadisticaPageComponent } from './estadistica/estadistica-page/estadis
     JugadorAddPageComponent,
     JugadorListPageComponent,
     JugadorDetailPageComponent,
+
+    ArbitroPageComponent,
 
     RondaPageComponent,
     MesaPageComponent,

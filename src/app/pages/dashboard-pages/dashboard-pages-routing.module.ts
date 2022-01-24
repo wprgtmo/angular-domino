@@ -16,12 +16,23 @@ import { JugadorAddPageComponent } from './jugador/jugador-add-page/jugador-add-
 import { JugadorListPageComponent } from './jugador/jugador-list-page/jugador-list-page.component';
 import { ParejaEditPageComponent } from './pareja/pareja-edit-page/pareja-edit-page.component';
 import { EstadisticaPageComponent } from './estadistica/estadistica-page/estadistica-page.component';
+import { HomePageComponent } from './home/home-page/home-page.component';
+import { PublicidadPageComponent } from '../admin-pages/publicidad/publicidad-page/publicidad-page.component';
+import { ArbitroPageComponent } from './arbitro/arbitro-page/arbitro-page.component';
 
 const routes: Routes = [
   {
     path: '',
     component: NavComponent,
     children:[
+        {
+          path: '',
+          component: HomePageComponent
+        },
+        {
+          path: 'home',
+          component: HomePageComponent
+        },
         {
           path: 'eventsCard',
           component: EventoPageComponent
@@ -81,7 +92,15 @@ const routes: Routes = [
         {
           path: 'estadistica',
           component: EstadisticaPageComponent
-        }
+        },
+        {
+          path: 'arbitro',
+          component: ArbitroPageComponent
+        },
+        {
+          path: 'publicidad',
+          component: PublicidadPageComponent
+        },
     ]
   }
 ];
