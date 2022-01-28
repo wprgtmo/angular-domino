@@ -1,3 +1,5 @@
+import { ROOT_REDUCERS } from './state/app.state';
+import { eventosReducers } from './state/reducers/eventos.reducers';
 import { SdkModule } from './sdk.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +14,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DominoInterceptor } from './common/interceptors/domino-interceptor';
 import { LoaderInterceptor } from './common/interceptors/loader-interceptor';
-import { LoaderService } from './common/services/loader.service';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { EventosEffects } from './state/effects/eventos.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,9 +31,11 @@ import { LoaderService } from './common/services/loader.service';
     MaterialModule,
     AuthPagesModule,
     DashboardPagesModule,
+    StoreModule.forRoot(ROOT_REDUCERS),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([EventosEffects]),
   ],
   providers: [
-    LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     {
       provide: HTTP_INTERCEPTORS,

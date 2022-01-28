@@ -16,25 +16,25 @@ export class MenuComponent {
     {
       nombre: 'Inicio',
       enlace: 'home',
-      icono: 'home', //event_note
+      icono: 'home', 
       isSelected: true,
     },
     {
       nombre: 'Eventos',
       enlace: 'eventsCard',
-      icono: 'domain', //event_note
+      icono: 'domain', 
       isSelected: true,
     },
     {
       nombre: 'Jugadores',
       enlace: 'playersCard',
-      icono: 'person_outline',//people_outline_white  assignment_ind account_box person_outline portrait
+      icono: 'person_outline',
       isSelected: false,
     },
     {
       nombre: 'Arbitros',
       enlace: 'arbitro',
-      icono: 'portrait',//people_outline_white  assignment_ind account_box person_outline portrait
+      icono: 'portrait',
       isSelected: false,
     },
     {
@@ -46,25 +46,25 @@ export class MenuComponent {
     {
       nombre: 'Usuarios',
       enlace: 'admin/usuario',
-      icono: 'account_box',//people_outline_white portrait
+      icono: 'account_box',
       isSelected: false,
     },
     {
       nombre: 'Grupos',
       enlace: 'admin/grupo',
-      icono: 'group',//people_outline_white
+      icono: 'group',
       isSelected: false,
     },
     {
       nombre: 'Dispositivos',
       enlace: 'admin/dispositivo',
-      icono: 'phone_android',//people_outline_white
+      icono: 'phone_android',
       isSelected: false,
     },
     {
       nombre: 'Publicidad',
       enlace: 'publicidad',
-      icono: 'ondemand_video',//people_outline_white
+      icono: 'ondemand_video',
       isSelected: false,
     },
   ];

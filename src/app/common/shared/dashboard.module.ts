@@ -36,6 +36,10 @@ import { JugadorEditComponent } from './../components/jugador/operaciones/jugado
 import { RondaComponent } from '../components/ronda/ronda.component';
 import { RondaToolbarComponent } from '../components/ronda/ronda-toolbar/ronda-toolbar.component';
 
+import { PublicidadVideoComponent } from './../components/publicidad/publicidad-video/publicidad-video.component';
+import { PublicidadImagenComponent } from './../components/publicidad/publicidad-imagen/publicidad-imagen.component';
+import { PublicidadComponent } from './../components/publicidad/publicidad.component';
+
 import { EstadisticaComponent } from '../components/estadistica/estadistica.component';
 import { EstadisticaToolbarComponent } from './../components/estadistica/toolbar/estadistica-toolbar/estadistica-toolbar.component';
 
@@ -44,7 +48,7 @@ import { EstadisticaToolbarComponent } from './../components/estadistica/toolbar
     HeaderComponent,
     MenuComponent,
     NavComponent,
-
+    
     EventoComponent,
     EventoToolbarComponent,
     EventoDetailsToolbarComponent,
@@ -73,6 +77,10 @@ import { EstadisticaToolbarComponent } from './../components/estadistica/toolbar
 
     EstadisticaComponent,
     EstadisticaToolbarComponent,
+
+    PublicidadComponent,
+    PublicidadImagenComponent,
+    PublicidadVideoComponent,
     
     CargandoComponent
   ],
@@ -111,6 +119,10 @@ import { EstadisticaToolbarComponent } from './../components/estadistica/toolbar
 
     EstadisticaComponent,
     EstadisticaToolbarComponent,
+
+    PublicidadComponent,
+    PublicidadImagenComponent,
+    PublicidadVideoComponent,
 
     CargandoComponent
   ],

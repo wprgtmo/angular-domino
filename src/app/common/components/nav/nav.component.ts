@@ -16,6 +16,7 @@ export class NavComponent {
       shareReplay()
     );
 
+  public titulo="WINEN Sistema para el control de los eventos de Domino";
   constructor(private breakpointObserver: BreakpointObserver) {}
 
 }

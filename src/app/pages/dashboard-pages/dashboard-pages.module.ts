@@ -30,7 +30,6 @@ import { EstadisticaPageComponent } from './estadistica/estadistica-page/estadis
 import { HomePageComponent } from './home/home-page/home-page.component';
 
 
-
 @NgModule({
   declarations: [
     HomePageComponent,
