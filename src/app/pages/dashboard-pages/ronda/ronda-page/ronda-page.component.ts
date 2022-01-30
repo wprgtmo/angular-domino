@@ -1,10 +1,10 @@
-import { IBoletaCompleta } from '../../../../common/models/boleta-completa.interface';
-import { IRonda } from '../../../../common/models/ronda.interface';
+import { IBoletaCompleta } from '../../../../common/models/interface/boleta-completa.interface';
 import { Component, OnInit } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
 import * as moment from 'moment/moment';
+import { IRonda } from 'src/app/common/models/interface/ronda.interface';
 
 @Component({
   templateUrl: './ronda-page.component.html',

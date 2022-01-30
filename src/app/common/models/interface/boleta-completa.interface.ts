@@ -1,7 +1,7 @@
-import { IRonda } from './ronda.interface';
-import { IMesa } from './mesa.interface';
+import { IRonda } from '../interface/ronda.interface';
+import { IMesa } from '../interface/mesa.interface';
 import { IBoletaPareja } from "./boleta-pareja.interface";
-import { IEstadisticaBoleta } from './estadistica-boleta.interface';
+import { IEstadisticaBoleta } from '../interface/estadistica-boleta.interface';
 
 export interface IBoletaCompleta {
   id              : number;

@@ -1,9 +1,8 @@
-import { IRonda } from './../../../models/ronda.interface';
+import { IRonda } from './../../../models/interface/ronda.interface';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
 import { Subscription } from 'rxjs';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
-import { IEvento } from 'src/app/common/models/evento.interface';
 import { Router } from '@angular/router';
 
 @Component({

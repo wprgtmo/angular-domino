@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatTableDataSource } from "@angular/material/table";
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { IEvento } from 'src/app/common/models/evento.interface';
-import { IPareja } from 'src/app/common/models/pareja.interface';
+import { IEvento } from 'src/app/common/models/interface/evento.interface';
+import { IPareja } from 'src/app/common/models/interface/pareja.interface';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
 
@@ -28,10 +28,10 @@ export class ParejaListPageComponent implements OnInit, OnDestroy {
     });
     let evento_seleccionado = this.eventoSeleccionado === undefined ? 0 : this.eventoSeleccionado?.id;
     console.log("evento: ", evento_seleccionado);
-    
+
     this.subscribeDominoApiService= this.dominoApiService.getParejas(evento_seleccionado.toString()).subscribe((parejas)=>{
       console.log(parejas);
-      
+
       this.dataSource.data= parejas.parejas;
     })
   }

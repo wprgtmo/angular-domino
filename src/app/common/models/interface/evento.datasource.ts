@@ -1,4 +1,4 @@
-import { IEvento } from 'src/app/common/models/evento.interface';
+import { IEvento } from 'src/app/common/models/interface/evento.interface';
 import { DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, Observable } from 'rxjs';
 

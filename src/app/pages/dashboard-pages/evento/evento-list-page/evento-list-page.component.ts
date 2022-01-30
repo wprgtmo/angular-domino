@@ -1,12 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { IEvento } from 'src/app/common/models/evento.interface';
+import { Observable, Subscription } from 'rxjs';
+import { IEvento } from 'src/app/common/models/interface/evento.interface';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 
 import { MatTableDataSource } from "@angular/material/table";
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/state/app.state';
+import { listaEventos } from 'src/app/state/selectors/eventos.selectors';
 
 
 @Component({
@@ -23,21 +26,17 @@ export class EventoListPageComponent implements OnInit, OnDestroy {
 
   public dataSource = new MatTableDataSource<IEvento>();
 
-  constructor(private dominoApiService:DominoApiService, private ruta: Router, public seleccionService: SeleccionService) { }
+  constructor(private store:Store<AppState>, private ruta: Router, public seleccionService: SeleccionService) { }
 
   ngOnInit(): void {
-     this.subscribeDominoApiService= this.dominoApiService.getEventos().subscribe((eventos)=>{
-      this.dataSource.data= eventos.eventos;
+     this.subscribeDominoApiService= this.store.select(listaEventos).subscribe((eventos)=>{
+      this.dataSource.data= eventos.slice();
     })
   }
 
   ngOnDestroy(): void{
     this.subscribeDominoApiService?.unsubscribe();
   }
-
-  drop(event: CdkDragDrop<string[]>){
-    moveItemInArray(this.displayedColumns, event.previousIndex, event.currentIndex);
-}
 
   seleccionarEvento(evento: IEvento){
     if (evento!==undefined){

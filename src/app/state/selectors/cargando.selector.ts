@@ -1,4 +1,4 @@
-import { CargandoState } from './../../common/models/states/cargando.state';
+import { CargandoState } from '../models/cargando.state';
 import { AppState } from './../app.state';
 import { createSelector } from '@ngrx/store';
 

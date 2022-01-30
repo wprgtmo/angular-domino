@@ -1,6 +1,6 @@
 import { SeleccionService } from './../../services/seleccion.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { IEvento } from '../../models/evento.interface';
+import { IEvento } from '../../models/interface/evento.interface';
 import { Router } from '@angular/router';
 import { PathRest } from '../../static/path-rest';
 

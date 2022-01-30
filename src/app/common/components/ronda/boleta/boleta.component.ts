@@ -1,9 +1,9 @@
-import { IBoletaPareja } from './../../../models/boleta-pareja.interface';
-import { IEstadisticaBoleta } from './../../../models/estadistica-boleta.interface';
-import { IPareja } from 'src/app/common/models/pareja.interface';
-import { IBoletaCompleta } from './../../../models/boleta-completa.interface';
+import { IBoletaCompleta } from '../../../models/interface/boleta-completa.interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { PathRest } from 'src/app/common/static/path-rest';
+import { IPareja } from 'src/app/common/models/interface/pareja.interface';
+import { IBoletaPareja } from 'src/app/common/models/interface/boleta-pareja.interface';
+import { IEstadisticaBoleta } from 'src/app/common/models/interface/estadistica-boleta.interface';
 
 @Component({
   selector: 'app-boleta',

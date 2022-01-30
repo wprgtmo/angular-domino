@@ -1,7 +1,7 @@
 import { PathRest } from './../../static/path-rest';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IJugador } from '../../models/jugador.interface';
+import { IJugador } from '../../models/interface/jugador.interface';
 import { SeleccionService } from '../../services/seleccion.service';
 
 @Component({

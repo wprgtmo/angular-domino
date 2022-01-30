@@ -1,4 +1,4 @@
-import { EventoState } from './../../common/models/states/eventos.state';
+import { EventoState } from '../models/eventos.state';
 import { AppState } from './../app.state';
 import { createSelector } from '@ngrx/store';
 

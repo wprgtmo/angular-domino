@@ -1,7 +1,7 @@
-import { IMesa } from './../../../common/models/mesa.interface';
+import { IMesa } from './../../../common/models/interface/mesa.interface';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IEvento } from 'src/app/common/models/evento.interface';
+import { IEvento } from 'src/app/common/models/interface/evento.interface';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 

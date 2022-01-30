@@ -1,8 +1,7 @@
-import { IRonda } from './../../models/ronda.interface';
+import { IRonda } from './../../models/interface/ronda.interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IEvento } from '../../models/evento.interface';
-import { IRondaNuevaRespuesta } from '../../models/respuestas/ronda-nueva-respuesta.interface';
+import { IEvento } from '../../models/interface/evento.interface';
 import { DominoApiService } from '../../services/domino-api.service';
 import { SeleccionService } from '../../services/seleccion.service';
 

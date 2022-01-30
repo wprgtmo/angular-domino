@@ -10,7 +10,7 @@ import { IBoletasRespuesta } from '../models/respuestas/boletas-respuesta.interf
 import { IBoletasCompletaRespuesta } from '../models/respuestas/boletas-completa-respuesta.interface';
 import { IMesasRespuesta } from '../models/respuestas/mesas-respuesta.interface';
 import { IParejasRespuesta } from '../models/respuestas/parejas-respuesta.interface';
-import { IPareja } from '../models/pareja.interface';
+import { IPareja } from '../models/interface/pareja.interface';
 
 @Injectable({
   providedIn: 'root'

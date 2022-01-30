@@ -1,4 +1,4 @@
-import { IEvento } from 'src/app/common/models/evento.interface';
+import { IEvento } from 'src/app/common/models/interface/evento.interface';
 import { createAction, props } from '@ngrx/store';
 
 
@@ -15,11 +15,17 @@ export const accionMostrarEventosComoLista= createAction(
    '[EventPages] mostrar Eventos como Lista'
 )
 
-export const accionMostrarEventosComoTarjetas= createAction(
-  '[EventPages] mostrar Eventos como Tarjetas'
+export const accionMostrarEventosComoTarjeta= createAction(
+  '[EventPages] mostrar Eventos como Tarjeta'
 )
 
 export const accionErrorCargandoEventos= createAction(
    '[EventPages] Error cargando eventos',
-   props<{ error: any}>()
+   props<{ error: any }>()
 )
+
+// export const seleccionarEvento= createAction(
+//   '[EventPages] Error cargando eventos',
+//   props<{ evento: IEvento }>()
+// )
+

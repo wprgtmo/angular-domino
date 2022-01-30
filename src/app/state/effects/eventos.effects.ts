@@ -11,7 +11,7 @@ export class EventosEffects {
     ofType('[EventPages] cargar Eventos'),
     mergeMap(() => this.dominoApiService.getEventos()
       .pipe(
-        map(eventos => ({ type: '[EventPages] Eventos cargados satisfactoriamente',  eventos })),
+        map((events) => ({ type: '[EventPages] Eventos cargados satisfactoriamente',  eventos: events.eventos })),
         catchError((error) => of({ type: '[EventPages] Error cargando eventos', error }))
       ))
     )

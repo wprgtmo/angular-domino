@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IJugador } from 'src/app/common/models/jugador.interface';
+import { IJugador } from 'src/app/common/models/interface/jugador.interface';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
 
 @Component({

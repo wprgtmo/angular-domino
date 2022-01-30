@@ -4,8 +4,8 @@ import { MatInput } from '@angular/material/input';
 import { MatSelectChange } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { IEvento } from 'src/app/common/models/evento.interface';
-import { IJugador } from 'src/app/common/models/jugador.interface';
+import { IEvento } from 'src/app/common/models/interface/evento.interface';
+import { IJugador } from 'src/app/common/models/interface/jugador.interface';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
 

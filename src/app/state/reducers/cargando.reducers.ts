@@ -1,5 +1,5 @@
 import { createReducer, on  } from '@ngrx/store';
-import { CargandoState } from 'src/app/common/models/states/cargando.state';
+import { CargandoState } from 'src/app/state/models/cargando.state';
 import { accionCargandoDatos, accionDatosCargados } from '../actions/cargando.actions';
 
 export const estadoInicial: CargandoState ={loading: false};

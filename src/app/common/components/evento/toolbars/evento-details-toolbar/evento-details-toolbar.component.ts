@@ -2,7 +2,7 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
-import { IEvento } from 'src/app/common/models/evento.interface';
+import { IEvento } from 'src/app/common/models/interface/evento.interface';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 
 @Component({

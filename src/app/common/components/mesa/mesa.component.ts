@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IMesa } from '../../models/mesa.interface';
+import { IMesa } from '../../models/interface/mesa.interface';
 
 @Component({
   selector: 'app-mesa',
