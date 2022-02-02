@@ -1,36 +1,29 @@
 import { IMesa } from './../../../common/models/interface/mesa.interface';
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { IEvento } from 'src/app/common/models/interface/evento.interface';
-import { SeleccionService } from 'src/app/common/services/seleccion.service';
+import { Observable } from 'rxjs';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
+import { Store } from '@ngrx/store';
+import { idEventoSeleccionado } from 'src/app/state/selectors/eventos.selectors';
+import { AppState } from 'src/app/state/app.state';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   templateUrl: './mesa-page.component.html',
   styleUrls: ['./mesa-page.component.css']
 })
 export class MesaPageComponent implements OnInit {
+  id$: Observable<number>= new Observable();
+  listaMesas$: Observable<IMesa[]>= new Observable();
 
-  private subscribeMesasDominoApiService: Subscription | undefined;
-  private subscribeSelectionService: Subscription | undefined;
-  public listaMesas?: IMesa[];
-  private eventoSeleccionado?: IEvento;
-
-  constructor(private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
+  constructor(private store: Store<AppState>, private dominoApiService: DominoApiService) { }
 
   ngOnInit(): void {
-    this.subscribeSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{this.eventoSeleccionado = evento;});
 
-    let evento_seleccionado= (this.eventoSeleccionado === undefined) ? 0 : this.eventoSeleccionado?.id;
+    this.id$= this.store.select(idEventoSeleccionado).pipe(map(id => id));
 
-    this.subscribeMesasDominoApiService= this.dominoApiService.getMesas(evento_seleccionado.toString() ).subscribe((mesaRespuesta) => {
-      this.listaMesas = mesaRespuesta.mesas.sort((m1, m2)=> m1.numero-m2.numero);
-    })
-
+    this.listaMesas$= this.id$.pipe(
+      switchMap((id)=> this.dominoApiService.getMesas(id)),
+      map((mesaResp)=> mesaResp.mesas.sort((m1, m2)=> m1.numero-m2.numero))
+    );
   }
-
- ngOnDestroy(): void{
-   this.subscribeMesasDominoApiService?.unsubscribe();
-   this.subscribeSelectionService?.unsubscribe();
- }
 }

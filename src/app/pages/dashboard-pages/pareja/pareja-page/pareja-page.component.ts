@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
 import { IEvento } from 'src/app/common/models/interface/evento.interface';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
 import { IPareja } from 'src/app/common/models/interface/pareja.interface';
+import { Store } from '@ngrx/store';
+import { eventoSeleccionado, idEventoSeleccionado } from 'src/app/state/selectors/eventos.selectors';
+import { AppState } from 'src/app/state/app.state';
+import { map, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   templateUrl: './pareja-page.component.html',
@@ -11,26 +15,16 @@ import { IPareja } from 'src/app/common/models/interface/pareja.interface';
 })
 export class ParejaPageComponent implements OnInit {
 
-  private subscribeDominoApiService: Subscription | undefined;
-  private subscribeSelectionService: Subscription | undefined;
-  public listaParejas?: IPareja[];
-  private eventoSeleccionado?: IEvento;
+  id$: Observable<number>= new Observable();
+  listaParejas$: Observable<IPareja[]>= new Observable();
 
-  constructor(private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
+  constructor(private store: Store<AppState>, private dominoApiService: DominoApiService) { }
 
   ngOnInit(): void {
-    this.subscribeSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{this.eventoSeleccionado = evento;});
 
-    let evento_seleccionado= (this.eventoSeleccionado === undefined) ? 0 : this.eventoSeleccionado?.id;
+    this.id$= this.store.select(idEventoSeleccionado).pipe(map(id => id));
 
-    this.subscribeDominoApiService= this.dominoApiService.getParejas(evento_seleccionado.toString()).subscribe((parejasRespuesta) => {
-      this.listaParejas = parejasRespuesta.parejas; //.sort((p1, p2)=> p1.id-p2.id)
-    })
+    this.listaParejas$= this.id$.pipe(switchMap((id)=> this.dominoApiService.getParejas(id)));
 
   }
-
- ngOnDestroy(): void{
-   this.subscribeDominoApiService?.unsubscribe();
-   this.subscribeSelectionService?.unsubscribe();
- }
 }

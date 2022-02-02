@@ -1,6 +1,6 @@
 <app-evento-details-toolbar></app-evento-details-toolbar>
 <app-pareja-toolbar  [isLista]="1"></app-pareja-toolbar>
 <div class="grid">
-  <app-pareja [pareja]="pareja" *ngFor="let pareja of listaParejas"></app-pareja>
+  <app-pareja [pareja]="pareja" *ngFor="let pareja of (listaParejas$ | async)"></app-pareja>
 </div>
 

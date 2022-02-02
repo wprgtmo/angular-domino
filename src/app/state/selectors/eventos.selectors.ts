@@ -10,7 +10,22 @@ export const listaEventos = createSelector(
   (state: EventoState) => state.eventos
 );
 
-// export const cargandoEventos = createSelector(
-//   selectorEventos,
-//   (state: EventoState) => state.loading
-// )
+export const cargandoEventos = createSelector(
+  selectorEventos,
+  (state: EventoState) => state.cargando
+)
+
+export const eventoSeleccionado = createSelector(
+  selectorEventos,
+  (state: EventoState) => state.eventos.find((e)=> e.id===state.id_seleccionado)
+);
+
+export const esTarjeta = createSelector(
+  selectorEventos,
+  (state: EventoState) => state.esTarjeta
+);
+
+export const idEventoSeleccionado = createSelector(
+  selectorEventos,
+  (state: EventoState) => state.id_seleccionado
+);

@@ -1,44 +1,35 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatTableDataSource } from "@angular/material/table";
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { IEvento } from 'src/app/common/models/interface/evento.interface';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { IPareja } from 'src/app/common/models/interface/pareja.interface';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
-import { SeleccionService } from 'src/app/common/services/seleccion.service';
+import { AppState } from 'src/app/state/app.state';
+import { idEventoSeleccionado } from 'src/app/state/selectors/eventos.selectors';
 
 @Component({
   templateUrl: './pareja-list-page.component.html',
-  styleUrls: ['./pareja-list-page.component.css']
+  styleUrls: ['./pareja-list-page.component.css'],
 })
 export class ParejaListPageComponent implements OnInit, OnDestroy {
-  public displayedColumns: string[] = ['nombre', 'jugador1', 'jugador2'];
+  private subs?: Subscription;
+  private id$: Observable<number> = new Observable();
+  displayedColumns: string[] = ['nombre', 'jugador1', 'jugador2'];
+  dataSource = new MatTableDataSource<IPareja>();
 
-  private subscribeDominoApiService: Subscription | undefined;
-  private subscribeSelectionService: Subscription | undefined;
-  public eventoSeleccionado: IEvento | undefined;
-
-  public dataSource = new MatTableDataSource<IPareja>();
-
-  constructor(private dominoApiService: DominoApiService, private seleccionService: SeleccionService, private ruta: Router) { }
+  constructor(private dominoApiService: DominoApiService,private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.subscribeSelectionService = this.seleccionService.channelEvent.subscribe((evento) => {
-      this.eventoSeleccionado = evento;
-    });
-    let evento_seleccionado = this.eventoSeleccionado === undefined ? 0 : this.eventoSeleccionado?.id;
-    console.log("evento: ", evento_seleccionado);
+    this.id$ = this.store.select(idEventoSeleccionado).pipe(map((id) => id));
 
-    this.subscribeDominoApiService= this.dominoApiService.getParejas(evento_seleccionado.toString()).subscribe((parejas)=>{
-      console.log(parejas);
-
-      this.dataSource.data= parejas.parejas;
-    })
+    this.subs = this.id$
+      .pipe(switchMap((id) => this.dominoApiService.getParejas(id)))
+      .subscribe((parejas) => (this.dataSource.data = parejas));
   }
 
-  ngOnDestroy(): void{
-    this.subscribeSelectionService?.unsubscribe();
-    this.subscribeDominoApiService?.unsubscribe();
+  ngOnDestroy(): void {
+    this.subs?.unsubscribe();
   }
-
 }

@@ -1,4 +1,4 @@
-import { accionCargarEventos } from './../../../../state/actions/eventos.actions';
+import { EventosDispachService } from './../../../../state/dispatch/eventos.dispatch';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -14,10 +14,11 @@ export class EventoPageComponent implements OnInit {
 
   listaEventos$: Observable<any> = new Observable() ;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private eventosDispachService: EventosDispachService) {}
 
   ngOnInit(): void {
-    this.store.dispatch(accionCargarEventos());
+    this.eventosDispachService.mostrarEventosComoTarjetas();
+    this.eventosDispachService.cargarEventos();
     this.listaEventos$= this.store.select(listaEventos);    
   }
 

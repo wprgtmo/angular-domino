@@ -3,6 +3,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IEvento } from '../../models/interface/evento.interface';
 import { Router } from '@angular/router';
 import { PathRest } from '../../static/path-rest';
+import { Store } from '@ngrx/store';
+import { accionSeleccionarEvento } from 'src/app/state/actions/eventos.actions';
+import { NombreEstado } from '../../auxiliar/auxiliar';
 
 @Component({
   selector: 'app-evento',
@@ -14,20 +17,21 @@ export class EventoComponent implements OnInit{
   @Input() evento?: IEvento;
   public fotoEvento = "";
 
-  constructor(private ruta: Router, private seleccionService: SeleccionService) { }
+  constructor(private ruta: Router, private seleccionService: SeleccionService, private store: Store) { }
 
   ngOnInit(){
     this.fotoEvento= PathRest.URL_BASE +  this.evento?.imagen;
   }
 
   estado(): string {
-    return this.seleccionService.nombreEstado(this.evento?.estado);
+    return NombreEstado(this.evento?.estado);
   }
 
   seleccionarEvento(): void{
-    if (this.evento!==undefined)
-      this.seleccionService.setEventoSeleccionado(this.evento);
-    this.ruta.navigateByUrl('eventDetails');
+    if (this.evento!==undefined){
+      this.store.dispatch(accionSeleccionarEvento( { id: this.evento.id } ));
+      this.ruta.navigateByUrl('eventDetails');
+    }
   }
 
 
