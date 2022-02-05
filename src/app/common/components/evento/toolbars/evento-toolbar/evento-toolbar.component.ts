@@ -4,7 +4,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
 import { esTarjeta } from 'src/app/state/selectors/eventos.selectors';
-import { EventosDispachService } from './../../../../../state/dispatch/eventos.dispatch';
+import { EventosService } from '../../../../../state/facade/eventos.service';
 
 @Component({
   selector: 'app-evento-toolbar',
@@ -25,7 +25,7 @@ export class EventoToolbarComponent implements OnInit, OnDestroy {
         url:"eventsList"
       }]
 
-  constructor(private ruta: Router, private eventosDispachService: EventosDispachService, private store: Store<AppState>) { }
+  constructor(private ruta: Router, private eventosDispachService: EventosService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.subs= this.store.select(esTarjeta).subscribe((esTarjeta) => this.isCard= esTarjeta);
@@ -39,10 +39,10 @@ export class EventoToolbarComponent implements OnInit, OnDestroy {
     return this.isCard?1:0;
  }
 
-  viewEvent(): void {   
-    const esTarjeta= this.mostrandoTarjetas();  
+  viewEvent(): void {
+    const esTarjeta= this.mostrandoTarjetas();
     this.mostrandoTarjetas()?
-      this.eventosDispachService.mostrarEventosComoLista(): 
+      this.eventosDispachService.mostrarEventosComoLista():
       this.eventosDispachService.mostrarEventosComoTarjetas();
     this.ruta.navigateByUrl(this.view[esTarjeta].url);
   }

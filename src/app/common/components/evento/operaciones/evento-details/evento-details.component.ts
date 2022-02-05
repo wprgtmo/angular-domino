@@ -21,8 +21,6 @@ export class EventoDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
     this.subs=this.store.select(eventoSeleccionado).subscribe(({...evento}) => {
-      console.log( "resultado de eventoSeleccionado", evento);
-
       this.evento= evento;
       this.fotoEvento= PathRest.URL_BASE + this.evento?.imagen;
     })

@@ -31,9 +31,9 @@ export class RondaPageComponent implements OnInit {
         this.ronda_id = ronda_id;
       });
 
-    this.recargar = interval(3000).subscribe(() => {
-      this.actualizarBoletas();
-    });
+    // this.recargar = interval(3000).subscribe(() => {
+    //   this.actualizarBoletas();
+    // });
   }
 
   actualizarBoletas() {

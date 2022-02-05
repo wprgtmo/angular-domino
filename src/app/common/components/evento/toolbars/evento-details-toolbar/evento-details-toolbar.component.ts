@@ -1,4 +1,4 @@
-import { EventosDispachService } from 'src/app/state/dispatch/eventos.dispatch';
+import { EventosService } from 'src/app/state/facade/eventos.service';
 import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IEvento } from 'src/app/common/models/interface/evento.interface';
@@ -6,7 +6,7 @@ import { DominoApiService } from 'src/app/common/services/domino-api.service';
 import { NombreEstado } from 'src/app/common/auxiliar/auxiliar';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { esTarjeta, eventoSeleccionado } from 'src/app/state/selectors/eventos.selectors';
+import { esTarjeta } from 'src/app/state/selectors/eventos.selectors';
 import { AppState } from 'src/app/state/app.state';
 
 @Component({
@@ -15,7 +15,7 @@ import { AppState } from 'src/app/state/app.state';
   styleUrls: ['./evento-details-toolbar.component.css'],
 })
 export class EventoDetailsToolbarComponent implements OnInit, OnDestroy {
-  subs?: Subscription;  
+  subs?: Subscription;
   subsIsCard?: Subscription;
   eventoSeleccionado?:IEvento;
   isCard?: boolean;
@@ -30,23 +30,23 @@ export class EventoDetailsToolbarComponent implements OnInit, OnDestroy {
     url:"eventsList"
   }]
 
-  constructor(private ruta: Router, private store: Store<AppState>, private eventosDispachService: EventosDispachService) { }
+  constructor(private ruta: Router, private eventosService: EventosService) { }
 
   ngOnInit(): void {
-    this.subs= this.store.select(eventoSeleccionado).subscribe((evento) => this.eventoSeleccionado= evento);
-    this.subsIsCard= this.store.select(esTarjeta).subscribe((esTarjeta) => this.isCard= esTarjeta);
+    this.subs= this.eventosService.getEventoSeleccionado$().subscribe((evento) => this.eventoSeleccionado= evento);
+    this.subsIsCard= this.eventosService.getMostrandoTarjetas$().subscribe((esTarjeta) => this.isCard= esTarjeta);
   }
 
   ngOnDestroy(): void {
     this.subs?.unsubscribe();
     this.subsIsCard?.unsubscribe();
   }
-  
-  viewEvent(): void {   
-    const esTarjeta= this.mostrandoTarjetas();  
+
+  viewEvent(): void {
+    const esTarjeta= this.mostrandoTarjetas();
     this.mostrandoTarjetas()?
-      this.eventosDispachService.mostrarEventosComoLista(): 
-      this.eventosDispachService.mostrarEventosComoTarjetas();
+      this.eventosService.mostrarEventosComoLista():
+      this.eventosService.mostrarEventosComoTarjetas();
     this.ruta.navigateByUrl(this.view[esTarjeta].url);
   }
 
@@ -88,17 +88,17 @@ export class EventoDetailsToolbarComponent implements OnInit, OnDestroy {
   }
 
   iniciarEvento() {
-    this.eventosDispachService.iniciarEvento(this.eventoSeleccionado!.id);
+    this.eventosService.iniciarEvento(this.eventoSeleccionado!.id);
     this.ruta.navigateByUrl('eventsCard');
   }
-    
+
   finalizarEvento() {
-    this.eventosDispachService.finalizarEvento(this.eventoSeleccionado!.id);
+    this.eventosService.finalizarEvento(this.eventoSeleccionado!.id);
     this.ruta.navigateByUrl('eventsCard');
   }
 
   eliminarEvento() {
-    this.eventosDispachService.eliminarEvento(this.eventoSeleccionado!.id);
+    this.eventosService.eliminarEvento(this.eventoSeleccionado!.id);
     this.ruta.navigateByUrl('eventsCard');
   }
 }

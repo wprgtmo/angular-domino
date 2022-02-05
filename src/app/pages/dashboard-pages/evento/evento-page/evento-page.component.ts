@@ -1,9 +1,7 @@
-import { EventosDispachService } from './../../../../state/dispatch/eventos.dispatch';
+import { IEvento } from './../../../../common/models/interface/evento.interface';
+import { EventosService } from '../../../../state/facade/eventos.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { AppState } from './../../../../state/app.state';
-import { listaEventos } from 'src/app/state/selectors/eventos.selectors';
 
 @Component({
   templateUrl: './evento-page.component.html',
@@ -12,14 +10,14 @@ import { listaEventos } from 'src/app/state/selectors/eventos.selectors';
 export class EventoPageComponent implements OnInit {
 
 
-  listaEventos$: Observable<any> = new Observable() ;
+  listaEventos$: Observable<IEvento[]> = new Observable() ;
 
-  constructor(private store: Store<AppState>, private eventosDispachService: EventosDispachService) {}
+  constructor(private eventosService: EventosService) {}
 
   ngOnInit(): void {
-    this.eventosDispachService.mostrarEventosComoTarjetas();
-    this.eventosDispachService.cargarEventos();
-    this.listaEventos$= this.store.select(listaEventos);    
+    this.eventosService.mostrarEventosComoTarjetas();
+    this.eventosService.cargarEventos();
+    this.listaEventos$= this.eventosService.getEventos$();
   }
 
 }

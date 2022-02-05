@@ -10,7 +10,7 @@ import { AppState } from 'src/app/state/app.state';
 import { listaEventos } from 'src/app/state/selectors/eventos.selectors';
 import { accionSeleccionarEvento } from 'src/app/state/actions/eventos.actions';
 import { NombreEstado } from 'src/app/common/auxiliar/auxiliar';
-import { EventosDispachService } from 'src/app/state/dispatch/eventos.dispatch';
+import { EventosService } from 'src/app/state/facade/eventos.service';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class EventoListPageComponent implements OnInit, OnDestroy {
 
   nombreEstado = NombreEstado;
 
-  constructor(private store:Store<AppState>, private ruta: Router, private eventosDispachService: EventosDispachService) { }
+  constructor(private store:Store<AppState>, private ruta: Router, private eventosDispachService: EventosService) { }
 
   ngOnInit(): void {
     this.eventosDispachService.mostrarEventosComoLista();

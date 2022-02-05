@@ -1,78 +1,112 @@
+import { IPareja } from './../../common/models/interface/pareja.interface';
+import { IMesa } from './../../common/models/interface/mesa.interface';
+import { IRonda } from './../../common/models/interface/ronda.interface';
 import { IEvento } from 'src/app/common/models/interface/evento.interface';
 import { createAction, props } from '@ngrx/store';
 
-export const LOAD_EVENTS          = '[EventPages] cargar Eventos';
-export const EVENTS_LOADS         = '[EventPages] Eventos cargados satisfactoriamente';
-export const NEW_EVENT            = '[EventPages] nuevo Evento';
-export const SHOW_LIST            = '[EventPages] mostrar Eventos como Lista';
-export const SHOW_CARD            = '[EventPages] mostrar Eventos como Tarjeta';
-export const EVENTS_LOAD_ERRORS   = '[EventPages] Error cargando eventos';
-export const EVENT_ID_SELECT      = '[EventPages] asignar Id evento seleccionado';
-export const INIT_EVENT           = '[EventPages] iniciar Evento';
-export const EVENT_INITED         = '[EventPages] Evento iniciado satisfactoriamente';
-export const DELETE_EVENT         = '[EventPages] eliminar Evento';
-export const EVENT_DELETED        = '[EventPages] Evento eliminado satisfactoriamente';
-export const END_EVENT            = '[EventPages] finalizar Evento';
-export const EVENT_ENDED          = '[EventPages] Evento finalizado satisfactoriamente';
+export enum EVENT_ACTIONS_NAMES {
+  LOAD_EVENTS = '[EventPages] cargar Eventos',
+  EVENTS_LOADS = '[EventPages] Eventos cargados satisfactoriamente',
+  NEW_EVENT = '[EventPages] nuevo Evento',
+  SHOW_LIST = '[EventPages] mostrar Eventos como Lista',
+  SHOW_CARD = '[EventPages] mostrar Eventos como Tarjeta',
+  EVENTS_LOAD_ERRORS = '[EventPages] Error cargando eventos',
+  EVENT_ID_SELECT = '[EventPages] asignar Id evento seleccionado',
+  INIT_EVENT = '[EventPages] iniciar Evento',
+  EVENT_INITED = '[EventPages] Evento iniciado satisfactoriamente',
+  DELETE_EVENT = '[EventPages] eliminar Evento',
+  EVENT_DELETED = '[EventPages] Evento eliminado satisfactoriamente',
+  END_EVENT = '[EventPages] finalizar Evento',
+  EVENT_ENDED = '[EventPages] Evento finalizado satisfactoriamente',
 
-export const accionCargarEventos= createAction(
-  LOAD_EVENTS
-)
+  LOAD_PAREJAS = '[ParejaPages] cargar Parejas',
+  PAREJAS_LOADS = '[ParejaPages] Parejas cargadas satisfactoriamente',
 
-export const accionEventosCargados= createAction(
-  EVENTS_LOADS,
+  LOAD_RONDAS = '[RondaPages] cargar Rondas',
+  RONDAS_LOADS = '[RondaPages] Rondas cargadas satisfactoriamente',
+  RONDA_ID_SELECT = '[RondaPages] asignar Id ronda seleccionada',
+
+  LOAD_MESAS = '[MesaPages] cargar Mesas',
+  MESAS_LOADS = '[MesaPages] Mesas cargadas satisfactoriamente',
+}
+
+export const accionCargarEventos = createAction(EVENT_ACTIONS_NAMES.LOAD_EVENTS);
+
+export const accionEventosCargados = createAction(
+  EVENT_ACTIONS_NAMES.EVENTS_LOADS,
   props<{ eventos: IEvento[] }>()
-)
+);
 
-export const accionNuevoEvento= createAction(
-  NEW_EVENT,
-  props<{ evento: IEvento }>()
-)
-export const accionMostrarEventosComoLista= createAction(
-  SHOW_LIST
-)
+export const accionNuevoEvento = createAction(EVENT_ACTIONS_NAMES.NEW_EVENT, props<{ evento: IEvento }>());
+export const accionMostrarEventosComoLista = createAction(EVENT_ACTIONS_NAMES.SHOW_LIST);
 
-export const accionMostrarEventosComoTarjeta= createAction(
-  SHOW_CARD
-)
+export const accionMostrarEventosComoTarjeta = createAction(EVENT_ACTIONS_NAMES.SHOW_CARD);
 
-export const accionErrorCargandoEventos= createAction(
-  EVENTS_LOAD_ERRORS,
+export const accionErrorCargandoEventos = createAction(
+  EVENT_ACTIONS_NAMES.EVENTS_LOAD_ERRORS,
   props<{ error: any }>()
-)
+);
 
-export const accionSeleccionarEvento= createAction(
-  EVENT_ID_SELECT,
+export const accionSeleccionarEvento = createAction(
+  EVENT_ACTIONS_NAMES.EVENT_ID_SELECT,
   props<{ id: number }>()
-)
+);
 
-export const accionIniciarEvento= createAction(
-  INIT_EVENT,
+export const accionIniciarEvento = createAction(
+  EVENT_ACTIONS_NAMES.INIT_EVENT,
   props<{ id: number }>()
-)
+);
 
-export const accionEventoIniciado= createAction(
-  EVENT_INITED,
-  props<{ evento: IEvento }>()  
-)
+export const accionEventoIniciado = createAction(
+  EVENT_ACTIONS_NAMES.EVENT_INITED,
+  props<{ evento: IEvento }>()
+);
 
-export const accionEliminarEvento= createAction(
-  DELETE_EVENT,
+export const accionEliminarEvento = createAction(
+  EVENT_ACTIONS_NAMES.DELETE_EVENT,
   props<{ id: number }>()
-)
+);
 
-export const accionEventoEliminado= createAction(
-  EVENT_DELETED
-)
+export const accionEventoEliminado = createAction(EVENT_ACTIONS_NAMES.EVENT_DELETED);
 
-
-export const accionFinalizarEvento= createAction(
-  END_EVENT,
+export const accionFinalizarEvento = createAction(
+  EVENT_ACTIONS_NAMES.END_EVENT,
   props<{ id: number }>()
-)
+);
 
-export const accionEventoFinalizado= createAction(
-  EVENT_ENDED
-)
+export const accionEventoFinalizado = createAction(EVENT_ACTIONS_NAMES.EVENT_ENDED);
 
+export const accionCargarParejas = createAction(
+  EVENT_ACTIONS_NAMES.LOAD_PAREJAS,
+  props<{ evento_id: number }>()
+);
 
+export const accionParejasCargadas = createAction(
+  EVENT_ACTIONS_NAMES.PAREJAS_LOADS,
+  props<{ parejas: IPareja[] }>()
+);
+
+export const accionCargarMesas = createAction(
+  EVENT_ACTIONS_NAMES.LOAD_MESAS,
+  props<{ evento_id: number }>()
+);
+
+export const accionMesasCargadas = createAction(
+  EVENT_ACTIONS_NAMES.MESAS_LOADS,
+  props<{ mesas: IMesa[] }>()
+);
+
+export const accionCargarRondas = createAction(
+  EVENT_ACTIONS_NAMES.LOAD_RONDAS,
+  props<{ evento_id: number }>()
+);
+
+export const accionRondasCargadas = createAction(
+  EVENT_ACTIONS_NAMES.RONDAS_LOADS,
+  props<{ rondas: IRonda[] }>()
+);
+
+export const accionSeleccionarRonda = createAction(
+  EVENT_ACTIONS_NAMES.RONDA_ID_SELECT,
+  props<{ id: number }>()
+);
