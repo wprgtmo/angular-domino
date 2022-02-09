@@ -1,3 +1,5 @@
+import { IBoletaCompleta } from './../../common/models/interface/boleta-completa.interface';
+import { IBoleta } from './../../common/models/interface/boleta.interface';
 import { IPareja } from './../../common/models/interface/pareja.interface';
 import { IMesa } from './../../common/models/interface/mesa.interface';
 import { IRonda } from './../../common/models/interface/ronda.interface';
@@ -10,7 +12,7 @@ export enum EVENT_ACTIONS_NAMES {
   NEW_EVENT = '[EventPages] nuevo Evento',
   SHOW_LIST = '[EventPages] mostrar Eventos como Lista',
   SHOW_CARD = '[EventPages] mostrar Eventos como Tarjeta',
-  EVENTS_LOAD_ERRORS = '[EventPages] Error cargando eventos',
+  EVENTS_ERRORS = '[EventPages] Error cargando eventos',
   EVENT_ID_SELECT = '[EventPages] asignar Id evento seleccionado',
   INIT_EVENT = '[EventPages] iniciar Evento',
   EVENT_INITED = '[EventPages] Evento iniciado satisfactoriamente',
@@ -22,12 +24,17 @@ export enum EVENT_ACTIONS_NAMES {
   LOAD_PAREJAS = '[ParejaPages] cargar Parejas',
   PAREJAS_LOADS = '[ParejaPages] Parejas cargadas satisfactoriamente',
 
+  LOAD_MESAS = '[MesaPages] cargar Mesas',
+  MESAS_LOADS = '[MesaPages] Mesas cargadas satisfactoriamente',
+
   LOAD_RONDAS = '[RondaPages] cargar Rondas',
   RONDAS_LOADS = '[RondaPages] Rondas cargadas satisfactoriamente',
   RONDA_ID_SELECT = '[RondaPages] asignar Id ronda seleccionada',
 
-  LOAD_MESAS = '[MesaPages] cargar Mesas',
-  MESAS_LOADS = '[MesaPages] Mesas cargadas satisfactoriamente',
+  LOAD_BOLETAS = '[BoletaPages] cargar Boletas',
+  BOLETAS_LOADS = '[BoletaPages] Boletas cargadas satisfactoriamente',
+  BOLETA_ID_SELECT = '[BoletaPages] asignar Id Boleta seleccionada',
+
 }
 
 export const accionCargarEventos = createAction(EVENT_ACTIONS_NAMES.LOAD_EVENTS);
@@ -42,8 +49,8 @@ export const accionMostrarEventosComoLista = createAction(EVENT_ACTIONS_NAMES.SH
 
 export const accionMostrarEventosComoTarjeta = createAction(EVENT_ACTIONS_NAMES.SHOW_CARD);
 
-export const accionErrorCargandoEventos = createAction(
-  EVENT_ACTIONS_NAMES.EVENTS_LOAD_ERRORS,
+export const accionErrorEventos = createAction(
+  EVENT_ACTIONS_NAMES.EVENTS_ERRORS,
   props<{ error: any }>()
 );
 
@@ -108,5 +115,20 @@ export const accionRondasCargadas = createAction(
 
 export const accionSeleccionarRonda = createAction(
   EVENT_ACTIONS_NAMES.RONDA_ID_SELECT,
-  props<{ id: number }>()
+  props<{ ronda_id: number }>()
+);
+
+export const accionCargarBoletas = createAction(
+  EVENT_ACTIONS_NAMES.LOAD_BOLETAS,
+  props<{ ronda_id: number }>()
+);
+
+export const accionBoletasCargadas = createAction(
+  EVENT_ACTIONS_NAMES.BOLETAS_LOADS,
+  props<{ boletas: IBoletaCompleta[] }>()
+);
+
+export const accionSeleccionarBoleta = createAction(
+  EVENT_ACTIONS_NAMES.BOLETA_ID_SELECT,
+  props<{ boleta_id: number }>()
 );

@@ -17,7 +17,10 @@ import {
   accionParejasCargadas,
   accionCargarRondas,
   accionRondasCargadas,
-  accionErrorCargandoEventos,
+  accionErrorEventos,
+  accionCargarBoletas,
+  accionBoletasCargadas,
+  accionSeleccionarBoleta,
 } from '../actions/eventos.actions';
 
 export const estadoInicial: EventState = {
@@ -25,10 +28,12 @@ export const estadoInicial: EventState = {
   cargando: false,
   id_evento_seleccionado: 0,
   id_ronda_seleccionada: 0,
+  id_boleta_seleccionada: 0,
+  eventos: [],
   parejas: [],
   mesas: [],
   rondas: [],
-  eventos: [],
+  boletas: [],
 };
 
 export const eventosReducers = createReducer(
@@ -70,7 +75,7 @@ export const eventosReducers = createReducer(
     return { ...oldState };
   }),
 
-  on(accionErrorCargandoEventos, (oldState, { error }) => {
+  on(accionErrorEventos, (oldState, { error }) => {
     console.log('Error cargando eventos.... ', error);
 
     return { ...oldState, error };
@@ -100,7 +105,20 @@ export const eventosReducers = createReducer(
     return { ...oldState, cargando: false, rondas: rondas };
   }),
 
-  on(accionSeleccionarRonda, (oldState, { id }) => {
-    return { ...oldState, id_ronda_seleccionada: id };
+  on(accionSeleccionarRonda, (oldState, { ronda_id }) => {
+    return { ...oldState, id_ronda_seleccionada: ronda_id };
+  }),
+
+  on(accionCargarBoletas, (oldState) => {
+    return { ...oldState, cargando: true };
+  }),
+
+  on(accionBoletasCargadas, (oldState, { boletas }) => {
+    return { ...oldState, cargando: false, boletas: boletas };
+  }),
+
+  on(accionSeleccionarBoleta, (oldState, { boleta_id }) => {
+    return { ...oldState, id_boleta_seleccionada: boleta_id };
   })
+
 );

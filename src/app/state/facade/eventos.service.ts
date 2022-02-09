@@ -1,3 +1,4 @@
+import { IBoleta } from './../../common/models/interface/boleta.interface';
 import { IEvento } from './../../common/models/interface/evento.interface';
 import { IRonda } from '../../common/models/interface/ronda.interface';
 import { IPareja } from '../../common/models/interface/pareja.interface';
@@ -7,7 +8,8 @@ import { Store } from '@ngrx/store';
 import * as EventosActions from '../actions/eventos.actions';
 import { AppState } from '../app.state';
 import { Observable } from 'rxjs';
-import { esTarjeta, eventoSeleccionado, idEventoSeleccionado, listaEventos, mesas, parejas } from '../selectors/eventos.selectors';
+import { boletas, esTarjeta, eventoSeleccionado, idEventoSeleccionado, idRondaSeleccionada, listaEventos, mesas, parejas, rondas, rondaSeleccionada } from '../selectors/eventos.selectors';
+import { IBoletaCompleta } from 'src/app/common/models/interface/boleta-completa.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -39,7 +41,7 @@ export class EventosService {
   }
 
   public errorCargandoEventos(errores: any) {
-    this.store.dispatch(EventosActions.accionErrorCargandoEventos({ error: { ...errores } }));
+    this.store.dispatch(EventosActions.accionErrorEventos({ error: { ...errores } }));
   }
 
   public seleccionarEvento(id: number) {
@@ -96,8 +98,20 @@ export class EventosService {
     this.store.dispatch(EventosActions.accionRondasCargadas({ rondas: { ...rondas } }));
   }
 
-  public seleccionarRonda(id: number) {
-    this.store.dispatch(EventosActions.accionSeleccionarRonda({ id }));
+  public seleccionarRonda(ronda_id: number) {
+    this.store.dispatch(EventosActions.accionSeleccionarRonda({ ronda_id }));
+  }
+
+  public cargarBoletas(ronda_id: number) {
+    this.store.dispatch(EventosActions.accionCargarBoletas({ ronda_id }));
+  }
+
+  public boletasCargadas(boletas: IBoletaCompleta[]) {
+    this.store.dispatch(EventosActions.accionBoletasCargadas({ boletas: { ...boletas } }));
+  }
+
+  public seleccionarBoleta(boleta_id: number) {
+    this.store.dispatch(EventosActions.accionSeleccionarBoleta({ boleta_id }));
   }
 
   // ****** Metodos Select *************
@@ -130,5 +144,25 @@ export class EventosService {
   }
 
 
+  public getRondas$(): Observable<IRonda[]> {
+    return this.store.select(rondas);
+  }
+
+  public getRondaSeleccionada$(): Observable<IRonda | undefined> {
+    return this.store.select(rondaSeleccionada);
+  }
+
+  public getIdRondaSeleccionada$(): Observable<number> {
+    return this.store.select(idRondaSeleccionada);
+  }
+
+
+  public getBoletas$(): Observable<IBoletaCompleta[]> {
+    return this.store.select(boletas);
+  }
+
+  // public getRondaSeleccionada$(): Observable<IRonda | undefined> {
+  //   return this.store.select(rondaSeleccionada);
+  // }
 }
 

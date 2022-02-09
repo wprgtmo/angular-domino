@@ -55,6 +55,11 @@ export const rondas = createSelector(
   (state: EventState) => [...state.rondas]
 );
 
+export const boletas = createSelector(
+  selectorEventos,
+  (state: EventState) => [...state.boletas]
+);
+
 // export const rondaActiva = createSelector(
 //   selectorEventos,
 //   (state: EventState) => [...state.rondas[state.rondas.length-1]]

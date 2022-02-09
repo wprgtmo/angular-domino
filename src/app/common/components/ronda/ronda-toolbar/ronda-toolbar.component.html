@@ -1,11 +1,12 @@
  <mat-toolbar class="sombra toolbar">Ronda:
-  <!-- <mat-select placeholder="Ronda"  [(value)]="ronda_activa" (selectionChange)="changeRonda($event)">
+  <mat-select placeholder="Seleccione una ronda"   (selectionChange)="changeRonda($event)">
       <mat-option *ngFor="let ronda of (rondas$ | async)" [value]="ronda.id" >{{ronda.comentario}}</mat-option>
-  </mat-select> -->
+  </mat-select>
   <span class="spacer"></span>
-  {{evento_id$ | async | json}}
 
     <button mat-icon-button class="mat-icons-outlined" matTooltip="Iniciar ronda" aria-label="Iniciar ronda" (click)="iniciarRonda()" >
       <mat-icon>alarm_add_white</mat-icon>
     </button>
 </mat-toolbar>
+
+<!-- [(value)]="ronda_activa" -->

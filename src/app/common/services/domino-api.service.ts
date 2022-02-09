@@ -65,8 +65,8 @@ export class DominoApiService {
     return this.http_API.post<IBoletasRespuesta>(PathRest.GET_BOLETAS, {"evento_id": evento_id, "ronda_id": ronda_id});
   }
 
-  getBoletasCompleta(evento_id: number, ronda_id: number): Observable<IBoletasCompletaRespuesta>{
-    return this.http_API.post<IBoletasCompletaRespuesta>(PathRest.GET_BOLETAS_COMPLETA, {"evento_id": evento_id, "ronda_id": ronda_id});
+  getBoletasCompleta(ronda_id: number): Observable<IBoletasCompletaRespuesta>{
+    return this.http_API.post<IBoletasCompletaRespuesta>(PathRest.GET_BOLETAS_COMPLETA, {"ronda_id": ronda_id});
   }
 
   getMesas(evento_id: number): Observable<IMesasRespuesta>{
