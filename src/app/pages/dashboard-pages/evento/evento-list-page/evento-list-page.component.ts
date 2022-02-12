@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
 import { listaEventos } from 'src/app/state/selectors/eventos.selectors';
 import { accionSeleccionarEvento } from 'src/app/state/actions/eventos.actions';
-import { NombreEstado } from 'src/app/common/auxiliar/auxiliar';
+import { NombreEstado } from 'src/app/common/shared/auxiliar';
 import { EventosService } from 'src/app/state/facade/eventos.service';
 
 

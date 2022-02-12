@@ -1,5 +1,5 @@
 import { EventosService } from 'src/app/state/facade/eventos.service';
-import { IMesa } from './../../../common/models/interface/mesa.interface';
+import { IMesa } from '../../../../../common/models/interface/mesa.interface';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';

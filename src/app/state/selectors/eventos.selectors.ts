@@ -55,6 +55,11 @@ export const rondas = createSelector(
   (state: EventState) => [...state.rondas]
 );
 
+export const estadisticaRonda = createSelector(
+  selectorEventos,
+  (state: EventState) => [...state.estadisticaRonda]
+);
+
 export const boletas = createSelector(
   selectorEventos,
   (state: EventState) => [...state.boletas]

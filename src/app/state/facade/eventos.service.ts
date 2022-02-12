@@ -8,8 +8,9 @@ import { Store } from '@ngrx/store';
 import * as EventosActions from '../actions/eventos.actions';
 import { AppState } from '../app.state';
 import { Observable } from 'rxjs';
-import { boletas, esTarjeta, eventoSeleccionado, idEventoSeleccionado, idRondaSeleccionada, listaEventos, mesas, parejas, rondas, rondaSeleccionada } from '../selectors/eventos.selectors';
+import { boletas, estadisticaRonda, esTarjeta, eventoSeleccionado, idEventoSeleccionado, idRondaSeleccionada, listaEventos, mesas, parejas, rondas, rondaSeleccionada } from '../selectors/eventos.selectors';
 import { IBoletaCompleta } from 'src/app/common/models/interface/boleta-completa.interface';
+import { IEstadisticaRonda } from 'src/app/common/models/interface/estadistica-ronda.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -73,7 +74,8 @@ export class EventosService {
   }
 
   public cargarParejas(evento_id: number) {
-    this.store.dispatch(EventosActions.accionCargarParejas({ evento_id }));
+    if (evento_id>0)
+      this.store.dispatch(EventosActions.accionCargarParejas({ evento_id }));
   }
 
   public parejasCargadas(parejas: IPareja[]) {
@@ -82,7 +84,8 @@ export class EventosService {
   }
 
   public cargarMesas(evento_id: number) {
-    this.store.dispatch(EventosActions.accionCargarMesas({ evento_id }));
+    if (evento_id>0)
+      this.store.dispatch(EventosActions.accionCargarMesas({ evento_id }));
   }
 
   public mesasCargadas(mesas: IMesa[]) {
@@ -90,20 +93,33 @@ export class EventosService {
     }));
   }
 
-  public cargarRondas(evento_id: number) {
-    this.store.dispatch(EventosActions.accionCargarRondas({ evento_id }));
+  public cargarRondas(evento_id: number) {    
+    if (evento_id>0)
+      this.store.dispatch(EventosActions.accionCargarRondas({ evento_id }));
   }
 
   public rondasCargadas(rondas: IRonda[]) {
     this.store.dispatch(EventosActions.accionRondasCargadas({ rondas: { ...rondas } }));
   }
 
+  
+  public cargarEstadisticaRonda(ronda_id: number) {    
+    if (ronda_id>0)
+      this.store.dispatch(EventosActions.accionCargarEstadisticaRonda({ ronda_id }));
+  }
+
+  public estadisticaRondaCargadas(estadisticaRonda: IEstadisticaRonda[]) {
+    this.store.dispatch(EventosActions.accionEstadisticaRondaCargadas({ estadisticaRonda: { ...estadisticaRonda } }));
+  }
+
+
   public seleccionarRonda(ronda_id: number) {
     this.store.dispatch(EventosActions.accionSeleccionarRonda({ ronda_id }));
   }
 
   public cargarBoletas(ronda_id: number) {
-    this.store.dispatch(EventosActions.accionCargarBoletas({ ronda_id }));
+    if (ronda_id>0) 
+      this.store.dispatch(EventosActions.accionCargarBoletas({ ronda_id }));
   }
 
   public boletasCargadas(boletas: IBoletaCompleta[]) {
@@ -146,6 +162,10 @@ export class EventosService {
 
   public getRondas$(): Observable<IRonda[]> {
     return this.store.select(rondas);
+  }
+
+  public getEstadisticaRonda$(): Observable<IEstadisticaRonda[]> {
+    return this.store.select(estadisticaRonda);
   }
 
   public getRondaSeleccionada$(): Observable<IRonda | undefined> {

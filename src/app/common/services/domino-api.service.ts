@@ -9,10 +9,10 @@ import { IRondasRespuesta } from '../models/respuestas/rondas-respuesta.interfac
 import { IBoletasRespuesta } from '../models/respuestas/boletas-respuesta.interface';
 import { IBoletasCompletaRespuesta } from '../models/respuestas/boletas-completa-respuesta.interface';
 import { IMesasRespuesta } from '../models/respuestas/mesas-respuesta.interface';
-import { IParejasRespuesta } from '../models/respuestas/parejas-respuesta.interface';
+import { IEstadisticaRonda } from '../models/interface/estadistica-ronda.interface';
 import { IPareja } from '../models/interface/pareja.interface';
 import { IEvento } from '../models/interface/evento.interface';
-import { tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +67,10 @@ export class DominoApiService {
 
   getBoletasCompleta(ronda_id: number): Observable<IBoletasCompletaRespuesta>{
     return this.http_API.post<IBoletasCompletaRespuesta>(PathRest.GET_BOLETAS_COMPLETA, {"ronda_id": ronda_id});
+  }
+
+  getEstadisticaRonda(ronda_id: number): Observable<IEstadisticaRonda[]>{
+    return this.http_API.post<IEstadisticaRonda[]>(PathRest.GET_ESTADISTICA_RONDA, {"ronda_id": ronda_id});
   }
 
   getMesas(evento_id: number): Observable<IMesasRespuesta>{

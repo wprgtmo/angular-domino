@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { NombreEstado } from 'src/app/common/auxiliar/auxiliar';
+import { NombreEstado } from 'src/app/common/shared/auxiliar';
 import { IEvento } from 'src/app/common/models/interface/evento.interface';
 import { PathRest } from 'src/app/common/static/path-rest';
 import { AppState } from 'src/app/state/app.state';

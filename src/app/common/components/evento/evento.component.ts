@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { PathRest } from '../../static/path-rest';
 import { Store } from '@ngrx/store';
 import { accionSeleccionarEvento } from 'src/app/state/actions/eventos.actions';
-import { NombreEstado } from '../../auxiliar/auxiliar';
+import { NombreEstado } from '../../shared/auxiliar';
 
 @Component({
   selector: 'app-evento',

@@ -1,3 +1,4 @@
+import { accionCargarEstadisticaRonda } from './../actions/eventos.actions';
 import { EventState } from '../models/eventos.state';
 import { createReducer, on } from '@ngrx/store';
 import {
@@ -21,6 +22,7 @@ import {
   accionCargarBoletas,
   accionBoletasCargadas,
   accionSeleccionarBoleta,
+  accionEstadisticaRondaCargadas
 } from '../actions/eventos.actions';
 
 export const estadoInicial: EventState = {
@@ -34,6 +36,8 @@ export const estadoInicial: EventState = {
   mesas: [],
   rondas: [],
   boletas: [],
+  estadisticaRonda: [],
+  estadisticaBoleta: []
 };
 
 export const eventosReducers = createReducer(
@@ -103,6 +107,14 @@ export const eventosReducers = createReducer(
 
   on(accionRondasCargadas, (oldState, { rondas }) => {
     return { ...oldState, cargando: false, rondas: rondas };
+  }),
+
+  on(accionCargarEstadisticaRonda, (oldState, { ronda_id }) => {
+    return { ...oldState, cargando: true, ronda_id: ronda_id };
+  }),
+
+  on(accionEstadisticaRondaCargadas, (oldState, { estadisticaRonda }) => {
+    return { ...oldState, cargando: false, estadisticaRonda: estadisticaRonda };
   }),
 
   on(accionSeleccionarRonda, (oldState, { ronda_id }) => {

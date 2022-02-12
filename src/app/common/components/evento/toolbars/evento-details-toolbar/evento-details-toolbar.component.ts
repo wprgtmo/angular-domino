@@ -2,12 +2,8 @@ import { EventosService } from 'src/app/state/facade/eventos.service';
 import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IEvento } from 'src/app/common/models/interface/evento.interface';
-import { DominoApiService } from 'src/app/common/services/domino-api.service';
-import { NombreEstado } from 'src/app/common/auxiliar/auxiliar';
 import { Subscription } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { esTarjeta } from 'src/app/state/selectors/eventos.selectors';
-import { AppState } from 'src/app/state/app.state';
+import { NombreEstado } from 'src/app/common/shared/auxiliar';
 
 @Component({
   selector: 'app-evento-details-toolbar',
@@ -81,6 +77,10 @@ export class EventoDetailsToolbarComponent implements OnInit, OnDestroy {
 
   parejas() {
     this.ruta.navigateByUrl('parejas');
+  }
+
+  estadisticas() {
+    this.ruta.navigateByUrl('estadisticaEvento');
   }
 
   mostrandoTarjetas(): number {

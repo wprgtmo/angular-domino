@@ -5,6 +5,7 @@ import { IMesa } from './../../common/models/interface/mesa.interface';
 import { IRonda } from './../../common/models/interface/ronda.interface';
 import { IEvento } from 'src/app/common/models/interface/evento.interface';
 import { createAction, props } from '@ngrx/store';
+import { IEstadisticaRonda } from 'src/app/common/models/interface/estadistica-ronda.interface';
 
 export enum EVENT_ACTIONS_NAMES {
   LOAD_EVENTS = '[EventPages] cargar Eventos',
@@ -30,6 +31,10 @@ export enum EVENT_ACTIONS_NAMES {
   LOAD_RONDAS = '[RondaPages] cargar Rondas',
   RONDAS_LOADS = '[RondaPages] Rondas cargadas satisfactoriamente',
   RONDA_ID_SELECT = '[RondaPages] asignar Id ronda seleccionada',
+
+  
+  LOAD_ESTADISTICA_RONDA = '[EstadisticaRondaPages] cargar Estadisticas de la Ronda Finalizada',
+  ESTADISTICA_RONDA_LOADS = '[EstadisticaRondaPages] Estadisticas de la Ronda cargadas satisfactoriamente',
 
   LOAD_BOLETAS = '[BoletaPages] cargar Boletas',
   BOLETAS_LOADS = '[BoletaPages] Boletas cargadas satisfactoriamente',
@@ -112,6 +117,17 @@ export const accionRondasCargadas = createAction(
   EVENT_ACTIONS_NAMES.RONDAS_LOADS,
   props<{ rondas: IRonda[] }>()
 );
+
+export const accionCargarEstadisticaRonda = createAction(
+  EVENT_ACTIONS_NAMES.LOAD_ESTADISTICA_RONDA,
+  props<{ ronda_id: number }>()
+);
+
+export const accionEstadisticaRondaCargadas = createAction(
+  EVENT_ACTIONS_NAMES.ESTADISTICA_RONDA_LOADS,
+  props<{ estadisticaRonda: IEstadisticaRonda[] }>()
+);
+
 
 export const accionSeleccionarRonda = createAction(
   EVENT_ACTIONS_NAMES.RONDA_ID_SELECT,

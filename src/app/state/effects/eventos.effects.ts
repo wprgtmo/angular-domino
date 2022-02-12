@@ -1,3 +1,4 @@
+import { estadisticaRonda } from './../selectors/eventos.selectors';
 import { DominoApiService } from '../../common/services/domino-api.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -96,6 +97,20 @@ export class EventosEffects {
             .pipe(
               tap((result) => console.log("Acccion desde el efecto de las boletas: Cargo....", result)),
               map((result) => ({ type: EVENT_ACTIONS_NAMES.BOLETAS_LOADS, boletas: result.boletas })),
+              catchError((error) => of({ type: EVENT_ACTIONS_NAMES.EVENTS_ERRORS, error }))
+            )
+        }))
+      );
+
+      cargarEstadisticaRonda$ = createEffect(() => this.actions$.pipe(
+        ofType(EVENT_ACTIONS_NAMES.LOAD_ESTADISTICA_RONDA),
+        tap(() => console.log("Acccion desde el efecto de las estadisticas de la ronda: Cargando...")),
+        mergeMap((action: any) => {
+          tap(() => console.log("Acccion desde el efecto de las estadisticas de la ronda", action));
+          return this.dominoApiService.getEstadisticaRonda(action.ronda_id)
+            .pipe(
+              tap((result) => console.log("Acccion desde el efecto de las estadisticas de la ronda: Cargo....", result)),
+              map((result) => ({ type: EVENT_ACTIONS_NAMES.ESTADISTICA_RONDA_LOADS, estadisticaRonda: result })),
               catchError((error) => of({ type: EVENT_ACTIONS_NAMES.EVENTS_ERRORS, error }))
             )
         }))

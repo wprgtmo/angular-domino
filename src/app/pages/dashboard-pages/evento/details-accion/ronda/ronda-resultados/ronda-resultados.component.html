@@ -1,0 +1,51 @@
+<app-evento-details-toolbar></app-evento-details-toolbar>
+<app-ronda-toolbar></app-ronda-toolbar>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="pareja">
+    <th mat-header-cell *matHeaderCellDef>Pareja.</th>
+    <td mat-cell *matCellDef="let element">{{ element.pareja }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="juegos_jugados">
+    <th mat-header-cell *matHeaderCellDef>J.Jugados</th>
+    <td mat-cell *matCellDef="let element">{{ element.juegos_jugados }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="juegos_ganados">
+    <th mat-header-cell *matHeaderCellDef>J.Ganados</th>
+    <td mat-cell *matCellDef="let element">{{ element.juegos_ganados }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="juegos_perdidos">
+    <th mat-header-cell *matHeaderCellDef>J.Perdidos</th>
+    <td mat-cell *matCellDef="let element">{{ element.juegos_perdidos }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="tantos_ganados">
+    <th mat-header-cell *matHeaderCellDef>T.Ganados</th>
+    <td mat-cell *matCellDef="let element">{{ element.tantos_ganados }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="tantos_favor">
+    <th mat-header-cell *matHeaderCellDef>T.Favor.</th>
+    <td mat-cell *matCellDef="let element">{{ element.tantos_favor }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="tantos_contra">
+    <th mat-header-cell *matHeaderCellDef>T.Contra</th>
+    <td mat-cell *matCellDef="let element">{{ element.tantos_contra }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="diferencia_tantos">
+    <th mat-header-cell *matHeaderCellDef>Dif.Tantos</th>
+    <td mat-cell *matCellDef="let element">{{ element.diferencia_tantos }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="bonificacion">
+    <th mat-header-cell *matHeaderCellDef>Bonificacion</th>
+    <td mat-cell *matCellDef="let element">{{ element.bonificacion }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
