@@ -6,7 +6,7 @@ import { ParejaPageComponent } from './evento/details-accion/pareja/pareja-page/
 import { MesaPageComponent } from './evento/details-accion/mesa-page/mesa-page.component';
 import { RondaPageComponent } from './evento/details-accion/ronda/ronda-page/ronda-page.component';
 import { EventoDetailsPageComponent } from './evento/details-accion/evento-details-page/evento-details-page.component';
-import { NavComponent } from './../../common/components/nav/nav.component';
+import { NavComponent } from '../../common/components/general/nav/nav.component';
 import { JugadorPageComponent } from './jugador/jugador-page/jugador-page.component';
 import { EventoPageComponent } from './evento/evento-page/evento-page.component';
 import { NgModule } from '@angular/core';
@@ -20,6 +20,8 @@ import { EstadisticaPageComponent } from './estadistica/estadistica-page/estadis
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { PublicidadPageComponent } from '../admin-pages/publicidad/publicidad-page/publicidad-page.component';
 import { ArbitroPageComponent } from './arbitro/arbitro-page/arbitro-page.component';
+import { EstadisticaEventoPageComponent } from './evento/details-accion/estadistica/estadistica-evento-page/estadistica-evento-page.component';
+import { PremiadosPageComponent } from './evento/details-accion/premiados/premiados-page/premiados-page.component';
 
 const routes: Routes = [
   {
@@ -57,6 +59,14 @@ const routes: Routes = [
         {
           path: 'rondaResultados',
           component: RondaResultadosComponent
+        },
+        {
+          path: 'estadisticaEvento',
+          component: EstadisticaEventoPageComponent
+        },
+        {
+          path: 'premiados',
+          component: PremiadosPageComponent
         },
         {
           path: 'parejas',

@@ -1,5 +1,5 @@
 import { EventosService } from 'src/app/state/facade/eventos.service';
-import { IRonda } from './../../../models/interface/ronda.interface';
+import { IRonda } from '../../../../../models/interface/ronda.interface';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';

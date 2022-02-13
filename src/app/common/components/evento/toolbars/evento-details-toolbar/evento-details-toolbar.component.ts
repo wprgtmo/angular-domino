@@ -83,6 +83,10 @@ export class EventoDetailsToolbarComponent implements OnInit, OnDestroy {
     this.ruta.navigateByUrl('estadisticaEvento');
   }
 
+  premiados() {
+    this.ruta.navigateByUrl('premiados');
+  }
+
   mostrandoTarjetas(): number {
     return this.isCard? 1 : 0;
   }

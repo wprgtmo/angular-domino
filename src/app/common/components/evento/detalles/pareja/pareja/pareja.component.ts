@@ -1,6 +1,6 @@
-import { IJugador } from './../../models/interface/jugador.interface';
 import { Component, Input, OnInit } from '@angular/core';
-import { IPareja } from '../../models/interface/pareja.interface';
+import { IJugador } from 'src/app/common/models/interface/jugador.interface';
+import { IPareja } from 'src/app/common/models/interface/pareja.interface';
 
 @Component({
   selector: 'app-pareja',

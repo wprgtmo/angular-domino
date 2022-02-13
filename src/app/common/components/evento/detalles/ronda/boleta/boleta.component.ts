@@ -1,4 +1,4 @@
-import { IBoletaCompleta } from '../../../models/interface/boleta-completa.interface';
+import { IBoletaCompleta } from '../../../../../models/interface/boleta-completa.interface';
 import { Component, Input, OnInit } from '@angular/core';
 import { PathRest } from 'src/app/common/static/path-rest';
 import { IPareja } from 'src/app/common/models/interface/pareja.interface';

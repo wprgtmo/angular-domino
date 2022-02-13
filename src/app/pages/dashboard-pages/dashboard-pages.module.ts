@@ -29,6 +29,8 @@ import { ParejaListPageComponent } from './evento/details-accion/pareja/pareja-l
 
 import { EstadisticaPageComponent } from './estadistica/estadistica-page/estadistica-page.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
+import { EstadisticaEventoPageComponent } from './evento/details-accion/estadistica/estadistica-evento-page/estadistica-evento-page.component';
+import { PremiadosPageComponent } from './evento/details-accion/premiados/premiados-page/premiados-page.component';
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { HomePageComponent } from './home/home-page/home-page.component';
     ParejaEditPageComponent,
 
     EstadisticaPageComponent,
-     RondaResultadosComponent
+     RondaResultadosComponent,
+     EstadisticaEventoPageComponent,
+     PremiadosPageComponent
   ],
   imports: [
     CommonModule,
