@@ -59,9 +59,9 @@ import { PremiadosPageComponent } from './evento/details-accion/premiados/premia
     ParejaEditPageComponent,
 
     EstadisticaPageComponent,
-     RondaResultadosComponent,
-     EstadisticaEventoPageComponent,
-     PremiadosPageComponent
+    RondaResultadosComponent,
+    EstadisticaEventoPageComponent,
+    PremiadosPageComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,10 @@
+<mat-toolbar>
+  <span>Arbitros</span>
+  <span class="spacer"></span>
+  <button mat-icon-button class="mat-icons-outlined"  matTooltip="Evento" aria-label="Evento" >
+        <mat-icon>add_to_photos</mat-icon>
+  </button>
+  <button mat-icon-button class="mat-icons-outlined" matTooltip={{view[mostrandoTarjetas()].tooltip}} >
+    <mat-icon>{{view[mostrandoTarjetas()].icono}}</mat-icon>
+</button>
+</mat-toolbar>

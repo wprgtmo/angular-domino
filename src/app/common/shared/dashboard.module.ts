@@ -1,13 +1,12 @@
-import { CargandoComponent } from '../components/general/cargando/cargando.component';
 import { MaterialModule } from './../../material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { NavComponent } from '../components/general/nav/nav.component';
-import { HeaderComponent } from '../components/general/header/header.component';
 import { MenuComponent } from '../components/general/menu/menu.component';
+import { SubmenuComponent } from './../components/general/submenu/submenu.component';
+import { NavComponent } from '../components/general/nav/nav.component';
 
 import { EventoComponent } from './../components/evento/evento.component';
 import { EventoToolbarComponent } from '../components/evento/toolbars/evento-toolbar/evento-toolbar.component';
@@ -36,17 +35,25 @@ import { RondaToolbarComponent } from '../components/evento/detalles/ronda/ronda
 
 import { PublicidadVideoComponent } from './../components/publicidad/publicidad-video/publicidad-video.component';
 import { PublicidadImagenComponent } from './../components/publicidad/publicidad-imagen/publicidad-imagen.component';
-import { PublicidadComponent } from './../components/publicidad/publicidad.component';
 
 import { EstadisticaComponent } from '../components/estadistica/estadistica.component';
 import { EstadisticaToolbarComponent } from './../components/estadistica/toolbar/estadistica-toolbar/estadistica-toolbar.component';
 import { ParejaComponent } from '../components/evento/detalles/pareja/pareja/pareja.component';
 import { ParejaToolbarComponent } from '../components/evento/detalles/pareja/toolbar/pareja-toolbar/pareja-toolbar.component';
 
+import { ArbitroToolbarDetailsComponent } from './../components/arbitro/toolbar/arbitro-toolbar-details/arbitro-toolbar-details.component';
+import { ArbitroToolbarComponent } from './../components/arbitro/toolbar/arbitro-toolbar/arbitro-toolbar.component';
+import { ArbitroEditComponent } from './../components/arbitro/operaciones/arbitro-edit/arbitro-edit.component';
+import { ArbitroDetailsComponent } from './../components/arbitro/operaciones/arbitro-details/arbitro-details.component';
+import { ArbitroAddComponent } from './../components/arbitro/operaciones/arbitro-add/arbitro-add.component';
+import { ArbitroComponent } from '../components/arbitro/arbitro/arbitro.component';
+
+import { CargandoComponent } from './../components/general/cargando/cargando.component';
+
 @NgModule({
   declarations: [
-    HeaderComponent,
     MenuComponent,
+    SubmenuComponent,
     NavComponent,
 
     EventoComponent,
@@ -78,17 +85,23 @@ import { ParejaToolbarComponent } from '../components/evento/detalles/pareja/too
     EstadisticaComponent,
     EstadisticaToolbarComponent,
 
-    PublicidadComponent,
     PublicidadImagenComponent,
     PublicidadVideoComponent,
 
-    CargandoComponent
+    ArbitroComponent,
+    ArbitroAddComponent,
+    ArbitroEditComponent,
+    ArbitroDetailsComponent,
+    ArbitroToolbarComponent,
+    ArbitroToolbarDetailsComponent,
+
+    CargandoComponent,
   ],
 
   imports: [CommonModule, RouterModule, MaterialModule, ReactiveFormsModule],
   exports: [
-    HeaderComponent,
     MenuComponent,
+    SubmenuComponent,
     NavComponent,
 
     EventoComponent,
@@ -120,11 +133,17 @@ import { ParejaToolbarComponent } from '../components/evento/detalles/pareja/too
     EstadisticaComponent,
     EstadisticaToolbarComponent,
 
-    PublicidadComponent,
     PublicidadImagenComponent,
     PublicidadVideoComponent,
 
-    CargandoComponent
+    ArbitroComponent,
+    ArbitroAddComponent,
+    ArbitroEditComponent,
+    ArbitroDetailsComponent,
+    ArbitroToolbarComponent,
+    ArbitroToolbarDetailsComponent,
+
+    CargandoComponent,
   ],
 })
 export class DashboardModule {}

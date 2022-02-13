@@ -1,0 +1,11 @@
+<button [matMenuTriggerFor]="menu" mat-icon-button aria-label="Usuario">
+  <mat-icon>account_circle_outlined</mat-icon> 
+</button>
+<mat-menu #menu="matMenu" >
+  <ng-container *ngFor="let menu of opcionesMenu">  
+    <button mat-menu-item>
+      <mat-icon>{{ menu.icono }}</mat-icon>
+      <span>{{ menu.nombre }}</span>
+    </button>
+</ng-container>
+</mat-menu>

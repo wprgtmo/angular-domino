@@ -1,5 +1,4 @@
 import { ROOT_REDUCERS } from './state/app.state';
-import { eventosReducers } from './state/reducers/eventos.reducers';
 import { SdkModule } from './sdk.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +10,6 @@ import { AuthPagesModule } from './pages/auth-pages/auth-pages.module';
 import { DashboardPagesModule } from './pages/dashboard-pages/dashboard-pages.module';
 import { MaterialModule } from './material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
 import { DominoInterceptor } from './common/interceptors/domino-interceptor';
 import { LoaderInterceptor } from './common/interceptors/loader-interceptor';
 import { StoreModule } from '@ngrx/store';
@@ -19,6 +17,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { EventosEffects } from './state/effects/eventos.effects';
+
 
 @NgModule({
   declarations: [AppComponent],

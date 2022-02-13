@@ -1,0 +1,17 @@
+.grid{
+  /* display: grid;
+  grid-template-columns: repeat(5, 3fr);
+  gap: 3rem;
+  padding: .5rem; */
+
+
+  /* display: flex; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-items: center;
+  margin-top: 80px;
+
+}
+

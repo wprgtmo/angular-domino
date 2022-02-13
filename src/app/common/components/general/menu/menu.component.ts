@@ -1,9 +1,5 @@
-import { Component, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
-import {
-  MatNavList,
-  MatSelectionList,
-  MatSelectionListChange,
-} from '@angular/material/list';
+import { Component } from '@angular/core';
+import { MatSelectionListChange } from '@angular/material/list';
 import { Router } from '@angular/router';
 
 @Component({
