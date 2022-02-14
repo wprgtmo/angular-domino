@@ -1,31 +1,23 @@
-import { SeleccionService } from 'src/app/common/services/seleccion.service';
-import { LoaderService } from './../../../../common/services/loader.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
-import { DominoApiService } from 'src/app/common/services/domino-api.service';
-import { IEvento } from 'src/app/common/models/evento.interface';
+import { IEvento } from './../../../../common/models/interface/evento.interface';
+import { EventosService } from '../../../../state/facade/eventos.service';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   templateUrl: './evento-page.component.html',
   styleUrls: ['./evento-page.component.css']
 })
-export class EventoPageComponent implements OnInit, OnDestroy {
+export class EventoPageComponent implements OnInit {
 
 
-  private subsDominoApiService?: Subscription;
-  public listaEventos?: IEvento[] ;
+  listaEventos$: Observable<IEvento[]> = new Observable() ;
 
-  isLoading: Subject<boolean> = this.loaderService.isLoading;
-
-  constructor(private dominoApiService:DominoApiService, private loaderService: LoaderService, private seleccionService: SeleccionService) { }
+  constructor(private eventosService: EventosService) {}
 
   ngOnInit(): void {
-     this.subsDominoApiService= this.dominoApiService.getEventos().subscribe((eventos)=>{
-      this.listaEventos= eventos.eventos;
-    })
+    this.eventosService.mostrarEventosComoTarjetas();
+    this.eventosService.cargarEventos();
+    this.listaEventos$= this.eventosService.getEventos$();
   }
 
-  ngOnDestroy(): void{
-    this.subsDominoApiService?.unsubscribe();
-  }
 }

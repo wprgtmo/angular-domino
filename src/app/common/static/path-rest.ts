@@ -13,6 +13,8 @@ export class PathRest{
 
   static readonly GET_RONDAS            = '/api/evento/rondas';
   static readonly GET_NUEVA_RONDA       = '/api/evento/ronda/nueva';
+  
+  static readonly GET_ESTADISTICA_RONDA = '/api/evento/estadisticaRonda';
 
   static readonly GET_BOLETAS           = '/api/evento/boletas';
   static readonly GET_BOLETAS_COMPLETA  = '/api/evento/boletas/completa';

@@ -1,0 +1,5 @@
+<app-evento-details-toolbar></app-evento-details-toolbar>
+<app-ronda-toolbar></app-ronda-toolbar>
+<div class="grid">
+  <app-boleta [boleta]="boleta" *ngFor="let boleta of (boletas$ | async)"></app-boleta>
+</div>

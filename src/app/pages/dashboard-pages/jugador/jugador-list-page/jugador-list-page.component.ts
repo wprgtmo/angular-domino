@@ -5,7 +5,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
-import { IJugador } from 'src/app/common/models/jugador.interface';
+import { IJugador } from 'src/app/common/models/interface/jugador.interface';
 
 @Component({
   templateUrl: './jugador-list-page.component.html',

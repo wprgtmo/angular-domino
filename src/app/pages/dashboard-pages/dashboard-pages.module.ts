@@ -9,7 +9,7 @@ import { DashboardModule } from 'src/app/common/shared/dashboard.module';
 import { EventoPageComponent } from './evento/evento-page/evento-page.component';
 import { EventoAddPageComponent } from './evento/evento-add-page/evento-add-page.component';
 import { EventoListPageComponent } from './evento/evento-list-page/evento-list-page.component';
-import { EventoDetailsPageComponent } from './evento/evento-details-page/evento-details-page.component';
+import { EventoDetailsPageComponent } from './evento/details-accion/evento-details-page/evento-details-page.component';
 
 import { JugadorPageComponent } from './jugador/jugador-page/jugador-page.component';
 import { JugadorAddPageComponent } from './jugador/jugador-add-page/jugador-add-page.component';
@@ -18,17 +18,19 @@ import { JugadorListPageComponent } from './jugador/jugador-list-page/jugador-li
 
 import { ArbitroPageComponent } from './arbitro/arbitro-page/arbitro-page.component';
 
-import { RondaPageComponent } from './ronda/ronda-page/ronda-page.component';
-import { MesaPageComponent } from './mesa-page/mesa-page.component';
+import { RondaPageComponent } from './evento/details-accion/ronda/ronda-page/ronda-page.component';
+import { RondaResultadosComponent } from './evento/details-accion/ronda/ronda-resultados/ronda-resultados.component';
+import { MesaPageComponent } from './evento/details-accion/mesa-page/mesa-page.component';
 
-import { ParejaPageComponent } from './pareja/pareja-page/pareja-page.component';
-import { ParejaAddPageComponent } from './pareja/pareja-add-page/pareja-add-page.component';
-import { ParejaEditPageComponent } from './pareja/pareja-edit-page/pareja-edit-page.component';
-import { ParejaListPageComponent } from './pareja/pareja-list-page/pareja-list-page.component';
+import { ParejaPageComponent } from './evento/details-accion/pareja/pareja-page/pareja-page.component';
+import { ParejaAddPageComponent } from './evento/details-accion/pareja/pareja-add-page/pareja-add-page.component';
+import { ParejaEditPageComponent } from './evento/details-accion/pareja/pareja-edit-page/pareja-edit-page.component';
+import { ParejaListPageComponent } from './evento/details-accion/pareja/pareja-list-page/pareja-list-page.component';
 
 import { EstadisticaPageComponent } from './estadistica/estadistica-page/estadistica-page.component';
 import { HomePageComponent } from './home/home-page/home-page.component';
-
+import { EstadisticaEventoPageComponent } from './evento/details-accion/estadistica/estadistica-evento-page/estadistica-evento-page.component';
+import { PremiadosPageComponent } from './evento/details-accion/premiados/premiados-page/premiados-page.component';
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import { HomePageComponent } from './home/home-page/home-page.component';
     ArbitroPageComponent,
 
     RondaPageComponent,
+    RondaResultadosComponent,
     MesaPageComponent,
 
     ParejaPageComponent,
@@ -55,7 +58,10 @@ import { HomePageComponent } from './home/home-page/home-page.component';
     ParejaListPageComponent,
     ParejaEditPageComponent,
 
-    EstadisticaPageComponent
+    EstadisticaPageComponent,
+    RondaResultadosComponent,
+    EstadisticaEventoPageComponent,
+    PremiadosPageComponent
   ],
   imports: [
     CommonModule,

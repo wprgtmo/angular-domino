@@ -1,0 +1,6 @@
+<mat-selection-list #elementosMenu multiple="false"  (selectionChange)="onListSelectionChange($event)">
+  <mat-list-option *ngFor="let menu of opcionesMenu" [value]="menu.enlace" >
+    <mat-icon mat-list-icon>{{ menu.icono }}</mat-icon>
+    {{ menu.nombre }}
+  </mat-list-option>
+</mat-selection-list>

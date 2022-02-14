@@ -1,4 +1,4 @@
-import { IBoleta } from '../boleta.interface';
+import { IBoleta } from '../interface/boleta.interface';
 
 export interface IBoletasRespuesta{
   boletas: IBoleta[]

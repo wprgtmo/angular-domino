@@ -1,8 +1,8 @@
-import { IJugador } from './../models/jugador.interface';
-import { IEvento } from './../models/evento.interface';
+import { IJugador } from './../models/interface/jugador.interface';
+import { IEvento } from '../models/interface/evento.interface';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
-import { IRonda } from '../models/ronda.interface';
+import { IRonda } from '../models/interface/ronda.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -56,13 +56,5 @@ export class SeleccionService {
   public getIsCard(): boolean{
     return this.subjectIsCard.getValue();
   }
-  
-  nombreEstado(estado?: string): string {
-    switch (estado) {
-      case "C": return "Creado"; break;
-      case "I": return "Iniciado"; break;
-      case "F": return "Finalizado"; break;
-      default: return "Sin estado"; break;
-    }
-  }
+
 }

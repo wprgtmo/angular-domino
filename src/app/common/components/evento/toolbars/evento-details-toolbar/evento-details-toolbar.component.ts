@@ -1,19 +1,19 @@
-import { Subscription } from 'rxjs';
+import { EventosService } from 'src/app/state/facade/eventos.service';
 import { Router } from '@angular/router';
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { SeleccionService } from 'src/app/common/services/seleccion.service';
-import { IEvento } from 'src/app/common/models/evento.interface';
-import { DominoApiService } from 'src/app/common/services/domino-api.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { IEvento } from 'src/app/common/models/interface/evento.interface';
+import { Subscription } from 'rxjs';
+import { NombreEstado } from 'src/app/common/shared/auxiliar';
 
 @Component({
   selector: 'app-evento-details-toolbar',
   templateUrl: './evento-details-toolbar.component.html',
   styleUrls: ['./evento-details-toolbar.component.css'],
 })
-export class EventoDetailsToolbarComponent implements OnInit {
-  private subscribeSelectionService?: Subscription;
-  private subsSelectionServiceIsCard?: Subscription;
-  eventoSeleccionado?: IEvento;
+export class EventoDetailsToolbarComponent implements OnInit, OnDestroy {
+  subs?: Subscription;
+  subsIsCard?: Subscription;
+  eventoSeleccionado?:IEvento;
   isCard?: boolean;
 
   view=[{
@@ -26,25 +26,24 @@ export class EventoDetailsToolbarComponent implements OnInit {
     url:"eventsList"
   }]
 
-  constructor(private ruta: Router, private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
+  constructor(private ruta: Router, private eventosService: EventosService) { }
 
   ngOnInit(): void {
-    this.subscribeSelectionService =
-      this.seleccionService.channelEvent.subscribe((evento) => {
-        this.eventoSeleccionado = evento;
-      });
-      this.subsSelectionServiceIsCard= this.seleccionService.channelIsCard.subscribe((IsCard) => {
-        this.isCard= IsCard;
-      })
+    this.subs= this.eventosService.getEventoSeleccionado$().subscribe((evento) => this.eventoSeleccionado= evento);
+    this.subsIsCard= this.eventosService.getMostrandoTarjetas$().subscribe((esTarjeta) => this.isCard= esTarjeta);
+  }
+
+  ngOnDestroy(): void {
+    this.subs?.unsubscribe();
+    this.subsIsCard?.unsubscribe();
   }
 
   viewEvent(): void {
-    this.ruta.navigateByUrl(this.view[this.mostrandoLista()].url);
-}
-
-  ngOnDestroy(): void {
-    this.subscribeSelectionService?.unsubscribe();
-    this.subsSelectionServiceIsCard?.unsubscribe();
+    const esTarjeta= this.mostrandoTarjetas();
+    this.mostrandoTarjetas()?
+      this.eventosService.mostrarEventosComoLista():
+      this.eventosService.mostrarEventosComoTarjetas();
+    this.ruta.navigateByUrl(this.view[esTarjeta].url);
   }
 
   mostrarIniciar() {
@@ -60,11 +59,11 @@ export class EventoDetailsToolbarComponent implements OnInit {
   }
 
   estado() {
-   return this.seleccionService.nombreEstado(this.eventoSeleccionado?.estado);
+   return NombreEstado(this.eventoSeleccionado?.estado);
   }
 
   eventos() {
-    if (this.mostrandoLista()) this.ruta.navigateByUrl('eventsCard');
+    if (this.mostrandoTarjetas()) this.ruta.navigateByUrl('eventsCard');
     else this.ruta.navigateByUrl('eventsList');
   }
 
@@ -80,34 +79,30 @@ export class EventoDetailsToolbarComponent implements OnInit {
     this.ruta.navigateByUrl('parejas');
   }
 
-  mostrandoLista(): number {
+  estadisticas() {
+    this.ruta.navigateByUrl('estadisticaEvento');
+  }
+
+  premiados() {
+    this.ruta.navigateByUrl('premiados');
+  }
+
+  mostrandoTarjetas(): number {
     return this.isCard? 1 : 0;
   }
 
   iniciarEvento() {
-    this.dominoApiService
-      .iniciarEvento(this.eventoSeleccionado!.id.toString())
-      .subscribe((datos) => {
-        console.log(datos);
-        this.ruta.navigateByUrl('eventsCard');
-      });
+    this.eventosService.iniciarEvento(this.eventoSeleccionado!.id);
+    this.ruta.navigateByUrl('eventsCard');
   }
 
   finalizarEvento() {
-    this.dominoApiService
-      .finalizarEvento(this.eventoSeleccionado!.id.toString())
-      .subscribe((datos) => {
-        console.log(datos);
-        this.ruta.navigateByUrl('eventsCard');
-      });
+    this.eventosService.finalizarEvento(this.eventoSeleccionado!.id);
+    this.ruta.navigateByUrl('eventsCard');
   }
 
   eliminarEvento() {
-    this.dominoApiService
-      .delEvento(this.eventoSeleccionado!.id.toString())
-      .subscribe((datos) => {
-        console.log(datos);
-        this.ruta.navigateByUrl('eventsCard');
-      });
+    this.eventosService.eliminarEvento(this.eventoSeleccionado!.id);
+    this.ruta.navigateByUrl('eventsCard');
   }
 }

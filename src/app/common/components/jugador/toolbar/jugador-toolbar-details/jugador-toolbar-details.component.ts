@@ -1,4 +1,4 @@
-import { IJugador } from 'src/app/common/models/jugador.interface';
+import { IJugador } from 'src/app/common/models/interface/jugador.interface';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';

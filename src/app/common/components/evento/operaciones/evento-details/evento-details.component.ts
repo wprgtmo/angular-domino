@@ -1,9 +1,11 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { IEvento } from 'src/app/common/models/evento.interface';
-import { SeleccionService } from 'src/app/common/services/seleccion.service';
+import { NombreEstado } from 'src/app/common/shared/auxiliar';
+import { IEvento } from 'src/app/common/models/interface/evento.interface';
 import { PathRest } from 'src/app/common/static/path-rest';
+import { AppState } from 'src/app/state/app.state';
+import { eventoSeleccionado } from 'src/app/state/selectors/eventos.selectors';
 
 @Component({
   selector: 'app-evento-details',
@@ -15,17 +17,17 @@ export class EventoDetailsComponent implements OnInit, OnDestroy {
   public fotoEvento = "";
   private subs?: Subscription;
 
-  constructor(private seleccionService: SeleccionService) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(){
-    this.subs=this.seleccionService.channelEvent.subscribe((evento) => {
+    this.subs=this.store.select(eventoSeleccionado).subscribe(({...evento}) => {
       this.evento= evento;
       this.fotoEvento= PathRest.URL_BASE + this.evento?.imagen;
     })
   }
 
   estado() {
-    return this.seleccionService.nombreEstado(this.evento?.estado);
+    return NombreEstado(this.evento?.estado);
   }
 
   detalleEstado() {

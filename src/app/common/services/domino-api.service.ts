@@ -9,8 +9,10 @@ import { IRondasRespuesta } from '../models/respuestas/rondas-respuesta.interfac
 import { IBoletasRespuesta } from '../models/respuestas/boletas-respuesta.interface';
 import { IBoletasCompletaRespuesta } from '../models/respuestas/boletas-completa-respuesta.interface';
 import { IMesasRespuesta } from '../models/respuestas/mesas-respuesta.interface';
-import { IParejasRespuesta } from '../models/respuestas/parejas-respuesta.interface';
-import { IPareja } from '../models/pareja.interface';
+import { IEstadisticaRonda } from '../models/interface/estadistica-ronda.interface';
+import { IPareja } from '../models/interface/pareja.interface';
+import { IEvento } from '../models/interface/evento.interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,16 +29,16 @@ export class DominoApiService {
     return this.http_API.post<IEventoRespuesta>(PathRest.NEW_EVENTO, datosEvento);
   }
 
-  iniciarEvento(evento_id: string):Observable<IEventoRespuesta>{
-    return this.http_API.post<IEventoRespuesta>(PathRest.INIT_EVENTO, {"evento_id": evento_id});
+  iniciarEvento(evento_id: number):Observable<IEvento>{
+    return this.http_API.post<IEvento>(PathRest.INIT_EVENTO, {"evento_id": evento_id});
   }
 
-  finalizarEvento(evento_id: string):Observable<IEventoRespuesta>{
-    return this.http_API.post<IEventoRespuesta>(PathRest.FIN_EVENTO, {"evento_id": evento_id});
+  finalizarEvento(evento_id: number):Observable<IEvento>{
+    return this.http_API.post<IEvento>(PathRest.FIN_EVENTO, {"evento_id": evento_id});
   }
 
-  delEvento(evento_id: string):Observable<IEventoRespuesta>{
-    return this.http_API.delete<IEventoRespuesta>(PathRest.DEL_EVENTO+'/'+evento_id);
+  delEvento(evento_id: number):Observable<IEvento>{
+    return this.http_API.delete<IEvento>(PathRest.DEL_EVENTO+'/'+evento_id);
   }
 
   getJugadores():Observable<IJugadorRespuesta>{
@@ -63,16 +65,20 @@ export class DominoApiService {
     return this.http_API.post<IBoletasRespuesta>(PathRest.GET_BOLETAS, {"evento_id": evento_id, "ronda_id": ronda_id});
   }
 
-  getBoletasCompleta(evento_id: number, ronda_id: number): Observable<IBoletasCompletaRespuesta>{
-    return this.http_API.post<IBoletasCompletaRespuesta>(PathRest.GET_BOLETAS_COMPLETA, {"evento_id": evento_id, "ronda_id": ronda_id});
+  getBoletasCompleta(ronda_id: number): Observable<IBoletasCompletaRespuesta>{
+    return this.http_API.post<IBoletasCompletaRespuesta>(PathRest.GET_BOLETAS_COMPLETA, {"ronda_id": ronda_id});
   }
 
-  getMesas(evento_id: string): Observable<IMesasRespuesta>{
+  getEstadisticaRonda(ronda_id: number): Observable<IEstadisticaRonda[]>{
+    return this.http_API.post<IEstadisticaRonda[]>(PathRest.GET_ESTADISTICA_RONDA, {"ronda_id": ronda_id});
+  }
+
+  getMesas(evento_id: number): Observable<IMesasRespuesta>{
     return this.http_API.post<IMesasRespuesta>(PathRest.GET_MESAS, {"evento_id": evento_id});
   }
 
-  getParejas(evento_id: string): Observable<IParejasRespuesta>{
-    return this.http_API.post<IParejasRespuesta>(PathRest.GET_PAREJAS, {"evento_id": evento_id});
+  getParejas(evento_id: number): Observable<IPareja[]>{
+    return this.http_API.post<IPareja[]>(PathRest.GET_PAREJAS, {"evento_id": evento_id});
   }
 
   newPareja(datosPareja: FormData):Observable<IPareja>{

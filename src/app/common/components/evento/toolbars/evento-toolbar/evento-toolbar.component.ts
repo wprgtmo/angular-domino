@@ -1,8 +1,10 @@
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { SeleccionService } from 'src/app/common/services/seleccion.service';
-import { IEvento } from 'src/app/common/models/evento.interface';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/state/app.state';
+import { esTarjeta } from 'src/app/state/selectors/eventos.selectors';
+import { EventosService } from '../../../../../state/facade/eventos.service';
 
 @Component({
   selector: 'app-evento-toolbar',
@@ -10,9 +12,7 @@ import { IEvento } from 'src/app/common/models/evento.interface';
   styleUrls: ['./evento-toolbar.component.css']
 })
 export class EventoToolbarComponent implements OnInit, OnDestroy {
-  subsSelectionService?: Subscription;
-  subsSelectionServiceIsCard?: Subscription;
-  eventoSeleccionado?: IEvento;
+  subs?: Subscription;
   isCard?: boolean;
 
   view=[{
@@ -25,37 +25,30 @@ export class EventoToolbarComponent implements OnInit, OnDestroy {
         url:"eventsList"
       }]
 
-  constructor(private ruta: Router, private seleccionService: SeleccionService) { }
+  constructor(private ruta: Router, private eventosDispachService: EventosService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.subsSelectionService= this.seleccionService.channelEvent.subscribe((evento)=>{
-      this.eventoSeleccionado = evento;
-    });
-    this.subsSelectionServiceIsCard= this.seleccionService.channelIsCard.subscribe((IsCard) => {
-      this.isCard= IsCard;
-    })
+    this.subs= this.store.select(esTarjeta).subscribe((esTarjeta) => this.isCard= esTarjeta);
  }
 
   addEvento(): void {
     this.ruta.navigateByUrl('eventNew');
   }
 
-  viewEvent(): void {
-      console.log("Es lista en el View: ", this.isCard);
-      const lista= this.mostrandoLista();
-      this.seleccionService.setsetIsCard(!this.isCard);
-      console.log("Es lista despues de cambiar el view: ", this.isCard);
-      this.ruta.navigateByUrl(this.view[lista].url);
-  }
-
- mostrandoLista(): number{
+  mostrandoTarjetas(): number{
     return this.isCard?1:0;
  }
 
- ngOnDestroy(): void{
-   this.subsSelectionService?.unsubscribe();
-   this.subsSelectionServiceIsCard?.unsubscribe();
- }
+  viewEvent(): void {
+    const esTarjeta= this.mostrandoTarjetas();
+    this.mostrandoTarjetas()?
+      this.eventosDispachService.mostrarEventosComoLista():
+      this.eventosDispachService.mostrarEventosComoTarjetas();
+    this.ruta.navigateByUrl(this.view[esTarjeta].url);
+  }
 
+  ngOnDestroy(){
+    this.subs?.unsubscribe();
+  }
 
 }
