@@ -18,7 +18,6 @@ export class CargandoComponent implements OnInit {
 
   cargando$: Observable<boolean> = new Observable();
 
-
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {

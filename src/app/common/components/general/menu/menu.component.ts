@@ -59,8 +59,14 @@ export class MenuComponent {
     },
     {
       nombre: 'Publicidad',
-      enlace: 'publicidad',
+      enlace: 'admin/publicidad',
       icono: 'ondemand_video',
+      isSelected: false,
+    },
+    {
+      nombre: 'Codificadores',
+      enlace: 'admin/codificadores',
+      icono: 'manage_accounts',
       isSelected: false,
     },
   ];

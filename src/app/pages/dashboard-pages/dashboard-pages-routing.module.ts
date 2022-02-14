@@ -115,7 +115,7 @@ const routes: Routes = [
         {
           path: 'publicidad',
           component: PublicidadPageComponent
-        },
+        },  
     ]
   }
 ];

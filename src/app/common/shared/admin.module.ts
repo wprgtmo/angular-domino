@@ -31,6 +31,12 @@ import { PublicidadDetailsComponent } from './../components/admin/publicidad/ope
 import { PublicidadToolbarComponent } from './../components/admin/publicidad/toolbar/publicidad-toolbar/publicidad-toolbar.component';
 import { PublicidadToolbarDetailsComponent } from './../components/admin/publicidad/toolbar/publicidad-toolbar-details/publicidad-toolbar-details.component';
 
+import { CodificadoresComponent } from './../components/admin/codificadores/codificadores/codificadores.component';
+import { CodificadoresAddComponent } from './../components/admin/codificadores/operaciones/codificadores-add/codificadores-add.component';
+import { CodificadoresEditComponent } from './../components/admin/codificadores/operaciones/codificadores-edit/codificadores-edit.component';
+import { CodificadoresDetailsComponent } from './../components/admin/codificadores/operaciones/codificadores-details/codificadores-details.component';
+import { CodificadoresToolbarComponent } from './../components/admin/codificadores/toolbar/codificadores-toolbar/codificadores-toolbar.component';
+import { CodificadoresToolbarDetailsComponent } from '../components/admin/codificadores/toolbar/codificadores-toolbar-details/codificadores-toolbar-details.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +67,13 @@ import { PublicidadToolbarDetailsComponent } from './../components/admin/publici
     PublicidadDetailsComponent,
     PublicidadToolbarComponent,
     PublicidadToolbarDetailsComponent,
+
+    CodificadoresComponent,
+    CodificadoresAddComponent,
+    CodificadoresEditComponent,
+    CodificadoresDetailsComponent,
+    CodificadoresToolbarComponent,
+    CodificadoresToolbarDetailsComponent,
 
   ],
   imports: [CommonModule, MaterialModule],
@@ -93,7 +106,12 @@ import { PublicidadToolbarDetailsComponent } from './../components/admin/publici
     PublicidadToolbarComponent,
     PublicidadToolbarDetailsComponent,
 
-
+    CodificadoresComponent,
+    CodificadoresAddComponent,
+    CodificadoresEditComponent,
+    CodificadoresDetailsComponent,
+    CodificadoresToolbarComponent,
+    CodificadoresToolbarDetailsComponent,
   ],
 })
 export class AdminModule {}

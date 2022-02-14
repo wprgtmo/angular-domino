@@ -12,6 +12,7 @@ import { DashboardModule } from 'src/app/common/shared/dashboard.module';
 
 import { UsuarioPagesComponent } from './usuario/usuario-pages/usuario-pages.component';
 import { GrupoPagesComponent } from './grupo/grupo-pages/grupo-pages.component';
+import { CodificadoresPagesComponent } from './codificadores/codificadores-pages/codificadores-pages.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { GrupoPagesComponent } from './grupo/grupo-pages/grupo-pages.component';
     GrupoPagesComponent,
     DispositivoPagesComponent,
     PublicidadPageComponent,
+    CodificadoresPagesComponent,
   ],
   imports: [
     CommonModule,

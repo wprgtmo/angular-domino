@@ -7,6 +7,7 @@ import { UsuarioPagesComponent } from './usuario/usuario-pages/usuario-pages.com
 import { GrupoPagesComponent } from './grupo/grupo-pages/grupo-pages.component';
 import { DispositivoPagesComponent } from './dispositivo/dispositivo-pages/dispositivo-pages.component';
 import { PublicidadPageComponent } from './publicidad/publicidad-page/publicidad-page.component';
+import { CodificadoresPagesComponent } from './codificadores/codificadores-pages/codificadores-pages.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
         {
           path: 'dispositivo',
           component: DispositivoPagesComponent
+        },      
+        {
+          path: 'codificadores',
+          component: CodificadoresPagesComponent
         },
     ]
   }

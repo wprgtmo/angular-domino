@@ -1,7 +1,7 @@
-import { IEvento } from './../../../../common/models/interface/evento.interface';
 import { EventosService } from '../../../../state/facade/eventos.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IEvento } from 'src/app/common/models/interface/evento.interface';
 
 @Component({
   templateUrl: './evento-page.component.html',
