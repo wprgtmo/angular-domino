@@ -1,4 +1,4 @@
-import { Moment } from 'moment/moment';
+import { MatDialogModule } from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -51,7 +51,8 @@ import { MatExpansionModule } from '@angular/material/expansion'
     MatButtonToggleModule,
     MatMomentDateModule,
     MatDatepickerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule,
   ],
   exports: [
     MatCardModule,
@@ -77,7 +78,8 @@ import { MatExpansionModule } from '@angular/material/expansion'
     MatButtonToggleModule,
     MatMomentDateModule,
     MatDatepickerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule,
   ],
 })
 export class MaterialModule {}

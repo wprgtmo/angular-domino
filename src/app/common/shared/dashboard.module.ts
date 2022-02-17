@@ -1,3 +1,7 @@
+import { CloseSessionComponent } from './../components/general/submenu/opciones/close-session/close-session.component';
+import { ConfigComponent } from './../components/general/config/config.component';
+import { HelpComponent } from './../components/general/submenu/opciones/help/help.component';
+import { ProfileComponent } from './../components/general/submenu/opciones/profile/profile.component';
 import { MaterialModule } from './../../material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -54,6 +58,10 @@ import { CargandoComponent } from './../components/general/cargando/cargando.com
   declarations: [
     MenuComponent,
     SubmenuComponent,
+    ProfileComponent,
+    HelpComponent,
+    ConfigComponent,
+    CloseSessionComponent,
     NavComponent,
 
     EventoComponent,
@@ -102,6 +110,10 @@ import { CargandoComponent } from './../components/general/cargando/cargando.com
   exports: [
     MenuComponent,
     SubmenuComponent,
+    ProfileComponent,
+    HelpComponent,
+    ConfigComponent,
+    CloseSessionComponent,
     NavComponent,
 
     EventoComponent,

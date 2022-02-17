@@ -2,10 +2,29 @@
   <mat-icon>account_circle_outlined</mat-icon> 
 </button>
 <mat-menu #menu="matMenu" >
-  <ng-container *ngFor="let menu of opcionesMenu">  
-    <button mat-menu-item>
+  <!-- <ng-container *ngFor="let menu of opcionesMenu">  
+    <button mat-menu-item (click)="menu.evento()">
       <mat-icon>{{ menu.icono }}</mat-icon>
       <span>{{ menu.nombre }}</span>
     </button>
-</ng-container>
+</ng-container> -->
+
+  <button mat-menu-item (click)="abrirPerfil()">
+    <mat-icon>manage_accounts</mat-icon>
+    <span>Perfil</span>
+  </button>
+  <button mat-menu-item (click)="abrirAyuda()">
+    <mat-icon>help</mat-icon>
+    <span>Ayuda</span>
+  </button>  
+  <button mat-menu-item (click)="abrirConfig()">
+    <mat-icon>settings</mat-icon>
+    <span>Configuración</span>
+  </button>  
+  <button mat-menu-item (click)="cerrarSession()">
+    <mat-icon>cancel</mat-icon>
+    <span>Cerrar Sessión </span>
+  </button>
+
+
 </mat-menu>

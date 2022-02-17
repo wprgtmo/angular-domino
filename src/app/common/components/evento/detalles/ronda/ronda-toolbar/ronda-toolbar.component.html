@@ -1,16 +1,18 @@
+<app-cargando></app-cargando>
  <mat-toolbar class="sombra toolbar">Ronda:
-
-  <mat-select placeholder="Seleccione una ronda" (selectionChange)="changeRonda($event)">
-      <mat-option *ngFor="let ronda of (rondas$ | async)" [value]="ronda.id" >{{ronda.comentario}}</mat-option>
+  <mat-select placeholder="Seleccione una ronda" [(value)]="ronda_select"  (selectionChange)="changeRonda($event)">
+      <mat-option *ngFor="let ronda of rondas" [value]="ronda.id" >{{ronda.comentario}}</mat-option>
   </mat-select>
+
+  <span class="spacer"></span>
+  Ronda: {{ronda_select}}
   <span class="spacer"></span>
   <ng-container *ngIf="(rondaActiva$ | async) as rondaActiva">
     <div class="titulo">
       Duración: {{ duracionRonda(rondaActiva.duracion) }}  <span class="spacer"></span>
     </div>
    <span class="spacer"></span>
-    <button mat-icon-button class="mat-icons-outlined" (click)="iniciarRonda()"
-    matTooltip="Iniciar ronda" >
+    <button *ngIf="rondaActiva.estado=='C'"  mat-icon-button class="mat-icons-outlined" (click)="iniciarRonda()" matTooltip="Iniciar ronda" >
     <mat-icon>alarm_add_white</mat-icon>
     </button>
 
@@ -20,10 +22,3 @@
     </button>
   </ng-container>
 </mat-toolbar>
-
-<!-- [(value)]="ronda_activa" -->
-<!-- (click)="viewEvent()" -->
-
-<!-- <button mat-icon-button class="mat-icons-outlined" matTooltip="Iniciar ronda" aria-label="Iniciar ronda" (click)="iniciarRonda()" >
-  <mat-icon>alarm_add_white</mat-icon>
-</button> -->
