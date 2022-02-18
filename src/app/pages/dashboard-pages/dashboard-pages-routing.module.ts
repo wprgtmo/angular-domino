@@ -1,3 +1,5 @@
+import { ArbitroListPagesComponent } from './arbitro/arbitro-list-pages/arbitro-list-pages.component';
+import { ArbitroAddPagesComponent } from './arbitro/arbitro-add-pages/arbitro-add-pages.component';
 import { RondaResultadosComponent } from './evento/details-accion/ronda/ronda-resultados/ronda-resultados.component';
 import { JugadorDetailPageComponent } from './jugador/jugador-detail-page/jugador-detail-page.component';
 import { ParejaListPageComponent } from './evento/details-accion/pareja/pareja-list-page/pareja-list-page.component';
@@ -109,8 +111,16 @@ const routes: Routes = [
           component: EstadisticaPageComponent
         },
         {
-          path: 'arbitro',
+          path: 'arbitrosCard',
           component: ArbitroPageComponent
+        },
+        {
+          path: 'arbitroAdd',
+          component: ArbitroAddPagesComponent
+        },
+        {
+          path: 'arbitrosList',
+          component: ArbitroListPagesComponent
         },
         {
           path: 'publicidad',

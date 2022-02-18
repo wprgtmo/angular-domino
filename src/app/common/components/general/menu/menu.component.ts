@@ -29,7 +29,7 @@ export class MenuComponent {
     },
     {
       nombre: 'Arbitros',
-      enlace: 'arbitro',
+      enlace: 'arbitrosCard',
       icono: 'portrait',
       isSelected: false,
     },

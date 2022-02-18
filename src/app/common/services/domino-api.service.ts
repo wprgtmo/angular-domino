@@ -12,6 +12,7 @@ import { IMesasRespuesta } from '../models/respuestas/mesas-respuesta.interface'
 import { IEstadisticaRonda } from '../models/interface/estadistica-ronda.interface';
 import { IPareja } from '../models/interface/pareja.interface';
 import { IEvento } from '../models/interface/evento.interface';
+import { IArbitro } from '../models/interface/arbitro.interface';
 
 
 @Injectable({
@@ -52,6 +53,19 @@ export class DominoApiService {
   delJugador(jugador_id: string):Observable<IJugadorRespuesta>{
     return this.http_API.delete<IJugadorRespuesta>(PathRest.DEL_JUGADOR+'/'+jugador_id);
   }
+
+  getArbitros():Observable<IArbitro[]>{
+    return this.http_API.get<IArbitro[]>(PathRest.GET_ARBITROS);
+  }
+
+  newArbitro(datosArbitro: FormData):Observable<IArbitro>{
+    return this.http_API.post<IArbitro>(PathRest.NEW_ARBITRO, datosArbitro);
+  }
+
+  delArbitro(arbitro_id: string):Observable<IArbitro>{
+    return this.http_API.delete<IArbitro>(PathRest.DEL_ARBITRO+'/'+arbitro_id);
+  }
+
 
   getRondas(evento_id: number): Observable<IRondasRespuesta>{
     return this.http_API.post<IRondasRespuesta>(PathRest.GET_RONDAS, {"evento_id": evento_id});

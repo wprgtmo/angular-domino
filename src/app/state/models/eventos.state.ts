@@ -4,7 +4,6 @@ import { IPareja } from './../../common/models/interface/pareja.interface';
 import { IMesa } from './../../common/models/interface/mesa.interface';
 import { IRonda } from './../../common/models/interface/ronda.interface';
 import { IEvento } from "../../common/models/interface/evento.interface";
-import { IBoleta } from 'src/app/common/models/interface/boleta.interface';
 import { IEstadisticaRonda } from 'src/app/common/models/interface/estadistica-ronda.interface';
 
 export interface EventState{

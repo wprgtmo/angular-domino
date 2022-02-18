@@ -1,3 +1,4 @@
+import { ArbitrosEffects } from './state/effects/arbitros.effects';
 import { ROOT_REDUCERS } from './state/app.state';
 import { SdkModule } from './sdk.module';
 import { NgModule } from '@angular/core';
@@ -32,7 +33,7 @@ import { EventosEffects } from './state/effects/eventos.effects';
     DashboardPagesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([EventosEffects]),
+    EffectsModule.forRoot([EventosEffects, ArbitrosEffects]),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },

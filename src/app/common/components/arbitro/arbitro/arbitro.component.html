@@ -1,1 +1,28 @@
-<p>arbitro works!</p>
+<mat-card class="sombra">
+  <img  (click)="seleccionarArbitro()" src={{fotoJugador}}>
+  <mat-card-header>
+    <mat-card-title>{{arbitro?.nombre}}</mat-card-title>
+    <mat-card-subtitle>{{arbitro?.comentario}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="info">Alias: {{arbitro?.alias}}</p>
+    <p class="info">Ocupación: {{arbitro?.ocupacion}}</p>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Detalles
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p class="info">Ciudad: {{arbitro?.ciudad_id}}</p>
+        <p class="info">F. Nacimiento: {{arbitro?.fecha_nacimiento}}</p>
+        <p class="info">C. Identidad: {{arbitro?.nro_identidad}}</p>
+        <p class="info">Correo: {{arbitro?.correo}}</p>
+        <p class="info">Teléfono: {{arbitro?.telefono}}</p>
+        <p class="info">Sexo: {{arbitro?.sexo}}</p>
+        <p class="info">Tipo: {{arbitro?.tipo}}</p>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>

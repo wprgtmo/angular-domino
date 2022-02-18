@@ -31,6 +31,9 @@ import { EstadisticaPageComponent } from './estadistica/estadistica-page/estadis
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { EstadisticaEventoPageComponent } from './evento/details-accion/estadistica/estadistica-evento-page/estadistica-evento-page.component';
 import { PremiadosPageComponent } from './evento/details-accion/premiados/premiados-page/premiados-page.component';
+import { ArbitroListPagesComponent } from './arbitro/arbitro-list-pages/arbitro-list-pages.component';
+import { ArbitroAddPagesComponent } from './arbitro/arbitro-add-pages/arbitro-add-pages.component';
+import { ArbitroDetailsPagesComponent } from './arbitro/arbitro-details-pages/arbitro-details-pages.component';
 
 
 @NgModule({
@@ -61,7 +64,10 @@ import { PremiadosPageComponent } from './evento/details-accion/premiados/premia
     EstadisticaPageComponent,
     RondaResultadosComponent,
     EstadisticaEventoPageComponent,
-    PremiadosPageComponent
+    PremiadosPageComponent,
+    ArbitroListPagesComponent,
+    ArbitroAddPagesComponent,
+    ArbitroDetailsPagesComponent
   ],
   imports: [
     CommonModule,

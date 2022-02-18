@@ -1,10 +1,15 @@
 <mat-toolbar>
   <span>Arbitros</span>
   <span class="spacer"></span>
-  <button mat-icon-button class="mat-icons-outlined"  matTooltip="Evento" aria-label="Evento" >
+  <button mat-icon-button class="mat-icons-outlined"  matTooltip="Nuevo arbitro" aria-label="Nuevo arbitro" (click)="addArbitro()" >
         <mat-icon>add_to_photos</mat-icon>
   </button>
-  <button mat-icon-button class="mat-icons-outlined" matTooltip={{view[mostrandoTarjetas()].tooltip}} >
-    <mat-icon>{{view[mostrandoTarjetas()].icono}}</mat-icon>
-</button>
+  <button *ngIf="!(esTarjeta$ | async)" mat-icon-button class="mat-icons-outlined" (click)="verComoTarjeta()"
+    matTooltip="Ver como tarjetas">
+    <mat-icon>view_module_white</mat-icon>
+  </button>
+  <button *ngIf="esTarjeta$ | async" mat-icon-button class="mat-icons-outlined" (click)="verComoLista()"
+    matTooltip="Ver como lista">
+    <mat-icon>view_list_white</mat-icon>
+  </button>
 </mat-toolbar>

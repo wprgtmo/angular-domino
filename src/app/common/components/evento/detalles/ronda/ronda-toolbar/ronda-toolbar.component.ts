@@ -1,9 +1,9 @@
-import { idRondaSeleccionada } from './../../../../../../state/selectors/eventos.selectors';
+import { NombreEstadoF } from './../../../../../shared/auxiliar';
 import { EventosService } from 'src/app/state/facade/eventos.service';
 import { IRonda } from '../../../../../models/interface/ronda.interface';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { map, mergeMap, tap } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import * as moment from 'moment/moment';
 import { Router } from '@angular/router';
 
@@ -18,23 +18,33 @@ export class RondaToolbarComponent implements OnInit, OnDestroy {
   ronda_select?: number;
   subs?: Subscription;
 
+
+  rondas$:  Observable<IRonda[]> = new Observable();
+
   constructor(private eventosService: EventosService, private ruta: Router) {}
 
   ngOnInit(): void {
-
-    this.subs= this.eventosService.getIdEventoSeleccionado$().pipe(
+    this.rondas$= this.eventosService.getIdEventoSeleccionado$().pipe(
       map((evento_id) => this.eventosService.cargarRondas(evento_id)),
       mergeMap(() => this.eventosService.getRondas$())
-    ).subscribe((lista_rondas) =>  {
-      if (lista_rondas.length>0){
-        this.rondas= lista_rondas; 
-        this.ronda_select= lista_rondas[lista_rondas.length-1].id;
-      }
-    });
+    );
+
+    // this.subs= this.eventosService.getIdEventoSeleccionado$().pipe(
+    //   map((evento_id) => this.eventosService.cargarRondas(evento_id)),
+    //   mergeMap(() => this.eventosService.getRondas$())
+    // ).subscribe((lista_rondas) =>  {
+    //   if (lista_rondas.length>0){
+    //     this.rondas= lista_rondas;
+    //     this.ronda_select= lista_rondas[lista_rondas.length-1].id;
+    //   }
+    // });
+
     this.rondaActiva$ = this.eventosService.getRondaSeleccionada$();
   }
 
   changeRonda(ronda: any) {
+    this.ronda_select= ronda.value;
+
     if (ronda) this.eventosService.seleccionarRonda(ronda.value);
   }
 
@@ -68,8 +78,12 @@ export class RondaToolbarComponent implements OnInit, OnDestroy {
     this.ruta.navigateByUrl('rondaResultados');
   }
 
+  nombreEstado(estado: string): string {
+    return NombreEstadoF(estado);
+  }
+
   ngOnDestroy(): void {
-    this.subs?.unsubscribe();
+    // this.subs?.unsubscribe();
 
   }
 

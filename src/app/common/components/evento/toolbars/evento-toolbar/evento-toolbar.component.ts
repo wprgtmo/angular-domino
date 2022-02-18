@@ -1,9 +1,6 @@
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/state/app.state';
-import { esTarjeta } from 'src/app/state/selectors/eventos.selectors';
+import { Component, OnInit } from '@angular/core';
 import { EventosService } from '../../../../../state/facade/eventos.service';
 
 @Component({
@@ -11,44 +8,30 @@ import { EventosService } from '../../../../../state/facade/eventos.service';
   templateUrl: './evento-toolbar.component.html',
   styleUrls: ['./evento-toolbar.component.css']
 })
-export class EventoToolbarComponent implements OnInit, OnDestroy {
-  subs?: Subscription;
-  isCard?: boolean;
+export class EventoToolbarComponent implements OnInit {
+  esTarjeta$: Observable<boolean>= new Observable();
 
-  view=[{
-        icono:"view_module_white",
-        tooltip:"Ver tarjetas",
-        url:"eventsCard"
-      },{
-        icono:"view_list_white",
-        tooltip:"Ver lista",
-        url:"eventsList"
-      }]
-
-  constructor(private ruta: Router, private eventosDispachService: EventosService, private store: Store<AppState>) { }
+  constructor(private ruta: Router, private eventosService: EventosService) { }
 
   ngOnInit(): void {
-    this.subs= this.store.select(esTarjeta).subscribe((esTarjeta) => this.isCard= esTarjeta);
+    this.esTarjeta$= this.eventosService.getMostrandoTarjetas$();
  }
 
   addEvento(): void {
     this.ruta.navigateByUrl('eventNew');
   }
 
-  mostrandoTarjetas(): number{
-    return this.isCard?1:0;
- }
-
-  viewEvent(): void {
-    const esTarjeta= this.mostrandoTarjetas();
-    this.mostrandoTarjetas()?
-      this.eventosDispachService.mostrarEventosComoLista():
-      this.eventosDispachService.mostrarEventosComoTarjetas();
-    this.ruta.navigateByUrl(this.view[esTarjeta].url);
+  verComoTarjeta(): void {
+    this.eventosService.mostrarEventosComoTarjetas();
+    this.ruta.navigateByUrl('eventsCard');
   }
 
-  ngOnDestroy(){
-    this.subs?.unsubscribe();
+  
+  verComoLista(): void {
+    this.eventosService.mostrarEventosComoLista();
+    this.ruta.navigateByUrl('eventsList');
   }
+
+
 
 }

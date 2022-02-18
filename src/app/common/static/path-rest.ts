@@ -21,10 +21,14 @@ export class PathRest{
 
   static readonly GET_MESAS             = '/api/evento/mesas';
   static readonly GET_PAREJAS           = '/api/evento/parejas';
-  static readonly GET_JUGADORES         = '/api/jugadores';
   static readonly NEW_PAREJA            = '/api/parejas/create';
+  
+  static readonly GET_ARBITROS         = '/api/arbitros';
+  static readonly NEW_ARBITRO            = '/api/arbitros/crear';
+  static readonly DEL_ARBITRO            = '/api/arbitros/eliminar';
 
-
+  
+  static readonly GET_JUGADORES         = '/api/jugadores';
   static readonly NEW_JUGADOR            = '/api/jugadores/crear';
   static readonly DEL_JUGADOR            = '/api/jugadores/eliminar';
 }

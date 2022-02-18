@@ -1,6 +1,8 @@
 <app-arbitro-toolbar></app-arbitro-toolbar>
 <app-cargando></app-cargando>
 <div class="grid">
-
+  <app-arbitro [arbitro]="arbitro" *ngFor="let arbitro of (arbitros$ | async)">
+  </app-arbitro>
 </div>
+
 

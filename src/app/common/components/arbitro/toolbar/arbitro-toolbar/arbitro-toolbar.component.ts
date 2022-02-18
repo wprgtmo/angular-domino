@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ArbitrosService } from './../../../../../state/facade/arbitros.service';
 
 @Component({
   selector: 'app-arbitro-toolbar',
@@ -6,24 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./arbitro-toolbar.component.css']
 })
 export class ArbitroToolbarComponent implements OnInit {
+  esTarjeta$: Observable<boolean>= new Observable();
 
-  view=[{
-    icono:"view_module_white",
-    tooltip:"Ver tarjetas",
-    url:"eventsCard"
-  },{
-    icono:"view_list_white",
-    tooltip:"Ver lista",
-    url:"eventsList"
-  }]
-
-  constructor() { }
+  constructor(private ruta: Router, private arbitrosService: ArbitrosService) { }
 
   ngOnInit(): void {
+    this.esTarjeta$= this.arbitrosService.getMostrandoTarjetas$();
+ }
+
+ addArbitro(): void {
+    this.ruta.navigateByUrl('arbitroAdd');
   }
 
-  mostrandoTarjetas(): number{
-    return 1;
- }
+  verComoTarjeta(): void {
+    this.arbitrosService.mostrarArbitrosComoTarjetas();
+    this.ruta.navigateByUrl('rbitrosCard');
+  }
+
+  
+  verComoLista(): void {
+    this.arbitrosService.mostrarArbitrosComoLista();
+    this.ruta.navigateByUrl('arbitrosList');
+  }
+
 
 }
