@@ -62,7 +62,8 @@ export class DominoApiService {
     return this.http_API.post<IArbitro>(PathRest.NEW_ARBITRO, datosArbitro);
   }
 
-  delArbitro(arbitro_id: string):Observable<IArbitro>{
+  delArbitro(arbitro_id: number):Observable<IArbitro>{
+    console.log(arbitro_id);
     return this.http_API.delete<IArbitro>(PathRest.DEL_ARBITRO+'/'+arbitro_id);
   }
 

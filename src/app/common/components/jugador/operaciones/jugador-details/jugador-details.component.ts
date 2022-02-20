@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IJugador } from 'src/app/common/models/interface/jugador.interface';
 import { SeleccionService } from 'src/app/common/services/seleccion.service';
+import { PathRest } from 'src/app/common/static/path-rest';
 
 @Component({
   selector: 'app-jugador-details',
@@ -10,13 +11,13 @@ import { SeleccionService } from 'src/app/common/services/seleccion.service';
 })
 export class JugadorDetailsComponent implements OnInit {
 
-  @Input() jugador: IJugador | undefined ;
-  fotoJugador: string | undefined;
+  @Input() jugador?: IJugador;
+  fotoJugador?: string;
 
-  constructor(private ruta: Router, private seleccionService: SeleccionService) { }
+  constructor() { }
 
   ngOnInit(){
-    this.fotoJugador= 'http://localhost/domino_api/' + this.jugador?.foto;
+    this.fotoJugador= PathRest.URL_BASE + this.jugador?.foto;
   }
 
 }

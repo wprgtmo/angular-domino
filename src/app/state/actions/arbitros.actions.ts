@@ -64,6 +64,7 @@ export const accionEliminarArbitro = createAction(
   props<{ arbitro_id: number }>()
 );
 
-export const accionArbitroEliminado = createAction(
-  ARBITRO_ACTIONS_NAMES.ARBITRO_DELETED
+export const  accionArbitroEliminado = createAction(
+  ARBITRO_ACTIONS_NAMES.ARBITRO_DELETED,
+  props<{ arbitro_eliminado: IArbitro }>()
 );

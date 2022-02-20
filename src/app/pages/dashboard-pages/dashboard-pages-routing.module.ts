@@ -24,6 +24,7 @@ import { PublicidadPageComponent } from '../admin-pages/publicidad/publicidad-pa
 import { ArbitroPageComponent } from './arbitro/arbitro-page/arbitro-page.component';
 import { EstadisticaEventoPageComponent } from './evento/details-accion/estadistica/estadistica-evento-page/estadistica-evento-page.component';
 import { PremiadosPageComponent } from './evento/details-accion/premiados/premiados-page/premiados-page.component';
+import { ArbitroDetailsPagesComponent } from './arbitro/arbitro-details-pages/arbitro-details-pages.component';
 
 const routes: Routes = [
   {
@@ -121,6 +122,10 @@ const routes: Routes = [
         {
           path: 'arbitrosList',
           component: ArbitroListPagesComponent
+        },
+        {
+          path: 'arbitroDetails',
+          component: ArbitroDetailsPagesComponent
         },
         {
           path: 'publicidad',

@@ -44,16 +44,16 @@ export class ArbitrosService {
     this.store.dispatch(ArbitrosActions.accionErrorArbitros({ error: { ...errores } }));
   }
 
-  public accionSeleccionarArbitro(arbitro_id: number) {
+  public SeleccionarArbitro(arbitro_id: number) {
     this.store.dispatch(ArbitrosActions.accionSeleccionarArbitro({ arbitro_id }));
   }
 
-  public accionEliminarArbitro(arbitro_id: number) {
+  public EliminarArbitro(arbitro_id: number) {
     this.store.dispatch(ArbitrosActions.accionEliminarArbitro({ arbitro_id }));
   }
 
-  public arbitroEliminado() {
-    this.store.dispatch(ArbitrosActions.accionArbitroEliminado());
+  public arbitroEliminado(arbitro_eliminado : IArbitro) {
+    this.store.dispatch(ArbitrosActions.accionArbitroEliminado({ arbitro_eliminado }));
   }
 
   // ****** Metodos Select *************

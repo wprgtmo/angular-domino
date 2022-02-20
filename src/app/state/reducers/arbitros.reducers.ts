@@ -1,3 +1,4 @@
+import { IArbitro } from 'src/app/common/models/interface/arbitro.interface';
 import { createReducer, on } from '@ngrx/store';
 import { ArbitrosState } from './../models/arbitros.state';
 import {
@@ -10,6 +11,7 @@ import {
   accionNuevoArbitroCreado,
   accionCrearNuevoArbitro,
   accionErrorArbitros,
+  accionArbitroEliminado,
 } from './../actions/arbitros.actions';
 
 export const estadoInicial: ArbitrosState = {
@@ -50,8 +52,13 @@ export const arbitrosReducers = createReducer(
     return { ...oldState, id_arbitro_seleccionado: arbitro_id };
   }),
 
-  on(accionEliminarArbitro, (oldState) => {
-    return { ...oldState };
+  on(accionEliminarArbitro, (oldState, { arbitro_id }) => {
+    return { ...oldState, id_arbitro_seleccionado: arbitro_id};
+  }),
+
+  on(accionArbitroEliminado, (oldState, { arbitro_eliminado }) => {
+    const arbitrosQuedan= oldState.arbitros.filter((arbitro: IArbitro)=> arbitro.id !== arbitro_eliminado.id)
+    return { ...oldState, arbitros: arbitrosQuedan };
   }),
 
   on(accionErrorArbitros, (oldState, { error }) => {

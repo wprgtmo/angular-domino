@@ -1,34 +1,17 @@
 <mat-toolbar class="toolbar">
-  <ng-template *ngIf="(arbitro$ | async) as arbitroSeleccionado">
-  
-  <span class="toolbarText">Arbitro: {{arbitroSeleccionado?.nombre}} ({{arbitroSeleccionado?.alias}})</span>
-  <span class="spacer"></span>
-    <button  mat-icon-button class="mat-icons-outlined" matTooltip="Eliminar jugador" aria-label="Eliminar jugador" (click)="eliminarJugador()">
+  <ng-container *ngIf="(arbitro$ | async) as arbitroSeleccionado">
+  <span class="toolbarText">Arbitro: {{arbitroSeleccionado.nombre}} ({{arbitroSeleccionado.alias}})</span>
+    <span class="spacer"></span>
+    <button mat-icon-button class="mat-icons-outlined" matTooltip="Eliminar jugador" aria-label="Eliminar jugador"
+      (click)="eliminarArbitro(arbitroSeleccionado.id)">
       <mat-icon>event</mat-icon>
     </button>
-
-  <span>|</span>
-    <button mat-icon-button class="mat-icons-outlined" matTooltip="Parejas" aria-label="Parejas" (click)="parejas()">
-      <mat-icon>people_outline_white</mat-icon>
-    </button>
-    <button mat-icon-button class="mat-icons-outlined" matTooltip="Mesas" aria-label="Mesas" (click)="mesas()">
-      <mat-icon>table_restaurant</mat-icon>
-    </button>
-    <button mat-icon-button class="mat-icons-outlined" matTooltip="Rondas" aria-label="Rondas" (click)="rondas()">
-      <mat-icon>timer</mat-icon>
-    </button>
-
+  </ng-container>
     <span>|</span>
-
-
-    <button mat-icon-button class="mat-icons-outlined" matTooltip="Estadísticas"
-      aria-label="Estadísticas">
+    <button mat-icon-button class="mat-icons-outlined" matTooltip="Estadísticas" aria-label="Estadísticas">
       <mat-icon>equalizer_white</mat-icon>
     </button>
     <button mat-icon-button class="mat-icons-outlined" matTooltip="Premiados" aria-label="Premiados">
-      <mat-icon>emoji_events</mat-icon>  
-
+      <mat-icon>emoji_events</mat-icon>
     </button>
-  </ng-template>
-</mat-toolbar>
-
+  </mat-toolbar>

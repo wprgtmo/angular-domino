@@ -1,9 +1,8 @@
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { IArbitro } from 'src/app/common/models/interface/arbitro.interface';
-import { DominoApiService } from 'src/app/common/services/domino-api.service';
-import { SeleccionService } from 'src/app/common/services/seleccion.service';
+import { ArbitrosService } from './../../../../../state/facade/arbitros.service';
 
 @Component({
   selector: 'app-arbitro-toolbar-details',
@@ -12,33 +11,17 @@ import { SeleccionService } from 'src/app/common/services/seleccion.service';
 })
 export class ArbitroToolbarDetailsComponent implements OnInit {
 
-  arbitro$:Observable<IArbitro>= new Observable();
+  arbitro$:Observable<IArbitro|undefined>= new Observable();
 
-  constructor(private ruta: Router, private seleccionService: SeleccionService, private dominoApiService: DominoApiService) { }
+  constructor(private arbitrosService: ArbitrosService, private ruta: Router ) { }
 
   ngOnInit(): void {
-    // this.arbitro$= this.seleccionService.channelJugador();
+    this.arbitro$= this.arbitrosService.getArbitroSeleccionado$();
  }
 
- ngOnDestroy(): void{
- }
-
-
-  rondas() {
-    this.ruta.navigateByUrl('rondas');
-  }
-
-  mesas() {
-    this.ruta.navigateByUrl('mesas');
-  }
-
-  parejas() {
-    this.ruta.navigateByUrl('parejas');
-  }
-
-  eliminarJugador(){
-    // this.dominoApiService.delJugador(this.arbitro!.id.toString()).subscribe((datos)=>{
-    //   this.ruta.navigateByUrl('arbitroCard');
-    // })
+  eliminarArbitro(arbitro_id: number){
+    console.log(arbitro_id);
+    this.arbitrosService.EliminarArbitro(arbitro_id);
+    this.ruta.navigateByUrl('arbitrosCard');
   }
 }

@@ -23,10 +23,10 @@ export class ArbitroToolbarComponent implements OnInit {
 
   verComoTarjeta(): void {
     this.arbitrosService.mostrarArbitrosComoTarjetas();
-    this.ruta.navigateByUrl('rbitrosCard');
+    this.ruta.navigateByUrl('arbitrosCard');
   }
 
-  
+
   verComoLista(): void {
     this.arbitrosService.mostrarArbitrosComoLista();
     this.ruta.navigateByUrl('arbitrosList');
