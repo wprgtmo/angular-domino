@@ -19,6 +19,7 @@
           "options": {
             "outputPath": "dist/domino",
             "index": "src/index.html",
+            "baseHref": "./",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
@@ -37,8 +38,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2500kb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",

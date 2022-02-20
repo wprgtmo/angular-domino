@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  API_URL: "http://localhost/domino_api/api/"
+  API_URL: ""
 };
 
+  // API_URL: "http://localhost/domino_api/api/"
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
