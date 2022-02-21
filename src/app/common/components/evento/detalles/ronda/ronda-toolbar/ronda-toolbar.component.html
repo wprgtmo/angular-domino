@@ -6,8 +6,8 @@
   </mat-select>
   <span class="spacer"></span>
   <ng-container *ngIf="(rondaActiva$ | async) as rondaActiva">
-    <div class="titulo">
-      Duración: {{ duracionRonda(rondaActiva.duracion) }}  <span class="spacer"></span>
+    <div class="titulo">   
+      Duración: {{ duracion$ | async }}
     </div>
    <span class="spacer"></span>
    <div class="titulo">

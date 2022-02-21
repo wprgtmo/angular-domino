@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IJugador } from 'src/app/common/models/interface/jugador.interface';
 import { IPareja } from 'src/app/common/models/interface/pareja.interface';
+import { PathRest } from 'src/app/common/static/path-rest';
 
 @Component({
   selector: 'app-pareja',
@@ -18,8 +19,8 @@ export class ParejaComponent implements OnInit {
   ngOnInit(): void {
     this.jugador1= this.pareja?.jugador1;
     this.jugador2= this.pareja?.jugador2;
-    this.fotoJugador1= 'http://localhost/domino_api/' + this.jugador1?.foto;
-    this.fotoJugador2= 'http://localhost/domino_api/' + this.jugador2?.foto;
+    this.fotoJugador1= PathRest.URL_BASE + this.jugador1?.foto;
+    this.fotoJugador2= PathRest.URL_BASE +  this.jugador2?.foto;
   }
 
 }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_URL: ""
+  API_URL: "",  
+  URL_BASE: "http://localhost/domino_api/"
 };
 
   // API_URL: "http://localhost/domino_api/api/"

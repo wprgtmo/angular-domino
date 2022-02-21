@@ -1,6 +1,6 @@
 import { environment } from './../../../environments/environment';
 export class PathRest{
-  static readonly URL_BASE              = 'http://localhost/domino_api/';
+  static readonly URL_BASE              = environment.URL_BASE;
   
   static readonly URL_BASE_API          = environment.API_URL;
   

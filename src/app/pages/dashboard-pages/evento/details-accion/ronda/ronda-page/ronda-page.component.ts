@@ -26,8 +26,9 @@ export class RondaPageComponent implements OnInit {
       mergeMap(() => this.eventosService.getBoletas$())
       );
 
-    this.subs= combineLatest([interval(3000),this.eventosService.getIdRondaSeleccionada$()]).pipe(
-      tap(([temp, ronda_id]) => this.eventosService.cargarBoletas(ronda_id))
+    this.subs= combineLatest([interval(3000),this.eventosService.getRondaSeleccionada$()]).pipe(
+      filter(([temp, ronda]) => (ronda?.estado==="I")),
+      tap(([temp, ronda]) => {if (ronda) {this.eventosService.cargarBoletas(ronda.id)}})
     ).subscribe();
 
   }
