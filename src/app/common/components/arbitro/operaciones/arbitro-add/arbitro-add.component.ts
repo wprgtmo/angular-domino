@@ -1,6 +1,6 @@
 import { IJugador } from 'src/app/common/models/interface/jugador.interface';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { DominoApiService } from 'src/app/common/services/domino-api.service';
@@ -20,7 +20,7 @@ export class ArbitroAddComponent  {
   public loading= false;
 
 
-  public jugadorAddFrm: FormGroup | undefined;
+  public jugadorAddFrm: UntypedFormGroup | undefined;
 
   public jugador: IJugador[] | undefined;
 
@@ -32,19 +32,19 @@ export class ArbitroAddComponent  {
   }
 
   loadBuilder(): void {
-    this.jugadorAddFrm = new FormGroup({
-      nombre: new FormControl(''),
-      alias: new FormControl(''),
-      telefono: new FormControl(''),
-      sexo: new FormControl(''),
-      correo: new FormControl(''),
-      nro_identidad: new FormControl(''),
-      comentario: new FormControl(''),
-      ocupacion: new FormControl(''),
-      tipo: new FormControl(''),
-      foto: new FormControl(''),
-      fecha_nacimiento: new FormControl(moment(new Date())),
-      ciudad_id: new FormControl('')
+    this.jugadorAddFrm = new UntypedFormGroup({
+      nombre: new UntypedFormControl(''),
+      alias: new UntypedFormControl(''),
+      telefono: new UntypedFormControl(''),
+      sexo: new UntypedFormControl(''),
+      correo: new UntypedFormControl(''),
+      nro_identidad: new UntypedFormControl(''),
+      comentario: new UntypedFormControl(''),
+      ocupacion: new UntypedFormControl(''),
+      tipo: new UntypedFormControl(''),
+      foto: new UntypedFormControl(''),
+      fecha_nacimiento: new UntypedFormControl(moment(new Date())),
+      ciudad_id: new UntypedFormControl('')
     });
   }
 

@@ -1,6 +1,6 @@
 import { Moment } from 'moment/moment';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { IEvento } from 'src/app/common/models/interface/evento.interface';
@@ -37,7 +37,7 @@ export class EventoAddComponent {
   public loading= false;
 
 
-  public eventoAddFrm?: FormGroup;
+  public eventoAddFrm?: UntypedFormGroup;
 
   public evento?: IEvento[];
 
@@ -49,12 +49,12 @@ export class EventoAddComponent {
   }
 
   loadBuilder(): void {
-    this.eventoAddFrm = new FormGroup({
-      nombre: new FormControl(''),
-      comentario: new FormControl(''),
-      imagen: new FormControl(''),
-      fecha_inicio: new FormControl(moment(new Date())),
-      fecha_cierre: new FormControl(moment(new Date())),
+    this.eventoAddFrm = new UntypedFormGroup({
+      nombre: new UntypedFormControl(''),
+      comentario: new UntypedFormControl(''),
+      imagen: new UntypedFormControl(''),
+      fecha_inicio: new UntypedFormControl(moment(new Date())),
+      fecha_cierre: new UntypedFormControl(moment(new Date())),
     });
   }
 

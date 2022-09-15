@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "domino"
+  "cli": {
+    "analytics": false
+  }
 }

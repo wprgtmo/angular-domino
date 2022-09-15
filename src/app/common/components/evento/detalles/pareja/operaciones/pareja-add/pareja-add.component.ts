@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { MatSelectChange } from '@angular/material/select';
 import { Router } from '@angular/router';
@@ -20,7 +20,7 @@ export class ParejaAddComponent implements OnInit, OnDestroy {
   public loading= false;
   private subscribeSelectionService?: Subscription;
   private eventoSeleccionado?: IEvento ;
-  public parejaAddFrm?: FormGroup;
+  public parejaAddFrm?: UntypedFormGroup;
   private nombrePareja1 ="";
   private nombrePareja2 ="";
 
@@ -35,10 +35,10 @@ export class ParejaAddComponent implements OnInit, OnDestroy {
   }
 
   loadBuilder(): void {
-    this.parejaAddFrm = new FormGroup({
-      nombre: new FormControl('qqq'),
-      jugador1: new FormControl(''),
-      jugador2: new FormControl(''),
+    this.parejaAddFrm = new UntypedFormGroup({
+      nombre: new UntypedFormControl('qqq'),
+      jugador1: new UntypedFormControl(''),
+      jugador2: new UntypedFormControl(''),
     });
   }
 
