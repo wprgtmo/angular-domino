@@ -18,8 +18,8 @@ export class ArbitroComponent implements OnInit {
   constructor(private ruta: Router, private arbitrosService: ArbitrosService) { }
 
   ngOnInit(){
-    this.fotoArbitro= PathRest.URL_BASE + this.arbitro?.foto;
-  }
+    this.fotoArbitro= PathRest.URL_IMG_ARBITROS + this.arbitro?.foto;
+  
 
   seleccionarArbitro(){
     if (this.arbitro!==undefined){

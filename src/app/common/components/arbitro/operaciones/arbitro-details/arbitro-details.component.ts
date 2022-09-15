@@ -21,7 +21,7 @@ export class ArbitroDetailsComponent implements OnInit {
   }
 
   getFoto(foto: string): string{
-    return PathRest.URL_BASE + foto;
+    return PathRest.URL_IMG_ARBITROS + foto;
   }
 
 

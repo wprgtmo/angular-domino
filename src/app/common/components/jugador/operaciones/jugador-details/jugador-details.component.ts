@@ -17,7 +17,7 @@ export class JugadorDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(){
-    this.fotoJugador= PathRest.URL_BASE + this.jugador?.foto;
+    this.fotoJugador= PathRest.URL_IMG_JUGADORES + this.jugador?.foto;
   }
 
 }

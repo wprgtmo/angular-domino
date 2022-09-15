@@ -18,7 +18,7 @@ export class JugadorComponent implements OnInit {
   constructor(private ruta: Router, private seleccionService: SeleccionService) { }
 
   ngOnInit(){
-    this.fotoJugador= PathRest.URL_BASE + this.jugador?.foto;
+    this.fotoJugador= PathRest.URL_IMG_JUGADORES + this.jugador?.foto;
   }
   seleccionarJugador(){
     if (this.jugador!==undefined)

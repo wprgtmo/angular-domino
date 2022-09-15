@@ -22,7 +22,7 @@ export class EventoDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(){
     this.subs=this.store.select(eventoSeleccionado).subscribe(({...evento}) => {
       this.evento= evento;
-      this.fotoEvento= PathRest.URL_BASE + this.evento?.imagen;
+      this.fotoEvento= PathRest.URL_IMG_EVENTOS +  this.evento?.imagen;
     })
   }
 

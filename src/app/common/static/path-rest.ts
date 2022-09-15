@@ -3,6 +3,12 @@ export class PathRest{
   static readonly URL_BASE              = environment.URL_BASE;
   
   static readonly URL_BASE_API          = environment.API_URL;
+
+  static readonly URL_IMG_EVENTOS       = PathRest.URL_BASE +  environment.URL_PUBLIC + 'eventos/';
+  static readonly URL_IMG_JUGADORES     = PathRest.URL_BASE +  environment.URL_PUBLIC + 'jugadores/';
+  static readonly URL_IMG_ARBITROS      = PathRest.URL_BASE +  environment.URL_PUBLIC + 'arbitros/';
+  static readonly URL_IMG_MESAS         = PathRest.URL_BASE +  environment.URL_PUBLIC + 'mesas/';
+  static readonly URL_IMG_PUBLICIDAD    = PathRest.URL_BASE +  environment.URL_PUBLIC + 'publicidad/';
   
   static readonly GET_EVENTOS           = PathRest.URL_BASE_API + '/api/eventos';
   static readonly NEW_EVENTO            = PathRest.URL_BASE_API + '/api/eventos/crear';

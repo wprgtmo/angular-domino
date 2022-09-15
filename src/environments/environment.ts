@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   API_URL: "",  
-  URL_BASE: "http://localhost/domino_api/"
+  URL_BASE: "http://localhost/domino_api/",
+  URL_PUBLIC: "public/assets/img/"
+
 };
 
   // API_URL: "http://localhost/domino_api/api/"
