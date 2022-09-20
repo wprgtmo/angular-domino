@@ -19,7 +19,7 @@ export class ArbitroComponent implements OnInit {
 
   ngOnInit(){
     this.fotoArbitro= PathRest.URL_IMG_ARBITROS + this.arbitro?.foto;
-  
+  }
 
   seleccionarArbitro(){
     if (this.arbitro!==undefined){
