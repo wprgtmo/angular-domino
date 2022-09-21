@@ -19,8 +19,8 @@ export class ParejaComponent implements OnInit {
   ngOnInit(): void {
     this.jugador1= this.pareja?.jugador1;
     this.jugador2= this.pareja?.jugador2;
-    this.fotoJugador1= PathRest.URL_BASE + this.jugador1?.foto;
-    this.fotoJugador2= PathRest.URL_BASE +  this.jugador2?.foto;
+    this.fotoJugador1= PathRest.URL_IMG_JUGADORES + this.jugador1?.foto;
+    this.fotoJugador2= PathRest.URL_IMG_JUGADORES +  this.jugador2?.foto;
   }
 
 }

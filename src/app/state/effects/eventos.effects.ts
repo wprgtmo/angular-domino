@@ -1,4 +1,4 @@
-import { estadisticaRonda } from './../selectors/eventos.selectors';
+import { estadisticaRonda, parejas } from './../selectors/eventos.selectors';
 import { DominoApiService } from '../../common/services/domino-api.service';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -54,7 +54,7 @@ export class EventosEffects {
     mergeMap((action: any) => {
       return this.dominoApiService.getParejas(action.evento_id)
       .pipe(
-          map((parejas) => ({ type: EVENT_ACTIONS_NAMES.PAREJAS_LOADS, parejas: parejas })),
+          map((parejas) => ({ type: EVENT_ACTIONS_NAMES.PAREJAS_LOADS, parejas: parejas.parejas })),
           catchError((error) => of({ type: EVENT_ACTIONS_NAMES.EVENTS_ERRORS, error }))
           )
         })

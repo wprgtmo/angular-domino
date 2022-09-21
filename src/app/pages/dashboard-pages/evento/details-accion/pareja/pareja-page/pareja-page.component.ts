@@ -9,8 +9,6 @@ import { map, switchMap, tap } from 'rxjs/operators';
   styleUrls: ['./pareja-page.component.css']
 })
 export class ParejaPageComponent implements OnInit {
-
-  listaParejas?: IPareja[];
   id$: Observable<number>= new Observable();
   parejas$: Observable<IPareja[]>= new Observable();
   subs?: Subscription;

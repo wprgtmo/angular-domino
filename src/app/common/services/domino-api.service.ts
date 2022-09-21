@@ -1,3 +1,4 @@
+import { IParejasRespuesta } from './../models/respuestas/parejas-respuesta.interface';
 import { IJugadorRespuesta } from '../models/respuestas/jugador-respuesta.interface';
 import { PathRest } from './../static/path-rest';
 import { Observable } from 'rxjs';
@@ -92,8 +93,8 @@ export class DominoApiService {
     return this.http_API.post<IMesasRespuesta>(PathRest.GET_MESAS, {"evento_id": evento_id});
   }
 
-  getParejas(evento_id: number): Observable<IPareja[]>{
-    return this.http_API.post<IPareja[]>(PathRest.GET_PAREJAS, {"evento_id": evento_id});
+  getParejas(evento_id: number): Observable<IParejasRespuesta>{
+    return this.http_API.post<IParejasRespuesta>(PathRest.GET_PAREJAS, {"evento_id": evento_id});
   }
 
   newPareja(datosPareja: FormData):Observable<IPareja>{

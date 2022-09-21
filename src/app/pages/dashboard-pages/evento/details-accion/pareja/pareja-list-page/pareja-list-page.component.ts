@@ -26,7 +26,7 @@ export class ParejaListPageComponent implements OnInit, OnDestroy {
 
     this.subs = this.id$
       .pipe(switchMap((id) => this.dominoApiService.getParejas(id)))
-      .subscribe((parejas) => (this.dataSource.data = parejas));
+      .subscribe((parejas) => (this.dataSource.data = parejas.parejas));
   }
 
   ngOnDestroy(): void {
