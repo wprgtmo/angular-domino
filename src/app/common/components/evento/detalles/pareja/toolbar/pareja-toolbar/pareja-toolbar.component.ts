@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { IEvento } from 'src/app/common/models/interface/evento.interface';
-import { Subscription } from 'rxjs';
-import { SeleccionService } from 'src/app/common/services/seleccion.service';
+import { Observable, Subscription } from 'rxjs';
+import { EventosService } from 'src/app/state/facade/eventos.service';
 
 @Component({
   selector: 'app-pareja-toolbar',
@@ -10,8 +10,10 @@ import { SeleccionService } from 'src/app/common/services/seleccion.service';
   styleUrls: ['./pareja-toolbar.component.css'],
 })
 export class ParejaToolbarComponent implements OnInit, OnDestroy {
-  private subscribeSelectionService: Subscription | undefined;
   private eventoSeleccionado: IEvento | undefined;
+  
+  evento$: Observable<IEvento>= new Observable();
+  subs?: Subscription;
 
   @Input() isLista?: number;
 
@@ -29,14 +31,11 @@ export class ParejaToolbarComponent implements OnInit, OnDestroy {
   ];
   constructor(
     private ruta: Router,
-    private seleccionService: SeleccionService
+    private eventosService: EventosService
   ) {}
 
   ngOnInit(): void {
-    this.subscribeSelectionService =
-      this.seleccionService.channelEvent.subscribe((evento) => {
-        this.eventoSeleccionado = evento;
-      });
+      this.subs= this.eventosService.getEventoSeleccionado$().subscribe((evento) => this.eventoSeleccionado= evento);
   }
 
   parejaAdd() {
@@ -56,6 +55,6 @@ export class ParejaToolbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscribeSelectionService?.unsubscribe();
+    this.subs?.unsubscribe();
   }
 }

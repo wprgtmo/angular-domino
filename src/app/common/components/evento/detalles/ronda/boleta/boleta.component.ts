@@ -79,6 +79,6 @@ export class BoletaComponent implements OnInit {
   }
 
   foto(fotoJugador?: string): string {
-    return fotoJugador ? PathRest.URL_BASE + fotoJugador : '';
+    return fotoJugador ? PathRest.URL_IMG_JUGADORES + fotoJugador : '';
   }
 }
